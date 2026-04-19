@@ -1,4 +1,4 @@
-# 🧠 NexusAI
+# 🧠 AutoResearch
 
 Unified multi-agent research & coding framework.
 
