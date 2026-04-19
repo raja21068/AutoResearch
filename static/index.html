@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NexusAI</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'SF Mono','Consolas',monospace;background:#0d1117;color:#c9d1d9;min-height:100vh;display:flex;flex-direction:column}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#0d1117}::-webkit-scrollbar-thumb{background:#30363d;border-radius:3px}
+.hdr{background:#161b22;border-bottom:1px solid #30363d;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo h1{font-size:1.2rem;background:linear-gradient(135deg,#58a6ff,#a371f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tag{font-size:9px;color:#484f58;border:1px solid #30363d;padding:1px 4px;border-radius:3px}
+.st{display:flex;align-items:center;gap:6px;font-size:11px;color:#8b949e}
+.dot{width:7px;height:7px;border-radius:50%;background:#3fb950}.dot.busy{background:#d29922;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.main{display:flex;flex:1;overflow:hidden}
+/* Sidebar */
+.sb{width:230px;background:#161b22;border-right:1px solid #30363d;padding:12px;overflow-y:auto;flex-shrink:0}
+.sbt{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#484f58;margin-bottom:8px}
+.sbs{margin-bottom:14px}
+.mb{display:block;width:100%;padding:6px 8px;margin-bottom:2px;background:0;border:1px solid transparent;border-radius:5px;color:#8b949e;font-family:inherit;font-size:11px;text-align:left;cursor:pointer}
+.mb:hover{background:#1c2128;color:#c9d1d9}.mb.a{background:rgba(56,139,253,.1);border-color:#388bfd;color:#58a6ff}
+.ai{display:flex;align-items:center;gap:5px;padding:3px 5px;font-size:10px;color:#484f58;border-radius:3px}
+.ai .d{width:4px;height:4px;border-radius:50%;background:#30363d;flex-shrink:0}
+.ai.run{color:#d29922}.ai.run .d{background:#d29922;animation:pulse 1s infinite}
+.ai.ok{color:#3fb950}.ai.ok .d{background:#3fb950}
+/* Content */
+.ct{flex:1;display:flex;flex-direction:column;overflow:hidden}
+/* Input area */
+.ib{padding:12px 16px;background:#161b22;border-bottom:1px solid #30363d;overflow-y:auto;max-height:50vh}
+.sec{margin-bottom:10px;padding:10px 12px;background:#0d1117;border:1px solid #21262d;border-radius:6px}
+.sec-hdr{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:11px;font-weight:700;color:#8b949e}
+.sec-hdr .icon{font-size:14px}
+.sec-tag{font-size:9px;color:#484f58;font-weight:400;margin-left:auto}
+textarea,input[type=text]{width:100%;padding:6px 8px;background:#161b22;border:1px solid #30363d;border-radius:4px;color:#c9d1d9;font-family:inherit;font-size:11px;resize:vertical}
+textarea:focus,input:focus{outline:0;border-color:#58a6ff}
+textarea{min-height:36px}
+.drop{border:1px dashed #30363d;border-radius:4px;padding:8px;text-align:center;font-size:10px;color:#484f58;cursor:pointer;transition:all .15s;margin-top:4px}
+.drop:hover,.drop.drag{border-color:#58a6ff;color:#58a6ff;background:rgba(56,139,253,.03)}
+.drop input{display:none}
+.flist{font-size:9px;color:#3fb950;margin-top:3px}
+.btn-row{display:flex;gap:8px;margin-top:8px}
+.rb{padding:8px 20px;border:0;border-radius:6px;background:linear-gradient(135deg,#238636,#2ea043);color:#fff;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;flex:1}
+.rb:hover{filter:brightness(1.1)}.rb:disabled{opacity:.5}.rb.stop{background:linear-gradient(135deg,#da3633,#f85149)}
+.rb2{padding:8px 12px;border:1px solid #30363d;border-radius:6px;background:0;color:#8b949e;font-family:inherit;font-size:11px;cursor:pointer}
+.rb2:hover{border-color:#58a6ff;color:#58a6ff}
+/* Output */
+.out{flex:1;overflow-y:auto;padding:12px 16px}
+.empty{text-align:center;padding-top:50px}
+.empty h2{color:#8b949e;font-size:15px;margin-bottom:4px}
+.empty p{color:#484f58;font-size:10px;line-height:1.5;margin-bottom:14px}
+.ex{display:block;width:100%;max-width:440px;margin:0 auto 4px;padding:6px 8px;background:#161b22;border:1px solid #30363d;border-radius:4px;color:#8b949e;font-family:inherit;font-size:10px;cursor:pointer;text-align:left}
+.ex:hover{border-color:#58a6ff;color:#c9d1d9}
+.ev{padding:7px 9px;margin-bottom:5px;background:#161b22;border:1px solid #30363d;border-radius:5px;font-size:11px;animation:fi .2s ease;border-left:3px solid #30363d}
+@keyframes fi{from{opacity:0;transform:translateY(3px)}}
+.ev.status{border-left-color:#58a6ff}.ev.plan{border-left-color:#a371f7}.ev.agent{border-left-color:#39d353}
+.ev.test{border-left-color:#d29922}.ev.review{border-left-color:#f778ba}.ev.error{border-left-color:#f85149}
+.ev.output{border-left-color:#3fb950}
+.ev .b{display:inline-block;font-size:8px;font-weight:700;text-transform:uppercase;padding:1px 4px;border-radius:2px;margin-right:4px}
+.ev .t{font-size:8px;color:#484f58}
+.ev pre{background:#0d1117;border:1px solid #21262d;border-radius:4px;padding:5px 7px;margin-top:3px;overflow-x:auto;white-space:pre-wrap;max-height:200px;overflow-y:auto;font-size:10px;color:#8b949e}
+.str{padding:7px 9px;background:#161b22;border:1px solid #30363d;border-left:3px solid #3fb950;border-radius:5px;font-size:10px;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow-y:auto;color:#8b949e;line-height:1.5}
+.blink{display:inline-block;width:6px;height:11px;background:#58a6ff;animation:bk 1s step-end infinite;vertical-align:text-bottom}
+@keyframes bk{50%{opacity:0}}
+.dc{padding:10px 12px;border-radius:5px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.dc.pass{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.3)}
+.dc.fail{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.3)}
+@media(max-width:768px){.sb{display:none}}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="logo"><span style="font-size:16px">🧠</span><h1>NexusAI</h1><span class="tag">v1.0</span></div><div class="st"><div class="dot" id="dot"></div><span id="stx">Ready</span></div></div>
+<div class="main">
+<div class="sb">
+<div class="sbs"><div class="sbt">Mode</div>
+<button class="mb a" onclick="sm('auto',this)">⚡ Auto</button>
+<button class="mb" onclick="sm('coding',this)">💻 Coding</button>
+<button class="mb" onclick="sm('research',this)">📄 Research</button>
+<button class="mb" onclick="sm('hybrid',this)">🔬 Hybrid</button></div>
+<div class="sbs"><div class="sbt">Agent Pipeline</div><div id="al">
+<div class="ai" data-a="planner"><div class="d"></div>📋 Planner</div>
+<div class="ai" data-a="coder"><div class="d"></div>💻 Coder</div>
+<div class="ai" data-a="tester"><div class="d"></div>🧪 Tester</div>
+<div class="ai" data-a="debugger"><div class="d"></div>🔧 Debugger</div>
+<div class="ai" data-a="critic"><div class="d"></div>🔍 Critic</div>
+<div class="ai" data-a="researcher"><div class="d"></div>🌐 Researcher</div>
+<div class="ai" data-a="experiment"><div class="d"></div>⚗️ Experiment</div>
+<div class="ai" data-a="paper_writer"><div class="d"></div>📄 Paper Writer</div>
+</div></div>
+<div class="sbs"><div class="sbt">Output</div>
+<button class="rb2" onclick="viewOutputs()" style="width:100%;margin-bottom:4px">📂 Browse Outputs</button>
+<div style="font-size:9px;color:#484f58;line-height:1.4">Code + Experiments + Paper + Knowledge saved to ./output/</div>
+</div>
+</div>
+
+<div class="ct">
+<!-- INPUT SECTIONS -->
+<div class="ib" id="inputArea">
+
+  <!-- A. Research Papers -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="icon">📄</span>A. Research Papers<span class="sec-tag">optional</span></div>
+    <div class="drop" id="paperDrop" onclick="document.getElementById('paperIn').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="event.preventDefault();this.classList.remove('drag');handleUpload(event.dataTransfer.files,'paper')">
+      📎 Upload research papers (PDF, DOCX) — drag & drop or click
+      <input type="file" id="paperIn" multiple accept=".pdf,.docx,.doc" onchange="handleUpload(this.files,'paper')">
+    </div>
+    <div class="flist" id="paperList"></div>
+  </div>
+
+  <!-- B. GitHub Repository -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="icon">🔗</span>B. GitHub Repository<span class="sec-tag">optional</span></div>
+    <input type="text" id="repoUrl" placeholder="https://github.com/user/repo">
+    <textarea id="repoChanges" placeholder="Description of required modifications: bug fixes, new features, optimizations..." rows="2" style="margin-top:4px"></textarea>
+  </div>
+
+  <!-- C. Dataset -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="icon">📊</span>C. Dataset<span class="sec-tag">optional</span></div>
+    <div class="drop" id="dataDrop" onclick="document.getElementById('dataIn').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="event.preventDefault();this.classList.remove('drag');handleUpload(event.dataTransfer.files,'data')">
+      📎 Upload training/evaluation data (CSV, JSON, YAML)
+      <input type="file" id="dataIn" multiple accept=".csv,.tsv,.json,.jsonl,.yaml,.yml" onchange="handleUpload(this.files,'data')">
+    </div>
+    <div class="flist" id="dataList"></div>
+  </div>
+
+  <!-- D. Instructions -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="icon">🎯</span>D. Instructions / Task Goal<span class="sec-tag">required</span></div>
+    <textarea id="taskInput" placeholder='Core instructions: "Improve accuracy", "Add feature X", "Optimize model performance"...' rows="3"></textarea>
+  </div>
+
+  <!-- Run buttons -->
+  <div class="btn-row">
+    <button class="rb" id="btn" onclick="run()">▶ Run Full Pipeline</button>
+    <button class="rb2" onclick="clearAll()">🗑 Clear</button>
+  </div>
+</div>
+
+<!-- OUTPUT AREA -->
+<div class="out" id="out">
+  <div class="empty" id="emptyState">
+    <div style="font-size:32px;margin-bottom:8px">🧠</div>
+    <h2>NexusAI — Autonomous Research & Coding</h2>
+    <p>Upload papers + repo + dataset + instructions → agents generate code, run experiments, write papers.<br>
+    Auto code→test→debug→fix loop. All outputs saved to disk.</p>
+    <button class="ex" onclick="ue('Build a Python REST API with JWT authentication and comprehensive tests')">💻 Build REST API with JWT + auto-test</button>
+    <button class="ex" onclick="ue('Research vision transformer advances, compare ViT vs DeiT, write a NeurIPS paper')">📄 Research ViTs + write paper</button>
+    <button class="ex" onclick="ue('Improve accuracy of the image classifier, optimize training pipeline, generate loss curves')">🧪 Improve model + run experiments</button>
+    <button class="ex" onclick="ue('Analyze the codebase, find and fix all bugs, add tests, document everything')">🔬 Full analysis: fix + test + document</button>
+  </div>
+</div>
+</div></div>
+
+<script>
+let mode='auto',running=false,strEl=null;
+let papersCtx='',dataCtx='';
+
+function sm(m,b){mode=m;document.querySelectorAll('.mb').forEach(x=>x.classList.remove('a'));b.classList.add('a')}
+function ue(t){document.getElementById('taskInput').value=t}
+function sa(n,s){document.querySelectorAll('.ai').forEach(e=>{if(e.dataset.a===n)e.className='ai '+s})}
+function ra(){document.querySelectorAll('.ai').forEach(e=>e.className='ai')}
+
+async function handleUpload(files, type) {
+    if (!files||!files.length) return;
+    const fd=new FormData();
+    for(const f of files)fd.append('files',f);
+    const listEl=document.getElementById(type==='paper'?'paperList':'dataList');
+    listEl.textContent='Uploading '+files.length+' file(s)...';
+    try{
+        const r=await fetch('/api/upload',{method:'POST',body:fd});
+        const d=await r.json();
+        listEl.textContent=Array.from(files).map(f=>'✅ '+f.name).join(', ');
+        if(type==='paper'){papersCtx=d.papers_context||d.combined_context||''}
+        else{dataCtx=d.dataset_context||d.combined_context||''}
+    }catch(e){listEl.textContent='❌ Upload failed: '+e.message}
+}
+
+function clearAll(){
+    document.getElementById('taskInput').value='';
+    document.getElementById('repoUrl').value='';
+    document.getElementById('repoChanges').value='';
+    document.getElementById('paperList').textContent='';
+    document.getElementById('dataList').textContent='';
+    papersCtx='';dataCtx='';
+}
+
+function ae(type,html){const o=document.getElementById('out'),d=document.createElement('div');d.className='ev '+type;
+const c={status:'#58a6ff',plan:'#a371f7',agent:'#39d353',test:'#d29922',review:'#f778ba',error:'#f85149',output:'#3fb950'}[type]||'#58a6ff';
+d.innerHTML=`<span class="b" style="background:${c}22;color:${c}">${type}</span><span class="t">${new Date().toLocaleTimeString()}</span><div style="margin-top:3px">${html}</div>`;
+o.appendChild(d);o.scrollTop=o.scrollHeight}
+
+function gs(){if(!strEl){strEl=document.createElement('div');strEl.className='str';strEl.innerHTML='<span class="blink"></span>';document.getElementById('out').appendChild(strEl)}return strEl}
+function at(t){const e=gs(),c=e.querySelector('.blink'),x=document.createTextNode(t);c?e.insertBefore(x,c):e.appendChild(x);document.getElementById('out').scrollTop=document.getElementById('out').scrollHeight}
+function es(){if(strEl){const c=strEl.querySelector('.blink');if(c)c.remove()}strEl=null}
+
+async function run(){
+    if(running)return;
+    const task=document.getElementById('taskInput').value.trim();
+    if(!task){alert('Please enter task instructions');return}
+    const repoUrl=document.getElementById('repoUrl').value.trim();
+    const repoChanges=document.getElementById('repoChanges').value.trim();
+
+    running=true;document.getElementById('out').innerHTML='';strEl=null;ra();
+    document.getElementById('dot').className='dot busy';document.getElementById('stx').textContent='Running...';
+    const b=document.getElementById('btn');b.textContent='⏳ Running...';b.disabled=true;
+
+    try{const r=await fetch('/api/agent/stream',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({task,mode,repo_url:repoUrl,repo_changes:repoChanges,papers_context:papersCtx,dataset_context:dataCtx,context_files:[]})
+    });
+    const rd=r.body.getReader(),dc=new TextDecoder();let buf='',et='status';
+    while(true){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value,{stream:true});const ls=buf.split('\n');buf=ls.pop();
+    for(const l of ls){if(l.startsWith('event:'))et=l.slice(6).trim();else if(l.startsWith('data:'))he(et,l.slice(5).trim())}}}
+    catch(e){ae('error','Connection failed: '+esc(e.message))}
+    fin()}
+
+function he(type,data){
+    if(type==='token'){at(data.replace(/↵/g,'\n'));return}es();
+    if(type==='agent'){try{const d=JSON.parse(data);sa(d.agent,d.status==='done'?'ok':'run');if(d.status==='running')ae('agent',`<b>${esc(d.agent)}</b>: ${esc(d.step||'')}`)}catch{ae('agent',esc(data))}}
+    else if(type==='plan'){try{const p=JSON.parse(data);let h=`<b>${esc(p.explanation||'')}</b><div style="font-size:9px;color:#484f58;margin:2px 0">Mode: ${p.mode}</div>`;if(p.steps)p.steps.forEach((s,i)=>{h+=`<div style="display:flex;gap:5px;padding:2px 0;font-size:10px"><span style="color:#484f58">${i+1}.</span><span style="color:#39d353;min-width:65px">${s.agent}</span><span>${esc(s.description||'')}</span></div>`});ae('plan',h)}catch{ae('plan',esc(data))}}
+    else if(type==='test'){try{const t=JSON.parse(data);ae('test',`${t.passed?'✅':'❌'} ${t.passed?'Passed':'Failed'}<pre>${esc(t.output||'')}</pre>`)}catch{ae('test',esc(data))}}
+    else if(type==='review'){try{const r=JSON.parse(data);ae('review',`${r.passed?'✅':'❌'} <b>${r.passed?'PASS':'FAIL'}</b><pre>${esc(r.review||'')}</pre>`)}catch{ae('review',esc(data))}}
+    else if(type==='output'){try{const o=JSON.parse(data);ae('output',`📂 <b>Outputs saved</b> → ${esc(o.output_dir||'')}<br>Files: ${(o.files||[]).map(f=>'<code>'+esc(f)+'</code>').join(', ')}`)}catch{ae('output',esc(data))}}
+    else if(type==='complete'){try{const c=JSON.parse(data);const o=document.getElementById('out'),d=document.createElement('div');d.className=`dc ${c.passed?'pass':'fail'}`;d.innerHTML=`<span style="font-size:18px">${c.passed?'✅':'❌'}</span><div><b>${c.passed?'Pipeline Complete':'Pipeline Failed'}</b><div style="font-size:9px;color:#8b949e">${c.steps} steps · ${c.elapsed_sec}s · ${c.files_saved||0} files saved</div></div>`;o.appendChild(d)}catch{ae('status',esc(data))}fin()}
+    else if(type==='done'){fin()}
+    else{ae(type||'status',esc(data))}}
+
+function fin(){running=false;es();document.getElementById('dot').className='dot';document.getElementById('stx').textContent='Ready';
+const b=document.getElementById('btn');b.textContent='▶ Run Full Pipeline';b.disabled=false;b.classList.remove('stop')}
+
+async function viewOutputs(){
+    try{const r=await fetch('/api/outputs');const d=await r.json();
+    const o=document.getElementById('out');o.innerHTML='<h3 style="color:#8b949e;margin-bottom:8px">📂 Previous Runs</h3>';
+    if(!d.runs||!d.runs.length){o.innerHTML+='<p style="color:#484f58;font-size:11px">No outputs yet</p>';return}
+    d.runs.forEach(run=>{ae('output',`<b>${run.run_id||'?'}</b> — ${run.passed?'✅':'❌'} ${run.elapsed_sec||0}s — ${(run.files_saved||[]).length} files`)})
+    }catch(e){ae('error','Failed to load outputs: '+e.message)}
+}
+
+function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
+document.getElementById('taskInput').addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){e.preventDefault();run()}});
+</script>
+</body></html>
