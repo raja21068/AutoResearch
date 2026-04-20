@@ -1,0 +1,108 @@
+{
+  "run_id": "run_040",
+  "task_id": "HE_001_2",
+  "task": "Write a function to find two sum indices",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 117.75,
+  "events": [
+    {
+      "ts": 1713085426,
+      "event": "session_start",
+      "run_id": "run_040",
+      "task_id": "HE_001_2"
+    },
+    {
+      "ts": 1713085426.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Write a function to find two sum indices"
+    },
+    {
+      "ts": 1713085428.6207745,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713085428.8207746,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713085434.1310744,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 453
+    },
+    {
+      "ts": 1713085434.4310744,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713085437.228517,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713085437.428517,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713085441.1904287,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "logic"
+    },
+    {
+      "ts": 1713085441.4904287,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713085445.3846729,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713085445.8846729,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713085449.5765817,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.7
+    },
+    {
+      "ts": 1713085449.7765818,
+      "event": "session_end",
+      "run_id": "run_040",
+      "passed": true,
+      "elapsed_sec": 117.75,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

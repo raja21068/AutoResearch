@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-05",
+    "name": "Transformer from Scratch",
+    "domain": "nlp",
+    "requires": [
+      "code_gen",
+      "experiment",
+      "paper_section"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.4,
+        "research": null,
+        "paper": null,
+        "e2e_complete": true
+      },
+      "research_only": {
+        "code": null,
+        "research": 7.4,
+        "paper": 5.8,
+        "e2e_complete": false
+      },
+      "sequential": {
+        "code": 6.4,
+        "research": 7.0,
+        "paper": 5.9,
+        "e2e_complete": true
+      },
+      "proposed_cdcip": {
+        "code": 7.9,
+        "research": 8.0,
+        "paper": 7.1,
+        "e2e_complete": false
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.4,
+      "research": null,
+      "paper": null,
+      "e2e_complete": true
+    },
+    "research_only": {
+      "code": null,
+      "research": 7.4,
+      "paper": 5.8,
+      "e2e_complete": false
+    },
+    "sequential": {
+      "code": 6.4,
+      "research": 7.0,
+      "paper": 5.9,
+      "e2e_complete": true
+    },
+    "proposed_cdcip": {
+      "code": 7.9,
+      "research": 8.0,
+      "paper": 7.1,
+      "e2e_complete": false
+    }
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "E1",
+    "role": "CS PhD student (NLP)",
+    "years_exp": 4,
+    "publications": 6,
+    "blind": true
+  },
+  {
+    "id": "E2",
+    "role": "CS PhD student (ML Systems)",
+    "years_exp": 3,
+    "publications": 4,
+    "blind": true
+  },
+  {
+    "id": "E3",
+    "role": "CS PhD student (SE)",
+    "years_exp": 5,
+    "publications": 8,
+    "blind": true
+  }
+]

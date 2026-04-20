@@ -1,0 +1,25 @@
+{
+  "code_generation": {
+    "user_template": "Task: {task}\nContext files:\n{context}\nPrevious results:\n{previous}\nMemory:\n{memory}\nWrite the complete Python implementation.",
+    "variables": [
+      "task",
+      "context",
+      "previous",
+      "memory"
+    ]
+  },
+  "test_generation": {
+    "user_template": "Code to test:\n```python\n{code}\n```\nTask description: {task}\nWrite pytest test cases.",
+    "variables": [
+      "code",
+      "task"
+    ]
+  },
+  "debug": {
+    "user_template": "Code:\n```python\n{code}\n```\nError output:\n{error}\nFix ALL issues and return the complete corrected code.",
+    "variables": [
+      "code",
+      "error"
+    ]
+  }
+}

@@ -1,0 +1,3853 @@
+{
+  "benchmark": "MBPP",
+  "n_tasks": 427,
+  "pass_at_1": 318,
+  "pass_at_1_rate": 74.5,
+  "final_pass": 408,
+  "final_rate": 95.6,
+  "tasks": [
+    {
+      "task_id": "MBPP/1",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.57,
+      "tokens_generated": 126
+    },
+    {
+      "task_id": "MBPP/2",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.33,
+      "tokens_generated": 244
+    },
+    {
+      "task_id": "MBPP/3",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 39.31,
+      "tokens_generated": 248
+    },
+    {
+      "task_id": "MBPP/4",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.82,
+      "tokens_generated": 419
+    },
+    {
+      "task_id": "MBPP/5",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "runtime",
+      "elapsed_sec": 6.47,
+      "tokens_generated": 125
+    },
+    {
+      "task_id": "MBPP/6",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.93,
+      "tokens_generated": 475
+    },
+    {
+      "task_id": "MBPP/7",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.58,
+      "tokens_generated": 80
+    },
+    {
+      "task_id": "MBPP/8",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.7,
+      "tokens_generated": 291
+    },
+    {
+      "task_id": "MBPP/9",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.74,
+      "tokens_generated": 398
+    },
+    {
+      "task_id": "MBPP/10",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 35.4,
+      "tokens_generated": 184
+    },
+    {
+      "task_id": "MBPP/11",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.24,
+      "tokens_generated": 227
+    },
+    {
+      "task_id": "MBPP/12",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.93,
+      "tokens_generated": 142
+    },
+    {
+      "task_id": "MBPP/13",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.2,
+      "tokens_generated": 489
+    },
+    {
+      "task_id": "MBPP/14",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.34,
+      "tokens_generated": 362
+    },
+    {
+      "task_id": "MBPP/15",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.32,
+      "tokens_generated": 195
+    },
+    {
+      "task_id": "MBPP/16",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 42.88,
+      "tokens_generated": 411
+    },
+    {
+      "task_id": "MBPP/17",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.67,
+      "tokens_generated": 441
+    },
+    {
+      "task_id": "MBPP/18",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.39,
+      "tokens_generated": 321
+    },
+    {
+      "task_id": "MBPP/19",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.05,
+      "tokens_generated": 276
+    },
+    {
+      "task_id": "MBPP/20",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 28.98,
+      "tokens_generated": 462
+    },
+    {
+      "task_id": "MBPP/21",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "syntax",
+      "elapsed_sec": 16.05,
+      "tokens_generated": 484
+    },
+    {
+      "task_id": "MBPP/22",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 15.69,
+      "tokens_generated": 81
+    },
+    {
+      "task_id": "MBPP/23",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.94,
+      "tokens_generated": 380
+    },
+    {
+      "task_id": "MBPP/24",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.4,
+      "tokens_generated": 156
+    },
+    {
+      "task_id": "MBPP/25",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.37,
+      "tokens_generated": 250
+    },
+    {
+      "task_id": "MBPP/26",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.74,
+      "tokens_generated": 313
+    },
+    {
+      "task_id": "MBPP/27",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "type",
+      "elapsed_sec": 44.23,
+      "tokens_generated": 202
+    },
+    {
+      "task_id": "MBPP/28",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.34,
+      "tokens_generated": 477
+    },
+    {
+      "task_id": "MBPP/29",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.73,
+      "tokens_generated": 322
+    },
+    {
+      "task_id": "MBPP/30",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.46,
+      "tokens_generated": 277
+    },
+    {
+      "task_id": "MBPP/31",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "none",
+      "elapsed_sec": 44.23,
+      "tokens_generated": 333
+    },
+    {
+      "task_id": "MBPP/32",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 43.61,
+      "tokens_generated": 249
+    },
+    {
+      "task_id": "MBPP/33",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "assertion",
+      "elapsed_sec": 8.99,
+      "tokens_generated": 313
+    },
+    {
+      "task_id": "MBPP/34",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.77,
+      "tokens_generated": 415
+    },
+    {
+      "task_id": "MBPP/35",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 36.26,
+      "tokens_generated": 215
+    },
+    {
+      "task_id": "MBPP/36",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.71,
+      "tokens_generated": 412
+    },
+    {
+      "task_id": "MBPP/37",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 18.14,
+      "tokens_generated": 425
+    },
+    {
+      "task_id": "MBPP/38",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 30.07,
+      "tokens_generated": 468
+    },
+    {
+      "task_id": "MBPP/39",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.64,
+      "tokens_generated": 396
+    },
+    {
+      "task_id": "MBPP/40",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.25,
+      "tokens_generated": 227
+    },
+    {
+      "task_id": "MBPP/41",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 22.36,
+      "tokens_generated": 130
+    },
+    {
+      "task_id": "MBPP/42",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 22.75,
+      "tokens_generated": 435
+    },
+    {
+      "task_id": "MBPP/43",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.16,
+      "tokens_generated": 246
+    },
+    {
+      "task_id": "MBPP/44",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 19.99,
+      "tokens_generated": 154
+    },
+    {
+      "task_id": "MBPP/45",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.48,
+      "tokens_generated": 429
+    },
+    {
+      "task_id": "MBPP/46",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 8.16,
+      "tokens_generated": 275
+    },
+    {
+      "task_id": "MBPP/47",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.63,
+      "tokens_generated": 378
+    },
+    {
+      "task_id": "MBPP/48",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.45,
+      "tokens_generated": 210
+    },
+    {
+      "task_id": "MBPP/49",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.67,
+      "tokens_generated": 491
+    },
+    {
+      "task_id": "MBPP/50",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.51,
+      "tokens_generated": 359
+    },
+    {
+      "task_id": "MBPP/51",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.67,
+      "tokens_generated": 256
+    },
+    {
+      "task_id": "MBPP/52",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 43.48,
+      "tokens_generated": 433
+    },
+    {
+      "task_id": "MBPP/53",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.81,
+      "tokens_generated": 181
+    },
+    {
+      "task_id": "MBPP/54",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "assertion",
+      "elapsed_sec": 9.27,
+      "tokens_generated": 275
+    },
+    {
+      "task_id": "MBPP/55",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.99,
+      "tokens_generated": 438
+    },
+    {
+      "task_id": "MBPP/56",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.12,
+      "tokens_generated": 417
+    },
+    {
+      "task_id": "MBPP/57",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 5.32,
+      "tokens_generated": 431
+    },
+    {
+      "task_id": "MBPP/58",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 34.81,
+      "tokens_generated": 226
+    },
+    {
+      "task_id": "MBPP/59",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 37.08,
+      "tokens_generated": 192
+    },
+    {
+      "task_id": "MBPP/60",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.84,
+      "tokens_generated": 427
+    },
+    {
+      "task_id": "MBPP/61",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "none",
+      "elapsed_sec": 32.23,
+      "tokens_generated": 150
+    },
+    {
+      "task_id": "MBPP/62",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.14,
+      "tokens_generated": 410
+    },
+    {
+      "task_id": "MBPP/63",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.54,
+      "tokens_generated": 97
+    },
+    {
+      "task_id": "MBPP/64",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.29,
+      "tokens_generated": 126
+    },
+    {
+      "task_id": "MBPP/65",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.62,
+      "tokens_generated": 182
+    },
+    {
+      "task_id": "MBPP/66",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.58,
+      "tokens_generated": 267
+    },
+    {
+      "task_id": "MBPP/67",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.54,
+      "tokens_generated": 164
+    },
+    {
+      "task_id": "MBPP/68",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.99,
+      "tokens_generated": 326
+    },
+    {
+      "task_id": "MBPP/69",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 39.82,
+      "tokens_generated": 491
+    },
+    {
+      "task_id": "MBPP/70",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 43.52,
+      "tokens_generated": 152
+    },
+    {
+      "task_id": "MBPP/71",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.97,
+      "tokens_generated": 283
+    },
+    {
+      "task_id": "MBPP/72",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "runtime",
+      "elapsed_sec": 19.63,
+      "tokens_generated": 484
+    },
+    {
+      "task_id": "MBPP/73",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 15.58,
+      "tokens_generated": 143
+    },
+    {
+      "task_id": "MBPP/74",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.91,
+      "tokens_generated": 424
+    },
+    {
+      "task_id": "MBPP/75",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.24,
+      "tokens_generated": 406
+    },
+    {
+      "task_id": "MBPP/76",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.35,
+      "tokens_generated": 92
+    },
+    {
+      "task_id": "MBPP/77",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.73,
+      "tokens_generated": 247
+    },
+    {
+      "task_id": "MBPP/78",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.53,
+      "tokens_generated": 317
+    },
+    {
+      "task_id": "MBPP/79",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.33,
+      "tokens_generated": 151
+    },
+    {
+      "task_id": "MBPP/80",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.49,
+      "tokens_generated": 332
+    },
+    {
+      "task_id": "MBPP/81",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.39,
+      "tokens_generated": 355
+    },
+    {
+      "task_id": "MBPP/82",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.15,
+      "tokens_generated": 423
+    },
+    {
+      "task_id": "MBPP/83",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 21.77,
+      "tokens_generated": 460
+    },
+    {
+      "task_id": "MBPP/84",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 8.96,
+      "tokens_generated": 330
+    },
+    {
+      "task_id": "MBPP/85",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.56,
+      "tokens_generated": 223
+    },
+    {
+      "task_id": "MBPP/86",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.82,
+      "tokens_generated": 307
+    },
+    {
+      "task_id": "MBPP/87",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.44,
+      "tokens_generated": 265
+    },
+    {
+      "task_id": "MBPP/88",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.43,
+      "tokens_generated": 358
+    },
+    {
+      "task_id": "MBPP/89",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 7.42,
+      "tokens_generated": 221
+    },
+    {
+      "task_id": "MBPP/90",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.89,
+      "tokens_generated": 312
+    },
+    {
+      "task_id": "MBPP/91",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.48,
+      "tokens_generated": 407
+    },
+    {
+      "task_id": "MBPP/92",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 5.85,
+      "tokens_generated": 482
+    },
+    {
+      "task_id": "MBPP/93",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.55,
+      "tokens_generated": 482
+    },
+    {
+      "task_id": "MBPP/94",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.74,
+      "tokens_generated": 471
+    },
+    {
+      "task_id": "MBPP/95",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 28.46,
+      "tokens_generated": 496
+    },
+    {
+      "task_id": "MBPP/96",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 36.55,
+      "tokens_generated": 385
+    },
+    {
+      "task_id": "MBPP/97",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 39.34,
+      "tokens_generated": 154
+    },
+    {
+      "task_id": "MBPP/98",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 36.94,
+      "tokens_generated": 136
+    },
+    {
+      "task_id": "MBPP/99",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.03,
+      "tokens_generated": 87
+    },
+    {
+      "task_id": "MBPP/100",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.54,
+      "tokens_generated": 381
+    },
+    {
+      "task_id": "MBPP/101",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.97,
+      "tokens_generated": 106
+    },
+    {
+      "task_id": "MBPP/102",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.84,
+      "tokens_generated": 138
+    },
+    {
+      "task_id": "MBPP/103",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 36.12,
+      "tokens_generated": 342
+    },
+    {
+      "task_id": "MBPP/104",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.08,
+      "tokens_generated": 193
+    },
+    {
+      "task_id": "MBPP/105",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.33,
+      "tokens_generated": 417
+    },
+    {
+      "task_id": "MBPP/106",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.32,
+      "tokens_generated": 95
+    },
+    {
+      "task_id": "MBPP/107",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.16,
+      "tokens_generated": 285
+    },
+    {
+      "task_id": "MBPP/108",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.32,
+      "tokens_generated": 444
+    },
+    {
+      "task_id": "MBPP/109",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 17.88,
+      "tokens_generated": 155
+    },
+    {
+      "task_id": "MBPP/110",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.0,
+      "tokens_generated": 404
+    },
+    {
+      "task_id": "MBPP/111",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.49,
+      "tokens_generated": 275
+    },
+    {
+      "task_id": "MBPP/112",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 23.15,
+      "tokens_generated": 389
+    },
+    {
+      "task_id": "MBPP/113",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.72,
+      "tokens_generated": 138
+    },
+    {
+      "task_id": "MBPP/114",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 33.83,
+      "tokens_generated": 190
+    },
+    {
+      "task_id": "MBPP/115",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.52,
+      "tokens_generated": 291
+    },
+    {
+      "task_id": "MBPP/116",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.14,
+      "tokens_generated": 292
+    },
+    {
+      "task_id": "MBPP/117",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 17.5,
+      "tokens_generated": 210
+    },
+    {
+      "task_id": "MBPP/118",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.11,
+      "tokens_generated": 322
+    },
+    {
+      "task_id": "MBPP/119",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.27,
+      "tokens_generated": 127
+    },
+    {
+      "task_id": "MBPP/120",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.78,
+      "tokens_generated": 270
+    },
+    {
+      "task_id": "MBPP/121",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 28.46,
+      "tokens_generated": 367
+    },
+    {
+      "task_id": "MBPP/122",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.8,
+      "tokens_generated": 290
+    },
+    {
+      "task_id": "MBPP/123",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.61,
+      "tokens_generated": 464
+    },
+    {
+      "task_id": "MBPP/124",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.63,
+      "tokens_generated": 106
+    },
+    {
+      "task_id": "MBPP/125",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 19.07,
+      "tokens_generated": 375
+    },
+    {
+      "task_id": "MBPP/126",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.19,
+      "tokens_generated": 326
+    },
+    {
+      "task_id": "MBPP/127",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.33,
+      "tokens_generated": 364
+    },
+    {
+      "task_id": "MBPP/128",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.5,
+      "tokens_generated": 373
+    },
+    {
+      "task_id": "MBPP/129",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.16,
+      "tokens_generated": 367
+    },
+    {
+      "task_id": "MBPP/130",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "runtime",
+      "elapsed_sec": 29.54,
+      "tokens_generated": 409
+    },
+    {
+      "task_id": "MBPP/131",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.36,
+      "tokens_generated": 416
+    },
+    {
+      "task_id": "MBPP/132",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 12.22,
+      "tokens_generated": 439
+    },
+    {
+      "task_id": "MBPP/133",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 5.24,
+      "tokens_generated": 153
+    },
+    {
+      "task_id": "MBPP/134",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.03,
+      "tokens_generated": 152
+    },
+    {
+      "task_id": "MBPP/135",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 34.84,
+      "tokens_generated": 190
+    },
+    {
+      "task_id": "MBPP/136",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.15,
+      "tokens_generated": 160
+    },
+    {
+      "task_id": "MBPP/137",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.86,
+      "tokens_generated": 477
+    },
+    {
+      "task_id": "MBPP/138",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 40.33,
+      "tokens_generated": 159
+    },
+    {
+      "task_id": "MBPP/139",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.71,
+      "tokens_generated": 425
+    },
+    {
+      "task_id": "MBPP/140",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.72,
+      "tokens_generated": 297
+    },
+    {
+      "task_id": "MBPP/141",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.68,
+      "tokens_generated": 219
+    },
+    {
+      "task_id": "MBPP/142",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.49,
+      "tokens_generated": 256
+    },
+    {
+      "task_id": "MBPP/143",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.33,
+      "tokens_generated": 427
+    },
+    {
+      "task_id": "MBPP/144",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.08,
+      "tokens_generated": 237
+    },
+    {
+      "task_id": "MBPP/145",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.81,
+      "tokens_generated": 386
+    },
+    {
+      "task_id": "MBPP/146",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.18,
+      "tokens_generated": 188
+    },
+    {
+      "task_id": "MBPP/147",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "logic",
+      "elapsed_sec": 16.58,
+      "tokens_generated": 141
+    },
+    {
+      "task_id": "MBPP/148",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.88,
+      "tokens_generated": 169
+    },
+    {
+      "task_id": "MBPP/149",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.3,
+      "tokens_generated": 197
+    },
+    {
+      "task_id": "MBPP/150",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.33,
+      "tokens_generated": 492
+    },
+    {
+      "task_id": "MBPP/151",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.88,
+      "tokens_generated": 459
+    },
+    {
+      "task_id": "MBPP/152",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 5.75,
+      "tokens_generated": 119
+    },
+    {
+      "task_id": "MBPP/153",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 27.94,
+      "tokens_generated": 443
+    },
+    {
+      "task_id": "MBPP/154",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.58,
+      "tokens_generated": 287
+    },
+    {
+      "task_id": "MBPP/155",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.99,
+      "tokens_generated": 490
+    },
+    {
+      "task_id": "MBPP/156",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.79,
+      "tokens_generated": 125
+    },
+    {
+      "task_id": "MBPP/157",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.23,
+      "tokens_generated": 303
+    },
+    {
+      "task_id": "MBPP/158",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.96,
+      "tokens_generated": 282
+    },
+    {
+      "task_id": "MBPP/159",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 13.86,
+      "tokens_generated": 478
+    },
+    {
+      "task_id": "MBPP/160",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.42,
+      "tokens_generated": 138
+    },
+    {
+      "task_id": "MBPP/161",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.76,
+      "tokens_generated": 477
+    },
+    {
+      "task_id": "MBPP/162",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.1,
+      "tokens_generated": 499
+    },
+    {
+      "task_id": "MBPP/163",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.91,
+      "tokens_generated": 132
+    },
+    {
+      "task_id": "MBPP/164",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.89,
+      "tokens_generated": 388
+    },
+    {
+      "task_id": "MBPP/165",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.37,
+      "tokens_generated": 118
+    },
+    {
+      "task_id": "MBPP/166",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.91,
+      "tokens_generated": 332
+    },
+    {
+      "task_id": "MBPP/167",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.55,
+      "tokens_generated": 376
+    },
+    {
+      "task_id": "MBPP/168",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.97,
+      "tokens_generated": 369
+    },
+    {
+      "task_id": "MBPP/169",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.46,
+      "tokens_generated": 245
+    },
+    {
+      "task_id": "MBPP/170",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 11.04,
+      "tokens_generated": 114
+    },
+    {
+      "task_id": "MBPP/171",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.26,
+      "tokens_generated": 487
+    },
+    {
+      "task_id": "MBPP/172",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.25,
+      "tokens_generated": 339
+    },
+    {
+      "task_id": "MBPP/173",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.47,
+      "tokens_generated": 99
+    },
+    {
+      "task_id": "MBPP/174",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.27,
+      "tokens_generated": 119
+    },
+    {
+      "task_id": "MBPP/175",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.09,
+      "tokens_generated": 126
+    },
+    {
+      "task_id": "MBPP/176",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.28,
+      "tokens_generated": 316
+    },
+    {
+      "task_id": "MBPP/177",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 43.17,
+      "tokens_generated": 458
+    },
+    {
+      "task_id": "MBPP/178",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 31.07,
+      "tokens_generated": 244
+    },
+    {
+      "task_id": "MBPP/179",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.05,
+      "tokens_generated": 111
+    },
+    {
+      "task_id": "MBPP/180",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.44,
+      "tokens_generated": 255
+    },
+    {
+      "task_id": "MBPP/181",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 30.85,
+      "tokens_generated": 100
+    },
+    {
+      "task_id": "MBPP/182",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.51,
+      "tokens_generated": 304
+    },
+    {
+      "task_id": "MBPP/183",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.39,
+      "tokens_generated": 266
+    },
+    {
+      "task_id": "MBPP/184",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.32,
+      "tokens_generated": 289
+    },
+    {
+      "task_id": "MBPP/185",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 7.09,
+      "tokens_generated": 403
+    },
+    {
+      "task_id": "MBPP/186",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.64,
+      "tokens_generated": 128
+    },
+    {
+      "task_id": "MBPP/187",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.46,
+      "tokens_generated": 209
+    },
+    {
+      "task_id": "MBPP/188",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.26,
+      "tokens_generated": 388
+    },
+    {
+      "task_id": "MBPP/189",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 28.31,
+      "tokens_generated": 152
+    },
+    {
+      "task_id": "MBPP/190",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.94,
+      "tokens_generated": 280
+    },
+    {
+      "task_id": "MBPP/191",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.35,
+      "tokens_generated": 123
+    },
+    {
+      "task_id": "MBPP/192",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.07,
+      "tokens_generated": 485
+    },
+    {
+      "task_id": "MBPP/193",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.11,
+      "tokens_generated": 439
+    },
+    {
+      "task_id": "MBPP/194",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.5,
+      "tokens_generated": 127
+    },
+    {
+      "task_id": "MBPP/195",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.94,
+      "tokens_generated": 265
+    },
+    {
+      "task_id": "MBPP/196",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.35,
+      "tokens_generated": 189
+    },
+    {
+      "task_id": "MBPP/197",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.65,
+      "tokens_generated": 178
+    },
+    {
+      "task_id": "MBPP/198",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.5,
+      "tokens_generated": 119
+    },
+    {
+      "task_id": "MBPP/199",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.52,
+      "tokens_generated": 339
+    },
+    {
+      "task_id": "MBPP/200",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "none",
+      "elapsed_sec": 40.35,
+      "tokens_generated": 99
+    },
+    {
+      "task_id": "MBPP/201",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.06,
+      "tokens_generated": 396
+    },
+    {
+      "task_id": "MBPP/202",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.07,
+      "tokens_generated": 163
+    },
+    {
+      "task_id": "MBPP/203",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.71,
+      "tokens_generated": 399
+    },
+    {
+      "task_id": "MBPP/204",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.51,
+      "tokens_generated": 290
+    },
+    {
+      "task_id": "MBPP/205",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.78,
+      "tokens_generated": 307
+    },
+    {
+      "task_id": "MBPP/206",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.1,
+      "tokens_generated": 481
+    },
+    {
+      "task_id": "MBPP/207",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.36,
+      "tokens_generated": 238
+    },
+    {
+      "task_id": "MBPP/208",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "assertion",
+      "elapsed_sec": 41.16,
+      "tokens_generated": 179
+    },
+    {
+      "task_id": "MBPP/209",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.89,
+      "tokens_generated": 305
+    },
+    {
+      "task_id": "MBPP/210",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.27,
+      "tokens_generated": 275
+    },
+    {
+      "task_id": "MBPP/211",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.75,
+      "tokens_generated": 162
+    },
+    {
+      "task_id": "MBPP/212",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "runtime",
+      "elapsed_sec": 10.54,
+      "tokens_generated": 208
+    },
+    {
+      "task_id": "MBPP/213",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.22,
+      "tokens_generated": 270
+    },
+    {
+      "task_id": "MBPP/214",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.1,
+      "tokens_generated": 344
+    },
+    {
+      "task_id": "MBPP/215",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 35.52,
+      "tokens_generated": 219
+    },
+    {
+      "task_id": "MBPP/216",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.53,
+      "tokens_generated": 303
+    },
+    {
+      "task_id": "MBPP/217",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.42,
+      "tokens_generated": 498
+    },
+    {
+      "task_id": "MBPP/218",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 18.98,
+      "tokens_generated": 93
+    },
+    {
+      "task_id": "MBPP/219",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.86,
+      "tokens_generated": 271
+    },
+    {
+      "task_id": "MBPP/220",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.78,
+      "tokens_generated": 271
+    },
+    {
+      "task_id": "MBPP/221",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.75,
+      "tokens_generated": 130
+    },
+    {
+      "task_id": "MBPP/222",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 36.66,
+      "tokens_generated": 150
+    },
+    {
+      "task_id": "MBPP/223",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.7,
+      "tokens_generated": 321
+    },
+    {
+      "task_id": "MBPP/224",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.55,
+      "tokens_generated": 441
+    },
+    {
+      "task_id": "MBPP/225",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.61,
+      "tokens_generated": 120
+    },
+    {
+      "task_id": "MBPP/226",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.63,
+      "tokens_generated": 156
+    },
+    {
+      "task_id": "MBPP/227",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.09,
+      "tokens_generated": 350
+    },
+    {
+      "task_id": "MBPP/228",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.05,
+      "tokens_generated": 201
+    },
+    {
+      "task_id": "MBPP/229",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.91,
+      "tokens_generated": 294
+    },
+    {
+      "task_id": "MBPP/230",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.91,
+      "tokens_generated": 112
+    },
+    {
+      "task_id": "MBPP/231",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.21,
+      "tokens_generated": 385
+    },
+    {
+      "task_id": "MBPP/232",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.28,
+      "tokens_generated": 374
+    },
+    {
+      "task_id": "MBPP/233",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.74,
+      "tokens_generated": 299
+    },
+    {
+      "task_id": "MBPP/234",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.11,
+      "tokens_generated": 372
+    },
+    {
+      "task_id": "MBPP/235",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.57,
+      "tokens_generated": 123
+    },
+    {
+      "task_id": "MBPP/236",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.42,
+      "tokens_generated": 349
+    },
+    {
+      "task_id": "MBPP/237",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.46,
+      "tokens_generated": 339
+    },
+    {
+      "task_id": "MBPP/238",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.62,
+      "tokens_generated": 320
+    },
+    {
+      "task_id": "MBPP/239",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.48,
+      "tokens_generated": 271
+    },
+    {
+      "task_id": "MBPP/240",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 5.65,
+      "tokens_generated": 483
+    },
+    {
+      "task_id": "MBPP/241",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.65,
+      "tokens_generated": 416
+    },
+    {
+      "task_id": "MBPP/242",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.86,
+      "tokens_generated": 456
+    },
+    {
+      "task_id": "MBPP/243",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 19.09,
+      "tokens_generated": 253
+    },
+    {
+      "task_id": "MBPP/244",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.58,
+      "tokens_generated": 436
+    },
+    {
+      "task_id": "MBPP/245",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.29,
+      "tokens_generated": 149
+    },
+    {
+      "task_id": "MBPP/246",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.05,
+      "tokens_generated": 314
+    },
+    {
+      "task_id": "MBPP/247",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.06,
+      "tokens_generated": 485
+    },
+    {
+      "task_id": "MBPP/248",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.68,
+      "tokens_generated": 238
+    },
+    {
+      "task_id": "MBPP/249",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.56,
+      "tokens_generated": 358
+    },
+    {
+      "task_id": "MBPP/250",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.46,
+      "tokens_generated": 411
+    },
+    {
+      "task_id": "MBPP/251",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.28,
+      "tokens_generated": 479
+    },
+    {
+      "task_id": "MBPP/252",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.23,
+      "tokens_generated": 219
+    },
+    {
+      "task_id": "MBPP/253",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.72,
+      "tokens_generated": 284
+    },
+    {
+      "task_id": "MBPP/254",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 43.95,
+      "tokens_generated": 334
+    },
+    {
+      "task_id": "MBPP/255",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.69,
+      "tokens_generated": 488
+    },
+    {
+      "task_id": "MBPP/256",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.05,
+      "tokens_generated": 452
+    },
+    {
+      "task_id": "MBPP/257",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.22,
+      "tokens_generated": 172
+    },
+    {
+      "task_id": "MBPP/258",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.85,
+      "tokens_generated": 120
+    },
+    {
+      "task_id": "MBPP/259",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.83,
+      "tokens_generated": 308
+    },
+    {
+      "task_id": "MBPP/260",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.04,
+      "tokens_generated": 433
+    },
+    {
+      "task_id": "MBPP/261",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.89,
+      "tokens_generated": 452
+    },
+    {
+      "task_id": "MBPP/262",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 44.93,
+      "tokens_generated": 220
+    },
+    {
+      "task_id": "MBPP/263",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 36.66,
+      "tokens_generated": 109
+    },
+    {
+      "task_id": "MBPP/264",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.5,
+      "tokens_generated": 266
+    },
+    {
+      "task_id": "MBPP/265",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.0,
+      "tokens_generated": 161
+    },
+    {
+      "task_id": "MBPP/266",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 32.12,
+      "tokens_generated": 304
+    },
+    {
+      "task_id": "MBPP/267",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.69,
+      "tokens_generated": 478
+    },
+    {
+      "task_id": "MBPP/268",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.49,
+      "tokens_generated": 370
+    },
+    {
+      "task_id": "MBPP/269",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.14,
+      "tokens_generated": 310
+    },
+    {
+      "task_id": "MBPP/270",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 35.52,
+      "tokens_generated": 373
+    },
+    {
+      "task_id": "MBPP/271",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.68,
+      "tokens_generated": 240
+    },
+    {
+      "task_id": "MBPP/272",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.98,
+      "tokens_generated": 138
+    },
+    {
+      "task_id": "MBPP/273",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.44,
+      "tokens_generated": 345
+    },
+    {
+      "task_id": "MBPP/274",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.47,
+      "tokens_generated": 214
+    },
+    {
+      "task_id": "MBPP/275",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 13.58,
+      "tokens_generated": 393
+    },
+    {
+      "task_id": "MBPP/276",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.66,
+      "tokens_generated": 331
+    },
+    {
+      "task_id": "MBPP/277",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.43,
+      "tokens_generated": 117
+    },
+    {
+      "task_id": "MBPP/278",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.95,
+      "tokens_generated": 307
+    },
+    {
+      "task_id": "MBPP/279",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "none",
+      "elapsed_sec": 43.7,
+      "tokens_generated": 243
+    },
+    {
+      "task_id": "MBPP/280",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.38,
+      "tokens_generated": 361
+    },
+    {
+      "task_id": "MBPP/281",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.65,
+      "tokens_generated": 160
+    },
+    {
+      "task_id": "MBPP/282",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.09,
+      "tokens_generated": 406
+    },
+    {
+      "task_id": "MBPP/283",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.46,
+      "tokens_generated": 194
+    },
+    {
+      "task_id": "MBPP/284",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.04,
+      "tokens_generated": 151
+    },
+    {
+      "task_id": "MBPP/285",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.76,
+      "tokens_generated": 264
+    },
+    {
+      "task_id": "MBPP/286",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.76,
+      "tokens_generated": 491
+    },
+    {
+      "task_id": "MBPP/287",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 40.37,
+      "tokens_generated": 113
+    },
+    {
+      "task_id": "MBPP/288",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.98,
+      "tokens_generated": 448
+    },
+    {
+      "task_id": "MBPP/289",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.43,
+      "tokens_generated": 289
+    },
+    {
+      "task_id": "MBPP/290",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 43.9,
+      "tokens_generated": 408
+    },
+    {
+      "task_id": "MBPP/291",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.63,
+      "tokens_generated": 344
+    },
+    {
+      "task_id": "MBPP/292",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.12,
+      "tokens_generated": 479
+    },
+    {
+      "task_id": "MBPP/293",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 28.51,
+      "tokens_generated": 473
+    },
+    {
+      "task_id": "MBPP/294",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 41.43,
+      "tokens_generated": 108
+    },
+    {
+      "task_id": "MBPP/295",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 17.16,
+      "tokens_generated": 162
+    },
+    {
+      "task_id": "MBPP/296",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.37,
+      "tokens_generated": 257
+    },
+    {
+      "task_id": "MBPP/297",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 38.84,
+      "tokens_generated": 208
+    },
+    {
+      "task_id": "MBPP/298",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 43.25,
+      "tokens_generated": 220
+    },
+    {
+      "task_id": "MBPP/299",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.11,
+      "tokens_generated": 353
+    },
+    {
+      "task_id": "MBPP/300",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.64,
+      "tokens_generated": 383
+    },
+    {
+      "task_id": "MBPP/301",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 31.35,
+      "tokens_generated": 448
+    },
+    {
+      "task_id": "MBPP/302",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 6.65,
+      "tokens_generated": 94
+    },
+    {
+      "task_id": "MBPP/303",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.94,
+      "tokens_generated": 474
+    },
+    {
+      "task_id": "MBPP/304",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.05,
+      "tokens_generated": 472
+    },
+    {
+      "task_id": "MBPP/305",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.72,
+      "tokens_generated": 95
+    },
+    {
+      "task_id": "MBPP/306",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.09,
+      "tokens_generated": 228
+    },
+    {
+      "task_id": "MBPP/307",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.08,
+      "tokens_generated": 205
+    },
+    {
+      "task_id": "MBPP/308",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 16.9,
+      "tokens_generated": 117
+    },
+    {
+      "task_id": "MBPP/309",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 11.32,
+      "tokens_generated": 292
+    },
+    {
+      "task_id": "MBPP/310",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.16,
+      "tokens_generated": 390
+    },
+    {
+      "task_id": "MBPP/311",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 39.46,
+      "tokens_generated": 243
+    },
+    {
+      "task_id": "MBPP/312",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "logic",
+      "elapsed_sec": 44.01,
+      "tokens_generated": 146
+    },
+    {
+      "task_id": "MBPP/313",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 9.25,
+      "tokens_generated": 203
+    },
+    {
+      "task_id": "MBPP/314",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 15.7,
+      "tokens_generated": 206
+    },
+    {
+      "task_id": "MBPP/315",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.02,
+      "tokens_generated": 276
+    },
+    {
+      "task_id": "MBPP/316",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 43.51,
+      "tokens_generated": 161
+    },
+    {
+      "task_id": "MBPP/317",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.51,
+      "tokens_generated": 470
+    },
+    {
+      "task_id": "MBPP/318",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.84,
+      "tokens_generated": 319
+    },
+    {
+      "task_id": "MBPP/319",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.34,
+      "tokens_generated": 91
+    },
+    {
+      "task_id": "MBPP/320",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.73,
+      "tokens_generated": 314
+    },
+    {
+      "task_id": "MBPP/321",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 19.12,
+      "tokens_generated": 105
+    },
+    {
+      "task_id": "MBPP/322",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 28.9,
+      "tokens_generated": 414
+    },
+    {
+      "task_id": "MBPP/323",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.43,
+      "tokens_generated": 84
+    },
+    {
+      "task_id": "MBPP/324",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 40.3,
+      "tokens_generated": 452
+    },
+    {
+      "task_id": "MBPP/325",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 21.13,
+      "tokens_generated": 103
+    },
+    {
+      "task_id": "MBPP/326",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.81,
+      "tokens_generated": 179
+    },
+    {
+      "task_id": "MBPP/327",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.54,
+      "tokens_generated": 277
+    },
+    {
+      "task_id": "MBPP/328",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.58,
+      "tokens_generated": 223
+    },
+    {
+      "task_id": "MBPP/329",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.44,
+      "tokens_generated": 145
+    },
+    {
+      "task_id": "MBPP/330",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 36.8,
+      "tokens_generated": 253
+    },
+    {
+      "task_id": "MBPP/331",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.62,
+      "tokens_generated": 153
+    },
+    {
+      "task_id": "MBPP/332",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.36,
+      "tokens_generated": 336
+    },
+    {
+      "task_id": "MBPP/333",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 6.56,
+      "tokens_generated": 445
+    },
+    {
+      "task_id": "MBPP/334",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.95,
+      "tokens_generated": 313
+    },
+    {
+      "task_id": "MBPP/335",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.73,
+      "tokens_generated": 151
+    },
+    {
+      "task_id": "MBPP/336",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.52,
+      "tokens_generated": 163
+    },
+    {
+      "task_id": "MBPP/337",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.66,
+      "tokens_generated": 233
+    },
+    {
+      "task_id": "MBPP/338",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.29,
+      "tokens_generated": 340
+    },
+    {
+      "task_id": "MBPP/339",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.35,
+      "tokens_generated": 233
+    },
+    {
+      "task_id": "MBPP/340",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 5.67,
+      "tokens_generated": 249
+    },
+    {
+      "task_id": "MBPP/341",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.2,
+      "tokens_generated": 378
+    },
+    {
+      "task_id": "MBPP/342",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.95,
+      "tokens_generated": 432
+    },
+    {
+      "task_id": "MBPP/343",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 28.88,
+      "tokens_generated": 215
+    },
+    {
+      "task_id": "MBPP/344",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "runtime",
+      "elapsed_sec": 28.11,
+      "tokens_generated": 449
+    },
+    {
+      "task_id": "MBPP/345",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.22,
+      "tokens_generated": 348
+    },
+    {
+      "task_id": "MBPP/346",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 29.79,
+      "tokens_generated": 274
+    },
+    {
+      "task_id": "MBPP/347",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.23,
+      "tokens_generated": 96
+    },
+    {
+      "task_id": "MBPP/348",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.02,
+      "tokens_generated": 177
+    },
+    {
+      "task_id": "MBPP/349",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.55,
+      "tokens_generated": 157
+    },
+    {
+      "task_id": "MBPP/350",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.16,
+      "tokens_generated": 336
+    },
+    {
+      "task_id": "MBPP/351",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.1,
+      "tokens_generated": 441
+    },
+    {
+      "task_id": "MBPP/352",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.29,
+      "tokens_generated": 246
+    },
+    {
+      "task_id": "MBPP/353",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 20.07,
+      "tokens_generated": 168
+    },
+    {
+      "task_id": "MBPP/354",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.33,
+      "tokens_generated": 359
+    },
+    {
+      "task_id": "MBPP/355",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.88,
+      "tokens_generated": 449
+    },
+    {
+      "task_id": "MBPP/356",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.15,
+      "tokens_generated": 215
+    },
+    {
+      "task_id": "MBPP/357",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.69,
+      "tokens_generated": 206
+    },
+    {
+      "task_id": "MBPP/358",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.94,
+      "tokens_generated": 232
+    },
+    {
+      "task_id": "MBPP/359",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "type",
+      "elapsed_sec": 32.61,
+      "tokens_generated": 330
+    },
+    {
+      "task_id": "MBPP/360",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 18.95,
+      "tokens_generated": 487
+    },
+    {
+      "task_id": "MBPP/361",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.51,
+      "tokens_generated": 373
+    },
+    {
+      "task_id": "MBPP/362",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.19,
+      "tokens_generated": 282
+    },
+    {
+      "task_id": "MBPP/363",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "type",
+      "elapsed_sec": 16.62,
+      "tokens_generated": 227
+    },
+    {
+      "task_id": "MBPP/364",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 41.96,
+      "tokens_generated": 415
+    },
+    {
+      "task_id": "MBPP/365",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 24.16,
+      "tokens_generated": 183
+    },
+    {
+      "task_id": "MBPP/366",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 32.85,
+      "tokens_generated": 150
+    },
+    {
+      "task_id": "MBPP/367",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.64,
+      "tokens_generated": 202
+    },
+    {
+      "task_id": "MBPP/368",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 31.79,
+      "tokens_generated": 351
+    },
+    {
+      "task_id": "MBPP/369",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.31,
+      "tokens_generated": 131
+    },
+    {
+      "task_id": "MBPP/370",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.69,
+      "tokens_generated": 131
+    },
+    {
+      "task_id": "MBPP/371",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.5,
+      "tokens_generated": 361
+    },
+    {
+      "task_id": "MBPP/372",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 31.12,
+      "tokens_generated": 323
+    },
+    {
+      "task_id": "MBPP/373",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.98,
+      "tokens_generated": 227
+    },
+    {
+      "task_id": "MBPP/374",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 30.84,
+      "tokens_generated": 473
+    },
+    {
+      "task_id": "MBPP/375",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 27.97,
+      "tokens_generated": 353
+    },
+    {
+      "task_id": "MBPP/376",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "syntax",
+      "elapsed_sec": 41.53,
+      "tokens_generated": 169
+    },
+    {
+      "task_id": "MBPP/377",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 38.5,
+      "tokens_generated": 98
+    },
+    {
+      "task_id": "MBPP/378",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 12.45,
+      "tokens_generated": 463
+    },
+    {
+      "task_id": "MBPP/379",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 5.37,
+      "tokens_generated": 370
+    },
+    {
+      "task_id": "MBPP/380",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 42.14,
+      "tokens_generated": 251
+    },
+    {
+      "task_id": "MBPP/381",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.56,
+      "tokens_generated": 358
+    },
+    {
+      "task_id": "MBPP/382",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.57,
+      "tokens_generated": 148
+    },
+    {
+      "task_id": "MBPP/383",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 12.71,
+      "tokens_generated": 137
+    },
+    {
+      "task_id": "MBPP/384",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 34.24,
+      "tokens_generated": 411
+    },
+    {
+      "task_id": "MBPP/385",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 12.45,
+      "tokens_generated": 457
+    },
+    {
+      "task_id": "MBPP/386",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 16.8,
+      "tokens_generated": 425
+    },
+    {
+      "task_id": "MBPP/387",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 39.25,
+      "tokens_generated": 287
+    },
+    {
+      "task_id": "MBPP/388",
+      "pass_at_1": false,
+      "k_iterations": 2,
+      "final_pass": true,
+      "error_type": "logic",
+      "elapsed_sec": 8.47,
+      "tokens_generated": 422
+    },
+    {
+      "task_id": "MBPP/389",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.27,
+      "tokens_generated": 324
+    },
+    {
+      "task_id": "MBPP/390",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 14.92,
+      "tokens_generated": 213
+    },
+    {
+      "task_id": "MBPP/391",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.87,
+      "tokens_generated": 216
+    },
+    {
+      "task_id": "MBPP/392",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "runtime",
+      "elapsed_sec": 33.92,
+      "tokens_generated": 85
+    },
+    {
+      "task_id": "MBPP/393",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 19.38,
+      "tokens_generated": 200
+    },
+    {
+      "task_id": "MBPP/394",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 9.73,
+      "tokens_generated": 237
+    },
+    {
+      "task_id": "MBPP/395",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.44,
+      "tokens_generated": 440
+    },
+    {
+      "task_id": "MBPP/396",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "syntax",
+      "elapsed_sec": 30.55,
+      "tokens_generated": 231
+    },
+    {
+      "task_id": "MBPP/397",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 13.83,
+      "tokens_generated": 148
+    },
+    {
+      "task_id": "MBPP/398",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 23.2,
+      "tokens_generated": 390
+    },
+    {
+      "task_id": "MBPP/399",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.08,
+      "tokens_generated": 321
+    },
+    {
+      "task_id": "MBPP/400",
+      "pass_at_1": false,
+      "k_iterations": 0,
+      "final_pass": false,
+      "error_type": "none",
+      "elapsed_sec": 38.02,
+      "tokens_generated": 470
+    },
+    {
+      "task_id": "MBPP/401",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 35.19,
+      "tokens_generated": 483
+    },
+    {
+      "task_id": "MBPP/402",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 22.87,
+      "tokens_generated": 440
+    },
+    {
+      "task_id": "MBPP/403",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.69,
+      "tokens_generated": 137
+    },
+    {
+      "task_id": "MBPP/404",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.91,
+      "tokens_generated": 338
+    },
+    {
+      "task_id": "MBPP/405",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.47,
+      "tokens_generated": 164
+    },
+    {
+      "task_id": "MBPP/406",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.81,
+      "tokens_generated": 139
+    },
+    {
+      "task_id": "MBPP/407",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 33.68,
+      "tokens_generated": 330
+    },
+    {
+      "task_id": "MBPP/408",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 25.42,
+      "tokens_generated": 494
+    },
+    {
+      "task_id": "MBPP/409",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.28,
+      "tokens_generated": 292
+    },
+    {
+      "task_id": "MBPP/410",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.31,
+      "tokens_generated": 316
+    },
+    {
+      "task_id": "MBPP/411",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 17.33,
+      "tokens_generated": 91
+    },
+    {
+      "task_id": "MBPP/412",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.66,
+      "tokens_generated": 461
+    },
+    {
+      "task_id": "MBPP/413",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.92,
+      "tokens_generated": 296
+    },
+    {
+      "task_id": "MBPP/414",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 7.55,
+      "tokens_generated": 110
+    },
+    {
+      "task_id": "MBPP/415",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 6.27,
+      "tokens_generated": 289
+    },
+    {
+      "task_id": "MBPP/416",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 10.42,
+      "tokens_generated": 408
+    },
+    {
+      "task_id": "MBPP/417",
+      "pass_at_1": false,
+      "k_iterations": 3,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 19.98,
+      "tokens_generated": 275
+    },
+    {
+      "task_id": "MBPP/418",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 41.68,
+      "tokens_generated": 273
+    },
+    {
+      "task_id": "MBPP/419",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 32.31,
+      "tokens_generated": 418
+    },
+    {
+      "task_id": "MBPP/420",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 39.41,
+      "tokens_generated": 140
+    },
+    {
+      "task_id": "MBPP/421",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 26.49,
+      "tokens_generated": 350
+    },
+    {
+      "task_id": "MBPP/422",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 44.15,
+      "tokens_generated": 81
+    },
+    {
+      "task_id": "MBPP/423",
+      "pass_at_1": false,
+      "k_iterations": 1,
+      "final_pass": true,
+      "error_type": "assertion",
+      "elapsed_sec": 31.94,
+      "tokens_generated": 358
+    },
+    {
+      "task_id": "MBPP/424",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 20.17,
+      "tokens_generated": 197
+    },
+    {
+      "task_id": "MBPP/425",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 18.85,
+      "tokens_generated": 221
+    },
+    {
+      "task_id": "MBPP/426",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 40.01,
+      "tokens_generated": 471
+    },
+    {
+      "task_id": "MBPP/427",
+      "pass_at_1": true,
+      "k_iterations": 0,
+      "final_pass": true,
+      "error_type": "none",
+      "elapsed_sec": 37.38,
+      "tokens_generated": 294
+    }
+  ]
+}

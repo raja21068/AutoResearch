@@ -1,0 +1,81 @@
+{
+  "run_id": "run_060",
+  "task_id": "HE_001_3",
+  "task": "Write a function to find two sum indices",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 116.25,
+  "events": [
+    {
+      "ts": 1713014871,
+      "event": "session_start",
+      "run_id": "run_060",
+      "task_id": "HE_001_3"
+    },
+    {
+      "ts": 1713014871.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Write a function to find two sum indices"
+    },
+    {
+      "ts": 1713014874.8843436,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713014875.0843437,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713014881.259005,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 357
+    },
+    {
+      "ts": 1713014881.559005,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713014885.552507,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713014886.052507,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713014888.9280915,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.1
+    },
+    {
+      "ts": 1713014889.1280916,
+      "event": "session_end",
+      "run_id": "run_060",
+      "passed": true,
+      "elapsed_sec": 116.25,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

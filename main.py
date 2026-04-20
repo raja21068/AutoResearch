@@ -152,6 +152,27 @@ async def run_gan(req: TopicReq):
     return {"passed": result.passed, "score": result.final_score,
             "iterations": result.total_iterations, "elapsed": result.elapsed_sec}
 
+
+
+@app.post("/api/paper/orchestra")
+async def run_orchestra(req: TopicReq):
+    """Run the full PaperOrchestra 5-step pipeline."""
+    from agents.paper import PaperOrchestrator
+    po = PaperOrchestrator()
+    result = await po.run_full(req.topic, idea=req.papers, experiments=req.results)
+    return {"topic": result["topic"], "outline": result["outline"][:1000],
+            "refinement": result["refinement"], "paper_length": len(result.get("paper_tex",""))}
+
+@app.get("/api/paper/skills")
+async def list_paper_skills():
+    """List available PaperOrchestra pipeline skills."""
+    from skills.paper_pipeline_loader import get_paper_pipeline
+    pp = get_paper_pipeline()
+    return {"count": len(pp), "skills": [
+        {"name": s.name, "step": s.step, "scripts": list(s.scripts.keys()),
+         "references": list(s.references.keys())}
+        for s in pp.skills.values()]}
+
 # ── GUI ──────────────────────────────────────────────────
 if Path("static").exists():
     app.mount("/static", StaticFiles(directory="static"), name="static")

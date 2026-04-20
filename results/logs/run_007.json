@@ -1,0 +1,81 @@
+{
+  "run_id": "run_007",
+  "task_id": "HE_008_0",
+  "task": "Implement a trie with insert and search",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 30.19,
+  "events": [
+    {
+      "ts": 1713082240,
+      "event": "session_start",
+      "run_id": "run_007",
+      "task_id": "HE_008_0"
+    },
+    {
+      "ts": 1713082240.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement a trie with insert and search"
+    },
+    {
+      "ts": 1713082242.979946,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713082243.179946,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713082254.9847581,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 265
+    },
+    {
+      "ts": 1713082255.284758,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713082258.8238273,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713082259.3238273,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713082264.3121915,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.6
+    },
+    {
+      "ts": 1713082264.5121915,
+      "event": "session_end",
+      "run_id": "run_007",
+      "passed": true,
+      "elapsed_sec": 30.19,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

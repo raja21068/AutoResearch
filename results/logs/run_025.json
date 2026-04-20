@@ -1,0 +1,81 @@
+{
+  "run_id": "run_025",
+  "task_id": "HE_006_1",
+  "task": "Find longest palindromic substring",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 46.66,
+  "events": [
+    {
+      "ts": 1713009099,
+      "event": "session_start",
+      "run_id": "run_025",
+      "task_id": "HE_006_1"
+    },
+    {
+      "ts": 1713009099.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Find longest palindromic substring"
+    },
+    {
+      "ts": 1713009104.4006674,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713009104.6006675,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713009112.3919175,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 721
+    },
+    {
+      "ts": 1713009112.6919174,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713009116.290631,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713009116.790631,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713009119.7840807,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.1
+    },
+    {
+      "ts": 1713009119.9840808,
+      "event": "session_end",
+      "run_id": "run_025",
+      "passed": true,
+      "elapsed_sec": 46.66,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

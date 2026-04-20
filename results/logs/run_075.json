@@ -1,0 +1,135 @@
+{
+  "run_id": "run_075",
+  "task_id": "HE_016_3",
+  "task": "Implement a thread-safe queue",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 3,
+  "elapsed_sec": 143.1,
+  "events": [
+    {
+      "ts": 1713061385,
+      "event": "session_start",
+      "run_id": "run_075",
+      "task_id": "HE_016_3"
+    },
+    {
+      "ts": 1713061385.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement a thread-safe queue"
+    },
+    {
+      "ts": 1713061390.38868,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713061390.58868,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713061396.9962502,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 431
+    },
+    {
+      "ts": 1713061397.29625,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713061402.7368126,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 6,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713061402.9368126,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713061410.7731614,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713061411.0731614,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713061414.5362616,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 6,
+      "passed": 0,
+      "failed": 6,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713061414.7362616,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 2
+    },
+    {
+      "ts": 1713061419.0585544,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "syntax"
+    },
+    {
+      "ts": 1713061419.3585544,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 3
+    },
+    {
+      "ts": 1713061423.1776984,
+      "event": "test_result",
+      "iteration": 3,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713061423.6776984,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713061427.9247332,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.8
+    },
+    {
+      "ts": 1713061428.1247332,
+      "event": "session_end",
+      "run_id": "run_075",
+      "passed": true,
+      "elapsed_sec": 143.1,
+      "k_iterations": 3,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

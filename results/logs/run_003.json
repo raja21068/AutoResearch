@@ -1,0 +1,108 @@
+{
+  "run_id": "run_003",
+  "task_id": "HE_004_0",
+  "task": "Check if a binary tree is balanced",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 130.25,
+  "events": [
+    {
+      "ts": 1713047400,
+      "event": "session_start",
+      "run_id": "run_003",
+      "task_id": "HE_004_0"
+    },
+    {
+      "ts": 1713047400.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Check if a binary tree is balanced"
+    },
+    {
+      "ts": 1713047404.2320564,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713047404.4320564,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713047416.4777749,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 246
+    },
+    {
+      "ts": 1713047416.7777748,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713047421.4228282,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 5,
+      "passed": 0,
+      "failed": 5,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713047421.6228282,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713047428.899417,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "syntax"
+    },
+    {
+      "ts": 1713047429.1994169,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713047432.7199218,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713047433.2199218,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713047437.126975,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.1
+    },
+    {
+      "ts": 1713047437.326975,
+      "event": "session_end",
+      "run_id": "run_003",
+      "passed": true,
+      "elapsed_sec": 130.25,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

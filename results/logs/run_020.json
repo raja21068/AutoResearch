@@ -1,0 +1,135 @@
+{
+  "run_id": "run_020",
+  "task_id": "HE_001_1",
+  "task": "Write a function to find two sum indices",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 3,
+  "elapsed_sec": 103.87,
+  "events": [
+    {
+      "ts": 1713072692,
+      "event": "session_start",
+      "run_id": "run_020",
+      "task_id": "HE_001_1"
+    },
+    {
+      "ts": 1713072692.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Write a function to find two sum indices"
+    },
+    {
+      "ts": 1713072695.3981361,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713072695.5981362,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713072707.2320232,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 337
+    },
+    {
+      "ts": 1713072707.5320232,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713072710.589887,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713072710.789887,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713072716.5560052,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713072716.8560052,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713072719.9830303,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713072720.1830304,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 2
+    },
+    {
+      "ts": 1713072724.201017,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713072724.5010169,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 3
+    },
+    {
+      "ts": 1713072728.522653,
+      "event": "test_result",
+      "iteration": 3,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713072729.022653,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713072733.7386625,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.5
+    },
+    {
+      "ts": 1713072733.9386625,
+      "event": "session_end",
+      "run_id": "run_020",
+      "passed": true,
+      "elapsed_sec": 103.87,
+      "k_iterations": 3,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "run_id": "run_004",
+  "task_id": "HE_005_0",
+  "task": "Implement LRU cache with O(1) ops",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 39.93,
+  "events": [
+    {
+      "ts": 1713034993,
+      "event": "session_start",
+      "run_id": "run_004",
+      "task_id": "HE_005_0"
+    },
+    {
+      "ts": 1713034993.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement LRU cache with O(1) ops"
+    },
+    {
+      "ts": 1713034997.605461,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713034997.805461,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713035009.6409376,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 273
+    },
+    {
+      "ts": 1713035009.9409375,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713035014.3774614,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713035014.8774614,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713035018.479881,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.7
+    },
+    {
+      "ts": 1713035018.679881,
+      "event": "session_end",
+      "run_id": "run_004",
+      "passed": true,
+      "elapsed_sec": 39.93,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

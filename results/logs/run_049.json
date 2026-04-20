@@ -1,0 +1,81 @@
+{
+  "run_id": "run_049",
+  "task_id": "HE_010_2",
+  "task": "Find median of two sorted arrays",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 48.97,
+  "events": [
+    {
+      "ts": 1713070010,
+      "event": "session_start",
+      "run_id": "run_049",
+      "task_id": "HE_010_2"
+    },
+    {
+      "ts": 1713070010.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Find median of two sorted arrays"
+    },
+    {
+      "ts": 1713070012.8797488,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713070013.0797489,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713070018.534906,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 255
+    },
+    {
+      "ts": 1713070018.8349059,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713070023.0483418,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713070023.5483418,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713070028.3806107,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.9
+    },
+    {
+      "ts": 1713070028.5806108,
+      "event": "session_end",
+      "run_id": "run_049",
+      "passed": true,
+      "elapsed_sec": 48.97,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

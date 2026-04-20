@@ -1,0 +1,14 @@
+{
+  "total_runs": 120,
+  "passed": 112,
+  "failed": 8,
+  "pass_rate": 93.3,
+  "pass_at_1": 49,
+  "pass_at_1_rate": 40.8,
+  "avg_elapsed_sec": 80.81,
+  "k_distribution": {
+    "k=1": 49,
+    "k=2": 47,
+    "k=3": 24
+  }
+}

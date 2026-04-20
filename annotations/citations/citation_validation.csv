@@ -1,0 +1,21 @@
+key,title,venue,year,verified,doi,arxiv,validator,url_accessible,metadata_match
+he2025lma,LLM-Based Multi-Agent Systems for SE,ACM TOSEM,2025,True,10.1145/3712003,,E3,True,True
+yang2024swe,SWE-agent,NeurIPS,2024,True,,2405.15793,E2,True,True
+chen2024selfdebugging,Teaching LLMs to Self-Debug,ICLR,2024,True,,,E3,True,True
+lu2024aiscientist,The AI Scientist,arXiv,2024,True,,2408.06292,E3,True,True
+hong2024metagpt,MetaGPT,ICLR,2024,True,,,E3,True,True
+qian2024chatdev,ChatDev,ACL,2024,True,,2307.07924,E3,True,True
+tawosi2025almas,ALMAS,arXiv,2025,True,,2510.03463,E1,True,True
+pan2025codecor,CodeCoR,arXiv,2025,True,,2501.06049,E1,True,True
+masai2024,MASAI,NeurIPS,2024,True,,2406.11638,E1,True,True
+zhang2024autocoderover,AutoCodeRover,ISSTA,2024,True,,2404.05427,E3,True,True
+ledex2024,LeDex,NeurIPS,2024,True,,2405.02781,E3,True,True
+chen2025revisit,Revisit Self-Debugging,ACL,2025,True,,2501.12793,E3,True,True
+huang2024mlagentbench,MLAgentBench,ICML,2024,True,,2310.03302,E3,True,True
+chen2021humaneval,Evaluating LLMs Trained on Code,arXiv,2021,True,,2107.03374,E2,True,True
+austin2021mbpp,Program Synthesis with LLMs,arXiv,2021,True,,2108.07732,E2,True,True
+wu2023autogen,AutoGen,arXiv,2023,True,,2308.08155,E2,True,True
+reflexion2023,Reflexion,NeurIPS,2023,True,,2303.11366,E1,True,True
+ridnik2024alphacodium,AlphaCodium,arXiv,2024,True,,2401.08500,E1,True,True
+codet2023,CodeT,ICLR,2023,True,,2207.10397,E2,True,True
+wang2024agent4se,LLM-Based Agents for SE Survey,arXiv,2024,True,,2409.02977,E1,True,True

@@ -1,0 +1,186 @@
+{
+  "benchmark": "CrossDomain-10",
+  "version": "1.0",
+  "tasks": [
+    {
+      "id": "CD-01",
+      "name": "ViT Fine-tuning Pipeline",
+      "domain": "vision",
+      "description": "Implement a Vision Transformer fine-tuning pipeline on CIFAR-100 with learning rate scheduling, data augmentation, and comparison against ResNet-50 baseline.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment",
+        "paper_section"
+      ],
+      "expected_outputs": [
+        "training_script.py",
+        "results.json",
+        "methodology_section.tex"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 8
+    },
+    {
+      "id": "CD-02",
+      "name": "RAG System with Evaluation",
+      "domain": "nlp",
+      "description": "Build a Retrieval-Augmented Generation system using FAISS for document retrieval and evaluate on a QA benchmark.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment"
+      ],
+      "expected_outputs": [
+        "rag_pipeline.py",
+        "eval_results.json"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 6
+    },
+    {
+      "id": "CD-03",
+      "name": "RL CartPole with Ablation",
+      "domain": "rl",
+      "description": "Implement DQN and PPO for CartPole-v1, run ablation on network depth and learning rate.",
+      "requires": [
+        "code_gen",
+        "experiment",
+        "analysis"
+      ],
+      "expected_outputs": [
+        "dqn.py",
+        "ppo.py",
+        "ablation_results.csv"
+      ],
+      "difficulty": "medium",
+      "estimated_hours": 4
+    },
+    {
+      "id": "CD-04",
+      "name": "GAN Image Generation + FID",
+      "domain": "vision",
+      "description": "Train a DCGAN on MNIST, compute FID score, compare with WGAN-GP.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment",
+        "paper_section"
+      ],
+      "expected_outputs": [
+        "dcgan.py",
+        "wgan_gp.py",
+        "fid_scores.json",
+        "results_section.tex"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 8
+    },
+    {
+      "id": "CD-05",
+      "name": "Transformer from Scratch",
+      "domain": "nlp",
+      "description": "Implement a transformer encoder-decoder from scratch in PyTorch, train on a small translation task.",
+      "requires": [
+        "code_gen",
+        "experiment",
+        "paper_section"
+      ],
+      "expected_outputs": [
+        "transformer.py",
+        "train.py",
+        "architecture_figure.py"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 10
+    },
+    {
+      "id": "CD-06",
+      "name": "Federated Learning Simulation",
+      "domain": "distributed",
+      "description": "Simulate federated averaging with 10 clients on MNIST, compare IID vs non-IID splits.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment"
+      ],
+      "expected_outputs": [
+        "fed_avg.py",
+        "simulation_results.json"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 7
+    },
+    {
+      "id": "CD-07",
+      "name": "AutoML Hyperparameter Search",
+      "domain": "ml",
+      "description": "Implement Bayesian optimization for hyperparameter tuning of a random forest on UCI datasets.",
+      "requires": [
+        "code_gen",
+        "experiment",
+        "analysis"
+      ],
+      "expected_outputs": [
+        "bayesian_opt.py",
+        "search_results.csv"
+      ],
+      "difficulty": "medium",
+      "estimated_hours": 5
+    },
+    {
+      "id": "CD-08",
+      "name": "Knowledge Graph Construction",
+      "domain": "nlp",
+      "description": "Extract entities and relations from text using spaCy, build a knowledge graph, evaluate precision/recall.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment"
+      ],
+      "expected_outputs": [
+        "kg_builder.py",
+        "eval_metrics.json"
+      ],
+      "difficulty": "medium",
+      "estimated_hours": 5
+    },
+    {
+      "id": "CD-09",
+      "name": "Time Series Anomaly Detection",
+      "domain": "ml",
+      "description": "Implement LSTM autoencoder for anomaly detection on NAB dataset, compare with Isolation Forest.",
+      "requires": [
+        "code_gen",
+        "experiment",
+        "paper_section"
+      ],
+      "expected_outputs": [
+        "lstm_ae.py",
+        "anomaly_results.json",
+        "comparison_table.tex"
+      ],
+      "difficulty": "medium",
+      "estimated_hours": 6
+    },
+    {
+      "id": "CD-10",
+      "name": "Multi-Agent Debate System",
+      "domain": "agents",
+      "description": "Build a system where 3 LLM agents debate a topic, evaluate argument quality and convergence.",
+      "requires": [
+        "literature_review",
+        "code_gen",
+        "experiment",
+        "paper_section"
+      ],
+      "expected_outputs": [
+        "debate_system.py",
+        "debate_logs.json",
+        "analysis.tex"
+      ],
+      "difficulty": "hard",
+      "estimated_hours": 8
+    }
+  ]
+}

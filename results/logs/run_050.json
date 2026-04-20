@@ -1,0 +1,108 @@
+{
+  "run_id": "run_050",
+  "task_id": "HE_011_2",
+  "task": "Implement topological sort",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 36.31,
+  "events": [
+    {
+      "ts": 1713001607,
+      "event": "session_start",
+      "run_id": "run_050",
+      "task_id": "HE_011_2"
+    },
+    {
+      "ts": 1713001607.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement topological sort"
+    },
+    {
+      "ts": 1713001611.2221928,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713001611.4221928,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713001621.1161623,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 651
+    },
+    {
+      "ts": 1713001621.4161623,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713001624.778986,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713001624.978986,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713001632.684304,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "index"
+    },
+    {
+      "ts": 1713001632.984304,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713001635.4406526,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713001635.9406526,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713001639.1427748,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.2
+    },
+    {
+      "ts": 1713001639.3427749,
+      "event": "session_end",
+      "run_id": "run_050",
+      "passed": true,
+      "elapsed_sec": 36.31,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

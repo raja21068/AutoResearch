@@ -1,0 +1,81 @@
+{
+  "run_id": "run_101",
+  "task_id": "HE_002_5",
+  "task": "Implement binary search on sorted array",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 102.53,
+  "events": [
+    {
+      "ts": 1713078997,
+      "event": "session_start",
+      "run_id": "run_101",
+      "task_id": "HE_002_5"
+    },
+    {
+      "ts": 1713078997.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement binary search on sorted array"
+    },
+    {
+      "ts": 1713079002.119839,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713079002.319839,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713079010.6534593,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 796
+    },
+    {
+      "ts": 1713079010.9534593,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713079015.6079078,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713079016.1079078,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713079019.038603,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.0
+    },
+    {
+      "ts": 1713079019.238603,
+      "event": "session_end",
+      "run_id": "run_101",
+      "passed": true,
+      "elapsed_sec": 102.53,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

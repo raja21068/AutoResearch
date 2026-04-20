@@ -1,0 +1,81 @@
+{
+  "run_id": "run_076",
+  "task_id": "HE_017_3",
+  "task": "Parse and evaluate arithmetic expressions",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 81.76,
+  "events": [
+    {
+      "ts": 1713048689,
+      "event": "session_start",
+      "run_id": "run_076",
+      "task_id": "HE_017_3"
+    },
+    {
+      "ts": 1713048689.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Parse and evaluate arithmetic expressions"
+    },
+    {
+      "ts": 1713048691.8250382,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713048692.0250382,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713048699.3632572,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 225
+    },
+    {
+      "ts": 1713048699.6632571,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713048704.1414447,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713048704.6414447,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713048707.6254635,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.8
+    },
+    {
+      "ts": 1713048707.8254635,
+      "event": "session_end",
+      "run_id": "run_076",
+      "passed": true,
+      "elapsed_sec": 81.76,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

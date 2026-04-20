@@ -1,0 +1,108 @@
+{
+  "run_id": "run_096",
+  "task_id": "HE_017_4",
+  "task": "Parse and evaluate arithmetic expressions",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 47.27,
+  "events": [
+    {
+      "ts": 1713045793,
+      "event": "session_start",
+      "run_id": "run_096",
+      "task_id": "HE_017_4"
+    },
+    {
+      "ts": 1713045793.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Parse and evaluate arithmetic expressions"
+    },
+    {
+      "ts": 1713045796.5532992,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713045796.7532992,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713045811.3355327,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 351
+    },
+    {
+      "ts": 1713045811.6355326,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713045814.5806081,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713045814.7806082,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713045818.7669673,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713045819.0669672,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713045821.6784463,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713045822.1784463,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713045824.4045062,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.9
+    },
+    {
+      "ts": 1713045824.6045063,
+      "event": "session_end",
+      "run_id": "run_096",
+      "passed": true,
+      "elapsed_sec": 47.27,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

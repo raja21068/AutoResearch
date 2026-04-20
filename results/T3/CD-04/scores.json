@@ -1,0 +1,65 @@
+{
+  "task": {
+    "id": "CD-04",
+    "name": "GAN Image Generation + FID",
+    "domain": "vision",
+    "requires": [
+      "literature_review",
+      "code_gen",
+      "experiment",
+      "paper_section"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.6,
+        "research": null,
+        "paper": null,
+        "e2e_complete": true
+      },
+      "research_only": {
+        "code": null,
+        "research": 6.8,
+        "paper": 6.0,
+        "e2e_complete": false
+      },
+      "sequential": {
+        "code": 6.9,
+        "research": 6.7,
+        "paper": 6.3,
+        "e2e_complete": false
+      },
+      "proposed_cdcip": {
+        "code": 7.9,
+        "research": 8.0,
+        "paper": 7.9,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.6,
+      "research": null,
+      "paper": null,
+      "e2e_complete": true
+    },
+    "research_only": {
+      "code": null,
+      "research": 6.8,
+      "paper": 6.0,
+      "e2e_complete": false
+    },
+    "sequential": {
+      "code": 6.9,
+      "research": 6.7,
+      "paper": 6.3,
+      "e2e_complete": false
+    },
+    "proposed_cdcip": {
+      "code": 7.9,
+      "research": 8.0,
+      "paper": 7.9,
+      "e2e_complete": true
+    }
+  }
+}

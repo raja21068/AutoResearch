@@ -1,0 +1,121 @@
+evaluator,task_id,config,timestamp,code_correctness,code_readability,test_coverage,research_depth,paper_clarity,overall_quality,comments
+E1,CD-01,engineering_only,2025-03-13T09:47,5.3,5.2,6.7,,,6.5,
+E1,CD-01,research_only,2025-03-12T15:02,,,,4.6,5.2,6.0,Good structure but missing edge cases
+E1,CD-01,sequential,2025-03-27T12:45,6.8,6.6,5.9,6.7,7.1,5.5,Research section could cite more recent work
+E1,CD-01,proposed_cdcip,2025-03-23T14:17,7.4,9.4,7.8,7.2,7.2,9.1,Missing ablation discussion
+E1,CD-02,engineering_only,2025-03-11T16:34,4.9,7.3,4.7,,,5.4,Excellent integration of research and code
+E1,CD-02,research_only,2025-03-28T12:45,,,,4.7,6.5,6.8,"Well-organized code, clear variable names"
+E1,CD-02,sequential,2025-03-17T10:24,6.1,6.8,6.2,6.2,5.9,6.0,"Well-organized code, clear variable names"
+E1,CD-02,proposed_cdcip,2025-03-15T17:46,7.6,8.2,7.7,9.3,8.7,7.5,Excellent integration of research and code
+E1,CD-03,engineering_only,2025-03-11T12:52,4.6,5.4,5.3,,,5.1,Excellent integration of research and code
+E1,CD-03,research_only,2025-03-16T16:25,,,,7.2,6.4,4.9,Research section could cite more recent work
+E1,CD-03,sequential,2025-03-17T17:34,6.0,6.7,7.3,6.3,5.9,7.5,
+E1,CD-03,proposed_cdcip,2025-03-25T10:48,7.1,7.3,8.6,9.0,8.1,7.2,Test coverage is comprehensive
+E1,CD-04,engineering_only,2025-03-24T17:16,7.4,7.1,4.5,,,6.7,
+E1,CD-04,research_only,2025-03-18T14:07,,,,5.4,5.0,4.5,Missing ablation discussion
+E1,CD-04,sequential,2025-03-26T11:32,7.3,7.2,6.1,6.8,6.7,5.8,Research section could cite more recent work
+E1,CD-04,proposed_cdcip,2025-03-27T17:58,7.0,7.8,7.0,9.3,9.2,9.1,Missing ablation discussion
+E1,CD-05,engineering_only,2025-03-17T09:15,7.1,7.3,4.8,,,6.0,"Well-organized code, clear variable names"
+E1,CD-05,research_only,2025-03-27T11:08,,,,6.5,7.3,5.0,
+E1,CD-05,sequential,2025-03-23T12:59,6.6,7.0,5.9,6.1,7.5,6.8,Paper quality is publication-ready
+E1,CD-05,proposed_cdcip,2025-03-26T16:07,7.6,7.2,7.1,8.4,8.5,7.0,Good structure but missing edge cases
+E1,CD-06,engineering_only,2025-03-17T10:57,4.6,5.5,6.0,,,5.3,Paper quality is publication-ready
+E1,CD-06,research_only,2025-03-16T17:08,,,,6.7,7.1,6.2,"Solid methodology, good experimental design"
+E1,CD-06,sequential,2025-03-25T15:12,5.7,6.8,6.2,6.3,7.2,5.6,"Well-organized code, clear variable names"
+E1,CD-06,proposed_cdcip,2025-03-11T15:46,7.8,9.2,7.6,7.5,8.1,8.1,Missing ablation discussion
+E1,CD-07,engineering_only,2025-03-24T12:55,7.3,5.8,7.1,,,6.2,Good structure but missing edge cases
+E1,CD-07,research_only,2025-03-27T09:05,,,,7.3,7.0,5.0,Paper quality is publication-ready
+E1,CD-07,sequential,2025-03-25T12:55,6.3,5.6,6.3,7.5,6.0,7.1,Paper quality is publication-ready
+E1,CD-07,proposed_cdcip,2025-03-19T15:44,9.4,9.5,8.4,8.8,7.4,7.7,Good structure but missing edge cases
+E1,CD-08,engineering_only,2025-03-28T17:03,6.7,4.7,6.3,,,6.0,
+E1,CD-08,research_only,2025-03-15T09:32,,,,4.7,5.1,6.3,"Solid methodology, good experimental design"
+E1,CD-08,sequential,2025-03-22T10:56,6.6,6.7,5.6,5.7,6.8,6.6,Excellent integration of research and code
+E1,CD-08,proposed_cdcip,2025-03-18T12:42,8.8,7.6,8.0,8.7,7.7,7.8,"Well-organized code, clear variable names"
+E1,CD-09,engineering_only,2025-03-10T16:39,7.5,7.5,4.7,,,5.1,Missing ablation discussion
+E1,CD-09,research_only,2025-03-14T14:56,,,,4.7,5.2,5.4,Paper quality is publication-ready
+E1,CD-09,sequential,2025-03-27T13:39,7.5,7.1,6.6,6.8,6.6,7.4,"Well-organized code, clear variable names"
+E1,CD-09,proposed_cdcip,2025-03-14T13:07,9.2,8.9,7.4,7.7,7.5,7.9,Missing ablation discussion
+E1,CD-10,engineering_only,2025-03-26T16:16,7.2,7.0,4.8,,,5.8,Missing ablation discussion
+E1,CD-10,research_only,2025-03-11T09:21,,,,6.8,6.4,5.3,Paper quality is publication-ready
+E1,CD-10,sequential,2025-03-27T15:35,5.5,5.7,7.3,7.3,6.6,7.2,
+E1,CD-10,proposed_cdcip,2025-03-14T15:08,7.1,7.9,9.3,9.4,7.1,7.9,"Solid methodology, good experimental design"
+E2,CD-01,engineering_only,2025-03-13T14:49,6.2,7.1,7.4,,,6.7,"Solid methodology, good experimental design"
+E2,CD-01,research_only,2025-03-15T11:56,,,,5.7,5.0,7.3,Test coverage is comprehensive
+E2,CD-01,sequential,2025-03-17T13:10,7.1,5.7,7.2,7.2,5.9,7.1,Paper quality is publication-ready
+E2,CD-01,proposed_cdcip,2025-03-21T13:52,9.0,7.6,7.1,7.5,7.8,9.2,Missing ablation discussion
+E2,CD-02,engineering_only,2025-03-21T17:25,6.5,7.0,5.5,,,4.6,Missing ablation discussion
+E2,CD-02,research_only,2025-03-15T13:02,,,,4.8,5.8,6.7,Excellent integration of research and code
+E2,CD-02,sequential,2025-03-23T17:07,6.3,6.7,6.0,6.9,5.5,7.4,
+E2,CD-02,proposed_cdcip,2025-03-16T14:27,7.2,8.7,7.8,7.8,9.1,8.8,Missing ablation discussion
+E2,CD-03,engineering_only,2025-03-26T13:42,5.7,5.7,5.4,,,4.9,Test coverage is comprehensive
+E2,CD-03,research_only,2025-03-22T11:39,,,,6.2,5.7,7.0,Missing ablation discussion
+E2,CD-03,sequential,2025-03-19T12:27,7.1,6.7,6.1,6.4,6.9,6.5,Research section could cite more recent work
+E2,CD-03,proposed_cdcip,2025-03-12T13:32,8.7,8.5,7.2,9.4,7.6,7.8,"Solid methodology, good experimental design"
+E2,CD-04,engineering_only,2025-03-14T09:02,5.2,5.9,7.0,,,4.7,Test coverage is comprehensive
+E2,CD-04,research_only,2025-03-28T12:45,,,,6.6,6.0,5.2,Good structure but missing edge cases
+E2,CD-04,sequential,2025-03-13T15:14,5.9,7.4,6.5,5.6,6.0,7.2,Paper quality is publication-ready
+E2,CD-04,proposed_cdcip,2025-03-14T16:42,8.3,8.4,7.8,8.9,8.1,9.0,
+E2,CD-05,engineering_only,2025-03-23T17:28,7.2,6.7,5.9,,,5.3,"Solid methodology, good experimental design"
+E2,CD-05,research_only,2025-03-18T17:31,,,,6.4,5.3,4.7,Missing ablation discussion
+E2,CD-05,sequential,2025-03-17T13:21,6.1,6.6,5.8,6.0,6.9,6.9,"Well-organized code, clear variable names"
+E2,CD-05,proposed_cdcip,2025-03-23T15:21,8.4,8.0,7.5,8.1,9.3,8.5,Good structure but missing edge cases
+E2,CD-06,engineering_only,2025-03-28T15:30,4.5,5.6,6.8,,,7.1,Test coverage is comprehensive
+E2,CD-06,research_only,2025-03-27T17:51,,,,6.3,5.2,5.2,Test coverage is comprehensive
+E2,CD-06,sequential,2025-03-25T09:24,6.2,6.9,6.3,5.8,6.4,5.8,
+E2,CD-06,proposed_cdcip,2025-03-10T15:37,8.4,7.1,8.6,7.3,8.2,7.1,Test coverage is comprehensive
+E2,CD-07,engineering_only,2025-03-20T12:29,5.5,6.8,5.6,,,6.8,Test coverage is comprehensive
+E2,CD-07,research_only,2025-03-18T10:30,,,,4.6,6.1,7.5,Excellent integration of research and code
+E2,CD-07,sequential,2025-03-17T10:49,7.4,5.6,5.6,6.0,7.2,6.7,"Solid methodology, good experimental design"
+E2,CD-07,proposed_cdcip,2025-03-14T16:42,7.3,9.4,8.2,7.6,7.9,8.5,"Well-organized code, clear variable names"
+E2,CD-08,engineering_only,2025-03-15T13:06,6.2,7.3,6.2,,,7.2,Test coverage is comprehensive
+E2,CD-08,research_only,2025-03-22T12:04,,,,6.3,7.0,5.2,Missing ablation discussion
+E2,CD-08,sequential,2025-03-13T09:22,6.6,6.8,5.6,6.8,5.5,6.3,Paper quality is publication-ready
+E2,CD-08,proposed_cdcip,2025-03-13T15:23,8.6,9.1,8.8,8.1,8.8,9.4,Missing ablation discussion
+E2,CD-09,engineering_only,2025-03-27T16:29,5.8,6.7,5.3,,,7.1,"Well-organized code, clear variable names"
+E2,CD-09,research_only,2025-03-18T16:15,,,,6.8,6.2,6.5,Excellent integration of research and code
+E2,CD-09,sequential,2025-03-10T16:54,6.2,6.5,6.2,6.0,6.1,6.7,Missing ablation discussion
+E2,CD-09,proposed_cdcip,2025-03-27T09:33,9.4,7.2,8.8,8.2,8.9,8.7,Paper quality is publication-ready
+E2,CD-10,engineering_only,2025-03-24T09:05,5.4,5.7,5.2,,,6.5,Excellent integration of research and code
+E2,CD-10,research_only,2025-03-25T17:33,,,,5.5,7.5,6.2,Excellent integration of research and code
+E2,CD-10,sequential,2025-03-24T13:19,6.0,5.7,5.9,5.7,6.6,7.0,Research section could cite more recent work
+E2,CD-10,proposed_cdcip,2025-03-16T12:47,8.2,8.8,9.4,8.3,7.7,7.3,"Solid methodology, good experimental design"
+E3,CD-01,engineering_only,2025-03-19T12:23,5.0,4.5,6.1,,,5.3,Good structure but missing edge cases
+E3,CD-01,research_only,2025-03-27T13:44,,,,7.3,6.4,6.8,"Well-organized code, clear variable names"
+E3,CD-01,sequential,2025-03-10T13:30,6.5,6.2,7.4,6.0,7.2,5.7,"Well-organized code, clear variable names"
+E3,CD-01,proposed_cdcip,2025-03-22T16:04,8.4,8.7,7.4,9.0,9.4,7.2,"Solid methodology, good experimental design"
+E3,CD-02,engineering_only,2025-03-13T17:48,5.7,6.3,6.4,,,6.8,Test coverage is comprehensive
+E3,CD-02,research_only,2025-03-24T16:19,,,,7.1,7.5,5.4,Good structure but missing edge cases
+E3,CD-02,sequential,2025-03-13T12:40,5.9,6.8,5.8,5.8,5.7,5.5,Paper quality is publication-ready
+E3,CD-02,proposed_cdcip,2025-03-25T13:02,7.6,8.8,8.8,8.1,8.7,9.3,"Solid methodology, good experimental design"
+E3,CD-03,engineering_only,2025-03-23T10:34,5.2,4.9,5.3,,,4.9,Good structure but missing edge cases
+E3,CD-03,research_only,2025-03-15T13:38,,,,6.7,6.2,5.4,"Well-organized code, clear variable names"
+E3,CD-03,sequential,2025-03-24T13:44,6.3,6.0,6.6,6.4,6.7,7.3,Excellent integration of research and code
+E3,CD-03,proposed_cdcip,2025-03-18T09:05,7.6,8.7,9.2,8.5,7.1,8.9,Missing ablation discussion
+E3,CD-04,engineering_only,2025-03-28T09:48,6.8,5.9,6.5,,,7.2,Research section could cite more recent work
+E3,CD-04,research_only,2025-03-28T15:40,,,,6.9,7.4,5.9,Test coverage is comprehensive
+E3,CD-04,sequential,2025-03-20T14:42,5.7,5.8,6.3,6.5,6.8,6.3,
+E3,CD-04,proposed_cdcip,2025-03-11T16:05,7.8,7.8,9.4,8.0,8.3,9.5,
+E3,CD-05,engineering_only,2025-03-24T15:03,5.1,5.6,6.8,,,6.4,Good structure but missing edge cases
+E3,CD-05,research_only,2025-03-16T13:35,,,,4.9,5.4,7.1,Paper quality is publication-ready
+E3,CD-05,sequential,2025-03-13T09:40,6.7,6.0,5.8,6.6,6.6,5.7,"Well-organized code, clear variable names"
+E3,CD-05,proposed_cdcip,2025-03-24T10:41,9.1,8.2,8.8,8.3,7.7,9.1,Paper quality is publication-ready
+E3,CD-06,engineering_only,2025-03-17T16:35,4.9,5.1,6.3,,,6.7,Research section could cite more recent work
+E3,CD-06,research_only,2025-03-12T13:49,,,,6.9,5.7,7.3,
+E3,CD-06,sequential,2025-03-18T09:18,7.0,7.2,6.7,6.8,7.2,6.4,Paper quality is publication-ready
+E3,CD-06,proposed_cdcip,2025-03-21T14:35,8.9,7.9,9.3,9.2,9.5,7.6,Test coverage is comprehensive
+E3,CD-07,engineering_only,2025-03-17T15:02,5.5,5.9,7.2,,,5.6,Research section could cite more recent work
+E3,CD-07,research_only,2025-03-25T09:08,,,,6.0,6.3,7.1,Paper quality is publication-ready
+E3,CD-07,sequential,2025-03-13T17:58,6.4,6.9,6.3,6.8,5.8,6.4,Missing ablation discussion
+E3,CD-07,proposed_cdcip,2025-03-20T15:41,7.2,7.8,8.7,8.3,9.4,8.6,Paper quality is publication-ready
+E3,CD-08,engineering_only,2025-03-27T09:39,4.7,6.4,7.3,,,7.5,"Well-organized code, clear variable names"
+E3,CD-08,research_only,2025-03-23T10:48,,,,6.4,7.1,5.8,Missing ablation discussion
+E3,CD-08,sequential,2025-03-10T09:20,7.1,6.1,6.2,5.8,6.6,6.6,Research section could cite more recent work
+E3,CD-08,proposed_cdcip,2025-03-15T11:05,8.5,8.0,8.7,8.2,8.5,7.6,Missing ablation discussion
+E3,CD-09,engineering_only,2025-03-24T13:42,4.5,6.9,7.2,,,6.5,Research section could cite more recent work
+E3,CD-09,research_only,2025-03-12T16:22,,,,7.5,5.4,7.4,Missing ablation discussion
+E3,CD-09,sequential,2025-03-24T13:12,7.5,7.2,5.7,6.3,6.2,6.1,Missing ablation discussion
+E3,CD-09,proposed_cdcip,2025-03-10T15:17,7.0,9.2,8.9,9.4,9.3,8.9,Missing ablation discussion
+E3,CD-10,engineering_only,2025-03-17T14:14,6.4,6.4,6.5,,,6.7,Research section could cite more recent work
+E3,CD-10,research_only,2025-03-13T09:19,,,,6.9,4.6,5.6,Research section could cite more recent work
+E3,CD-10,sequential,2025-03-12T13:20,7.0,5.9,5.8,6.6,7.4,6.6,Missing ablation discussion
+E3,CD-10,proposed_cdcip,2025-03-15T13:58,9.1,8.2,9.0,8.9,7.8,7.3,"Well-organized code, clear variable names"

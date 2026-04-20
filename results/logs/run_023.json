@@ -1,0 +1,147 @@
+{
+  "run_id": "run_023",
+  "task_id": "HE_004_1",
+  "task": "Check if a binary tree is balanced",
+  "pass_at_1": false,
+  "passed": false,
+  "k_used": 3,
+  "elapsed_sec": 34.19,
+  "events": [
+    {
+      "ts": 1713046898,
+      "event": "session_start",
+      "run_id": "run_023",
+      "task_id": "HE_004_1"
+    },
+    {
+      "ts": 1713046898.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Check if a binary tree is balanced"
+    },
+    {
+      "ts": 1713046901.1302297,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713046901.3302298,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713046908.8255272,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 305
+    },
+    {
+      "ts": 1713046909.1255271,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713046912.5402417,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 6,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713046912.7402418,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713046917.7721288,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713046918.0721288,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713046923.0700393,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 4,
+      "passed": 1,
+      "failed": 3,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713046923.2700393,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 2
+    },
+    {
+      "ts": 1713046931.1510694,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "logic"
+    },
+    {
+      "ts": 1713046931.4510694,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 3
+    },
+    {
+      "ts": 1713046936.9767342,
+      "event": "test_result",
+      "iteration": 3,
+      "total": 3,
+      "passed": 0,
+      "failed": 3,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713046937.1767342,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 3
+    },
+    {
+      "ts": 1713046943.8595567,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713046944.3595567,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713046948.706716,
+      "event": "review",
+      "verdict": "FAIL",
+      "score": 4.2
+    },
+    {
+      "ts": 1713046948.906716,
+      "event": "session_end",
+      "run_id": "run_023",
+      "passed": false,
+      "elapsed_sec": 34.19,
+      "k_iterations": 3,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

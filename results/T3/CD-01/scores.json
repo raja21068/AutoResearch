@@ -1,0 +1,65 @@
+{
+  "task": {
+    "id": "CD-01",
+    "name": "ViT Fine-tuning Pipeline",
+    "domain": "vision",
+    "requires": [
+      "literature_review",
+      "code_gen",
+      "experiment",
+      "paper_section"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.4,
+        "research": null,
+        "paper": null,
+        "e2e_complete": false
+      },
+      "research_only": {
+        "code": null,
+        "research": 7.4,
+        "paper": 5.4,
+        "e2e_complete": true
+      },
+      "sequential": {
+        "code": 6.6,
+        "research": 6.9,
+        "paper": 6.2,
+        "e2e_complete": false
+      },
+      "proposed_cdcip": {
+        "code": 7.5,
+        "research": 7.5,
+        "paper": 7.4,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.4,
+      "research": null,
+      "paper": null,
+      "e2e_complete": false
+    },
+    "research_only": {
+      "code": null,
+      "research": 7.4,
+      "paper": 5.4,
+      "e2e_complete": true
+    },
+    "sequential": {
+      "code": 6.6,
+      "research": 6.9,
+      "paper": 6.2,
+      "e2e_complete": false
+    },
+    "proposed_cdcip": {
+      "code": 7.5,
+      "research": 7.5,
+      "paper": 7.4,
+      "e2e_complete": true
+    }
+  }
+}

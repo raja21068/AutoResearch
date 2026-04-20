@@ -1,0 +1,108 @@
+{
+  "run_id": "run_089",
+  "task_id": "HE_010_4",
+  "task": "Find median of two sorted arrays",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 140.62,
+  "events": [
+    {
+      "ts": 1713012026,
+      "event": "session_start",
+      "run_id": "run_089",
+      "task_id": "HE_010_4"
+    },
+    {
+      "ts": 1713012026.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Find median of two sorted arrays"
+    },
+    {
+      "ts": 1713012030.7383354,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713012030.9383354,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713012038.0896642,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 629
+    },
+    {
+      "ts": 1713012038.3896642,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713012042.2042472,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713012042.4042473,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713012046.962434,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713012047.262434,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713012052.3697765,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713012052.8697765,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713012056.6584477,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.7
+    },
+    {
+      "ts": 1713012056.8584478,
+      "event": "session_end",
+      "run_id": "run_089",
+      "passed": true,
+      "elapsed_sec": 140.62,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

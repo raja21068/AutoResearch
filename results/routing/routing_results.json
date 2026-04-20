@@ -1,0 +1,35 @@
+{
+  "strategies": [
+    {
+      "name": "all_gpt4o",
+      "pass": 89.6,
+      "cost": 0.42,
+      "latency": 34.2
+    },
+    {
+      "name": "all_deepseek",
+      "pass": 82.1,
+      "cost": 0.08,
+      "latency": 28.6
+    },
+    {
+      "name": "all_mini",
+      "pass": 76.4,
+      "cost": 0.06,
+      "latency": 22.1
+    },
+    {
+      "name": "optimized",
+      "pass": 87.7,
+      "cost": 0.18,
+      "latency": 29.4,
+      "routing": {
+        "planner": "gpt-4o",
+        "coder": "deepseek-chat",
+        "tester": "gpt-4o-mini",
+        "debugger": "gpt-4o",
+        "critic": "gpt-4o"
+      }
+    }
+  ]
+}

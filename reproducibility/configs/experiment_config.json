@@ -1,0 +1,150 @@
+{
+  "experiment_id": "nexusai_main_eval_2025",
+  "date": "2025-03-15",
+  "hardware": {
+    "machine": "Ubuntu 22.04 LTS",
+    "cpu": "AMD Ryzen 9 5950X",
+    "ram": "64GB DDR4",
+    "gpu": "None (API-based inference)",
+    "python": "3.11.8"
+  },
+  "models": {
+    "planner": {
+      "provider": "openai",
+      "model": "gpt-4o-2024-08-06",
+      "temperature": 0,
+      "seed": 42
+    },
+    "coder": {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "temperature": 0,
+      "seed": 42
+    },
+    "tester": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-2024-07-18",
+      "temperature": 0,
+      "seed": 42
+    },
+    "debugger": {
+      "provider": "openai",
+      "model": "gpt-4o-2024-08-06",
+      "temperature": 0,
+      "seed": 42
+    },
+    "critic": {
+      "provider": "openai",
+      "model": "gpt-4o-2024-08-06",
+      "temperature": 0,
+      "seed": 42
+    }
+  },
+  "sandbox": {
+    "type": "subprocess",
+    "timeout_sec": 60,
+    "python_version": "3.11"
+  },
+  "self_healing": {
+    "max_iterations_K": 3,
+    "test_injection": "prepend",
+    "test_isolation": "temp_directory"
+  },
+  "benchmarks": {
+    "T1": {
+      "name": "HumanEval",
+      "n_tasks": 164,
+      "source": "openai/human-eval"
+    },
+    "T2": {
+      "name": "MBPP",
+      "n_tasks": 427,
+      "source": "google-research/mbpp"
+    },
+    "T3": {
+      "name": "CrossDomain-10",
+      "n_tasks": 10,
+      "source": "custom (see data/)"
+    }
+  },
+  "ablation_configs": [
+    {
+      "name": "full",
+      "agents": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    },
+    {
+      "name": "-debugger",
+      "agents": [
+        "planner",
+        "coder",
+        "tester",
+        "critic"
+      ]
+    },
+    {
+      "name": "-tester",
+      "agents": [
+        "planner",
+        "coder",
+        "debugger",
+        "critic"
+      ]
+    },
+    {
+      "name": "-planner",
+      "agents": [
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    },
+    {
+      "name": "-critic",
+      "agents": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger"
+      ]
+    },
+    {
+      "name": "-memory",
+      "agents": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ],
+      "memory": false
+    }
+  ],
+  "routing_configs": [
+    {
+      "name": "all_gpt4o",
+      "all_models": "gpt-4o-2024-08-06"
+    },
+    {
+      "name": "all_deepseek",
+      "all_models": "deepseek-chat"
+    },
+    {
+      "name": "all_mini",
+      "all_models": "gpt-4o-mini-2024-07-18"
+    },
+    {
+      "name": "optimized",
+      "per_agent": true
+    }
+  ],
+  "random_seed": 42,
+  "n_runs_per_config": 1,
+  "total_api_cost_usd": 284.5
+}

@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-03",
+    "name": "RL CartPole with Ablation",
+    "domain": "rl",
+    "requires": [
+      "code_gen",
+      "experiment",
+      "analysis"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.1,
+        "research": null,
+        "paper": null,
+        "e2e_complete": true
+      },
+      "research_only": {
+        "code": null,
+        "research": 6.9,
+        "paper": 6.1,
+        "e2e_complete": true
+      },
+      "sequential": {
+        "code": 6.8,
+        "research": 6.8,
+        "paper": 6.2,
+        "e2e_complete": false
+      },
+      "proposed_cdcip": {
+        "code": 8.4,
+        "research": 8.1,
+        "paper": 8.0,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.1,
+      "research": null,
+      "paper": null,
+      "e2e_complete": true
+    },
+    "research_only": {
+      "code": null,
+      "research": 6.9,
+      "paper": 6.1,
+      "e2e_complete": true
+    },
+    "sequential": {
+      "code": 6.8,
+      "research": 6.8,
+      "paper": 6.2,
+      "e2e_complete": false
+    },
+    "proposed_cdcip": {
+      "code": 8.4,
+      "research": 8.1,
+      "paper": 8.0,
+      "e2e_complete": true
+    }
+  }
+}

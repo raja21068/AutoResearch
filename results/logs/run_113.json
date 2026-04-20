@@ -1,0 +1,81 @@
+{
+  "run_id": "run_113",
+  "task_id": "HE_014_5",
+  "task": "Implement regex matching with . and *",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 92.36,
+  "events": [
+    {
+      "ts": 1713046805,
+      "event": "session_start",
+      "run_id": "run_113",
+      "task_id": "HE_014_5"
+    },
+    {
+      "ts": 1713046805.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement regex matching with . and *"
+    },
+    {
+      "ts": 1713046809.86556,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713046810.06556,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713046818.513585,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 306
+    },
+    {
+      "ts": 1713046818.813585,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713046823.8995905,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713046824.3995905,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713046828.6696272,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.4
+    },
+    {
+      "ts": 1713046828.8696272,
+      "event": "session_end",
+      "run_id": "run_113",
+      "passed": true,
+      "elapsed_sec": 92.36,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

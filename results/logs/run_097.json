@@ -1,0 +1,108 @@
+{
+  "run_id": "run_097",
+  "task_id": "HE_018_4",
+  "task": "Implement matrix multiplication",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 79.67,
+  "events": [
+    {
+      "ts": 1713073889,
+      "event": "session_start",
+      "run_id": "run_097",
+      "task_id": "HE_018_4"
+    },
+    {
+      "ts": 1713073889.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement matrix multiplication"
+    },
+    {
+      "ts": 1713073893.7796314,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713073893.9796314,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713073903.468684,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 778
+    },
+    {
+      "ts": 1713073903.768684,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713073908.3406513,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 2,
+      "failed": 5,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713073908.5406513,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713073915.8618858,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713073916.1618857,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713073918.7657154,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713073919.2657154,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713073922.6724787,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.9
+    },
+    {
+      "ts": 1713073922.8724787,
+      "event": "session_end",
+      "run_id": "run_097",
+      "passed": true,
+      "elapsed_sec": 79.67,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

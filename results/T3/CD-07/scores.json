@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-07",
+    "name": "AutoML Hyperparameter Search",
+    "domain": "ml",
+    "requires": [
+      "code_gen",
+      "experiment",
+      "analysis"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.2,
+        "research": null,
+        "paper": null,
+        "e2e_complete": false
+      },
+      "research_only": {
+        "code": null,
+        "research": 7.0,
+        "paper": 6.0,
+        "e2e_complete": true
+      },
+      "sequential": {
+        "code": 6.0,
+        "research": 7.3,
+        "paper": 6.4,
+        "e2e_complete": false
+      },
+      "proposed_cdcip": {
+        "code": 8.2,
+        "research": 7.9,
+        "paper": 7.8,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.2,
+      "research": null,
+      "paper": null,
+      "e2e_complete": false
+    },
+    "research_only": {
+      "code": null,
+      "research": 7.0,
+      "paper": 6.0,
+      "e2e_complete": true
+    },
+    "sequential": {
+      "code": 6.0,
+      "research": 7.3,
+      "paper": 6.4,
+      "e2e_complete": false
+    },
+    "proposed_cdcip": {
+      "code": 8.2,
+      "research": 7.9,
+      "paper": 7.8,
+      "e2e_complete": true
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "run_id": "run_041",
+  "task_id": "HE_002_2",
+  "task": "Implement binary search on sorted array",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 116.03,
+  "events": [
+    {
+      "ts": 1713021992,
+      "event": "session_start",
+      "run_id": "run_041",
+      "task_id": "HE_002_2"
+    },
+    {
+      "ts": 1713021992.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement binary search on sorted array"
+    },
+    {
+      "ts": 1713021996.317678,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713021996.517678,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713022011.1550255,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 317
+    },
+    {
+      "ts": 1713022011.4550254,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713022016.5661929,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713022016.766193,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713022020.3066866,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "syntax"
+    },
+    {
+      "ts": 1713022020.6066866,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713022026.3222353,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713022026.8222353,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713022030.8542771,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.9
+    },
+    {
+      "ts": 1713022031.0542772,
+      "event": "session_end",
+      "run_id": "run_041",
+      "passed": true,
+      "elapsed_sec": 116.03,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

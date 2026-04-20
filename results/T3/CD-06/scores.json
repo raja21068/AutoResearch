@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-06",
+    "name": "Federated Learning Simulation",
+    "domain": "distributed",
+    "requires": [
+      "literature_review",
+      "code_gen",
+      "experiment"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 5.5,
+        "research": null,
+        "paper": null,
+        "e2e_complete": false
+      },
+      "research_only": {
+        "code": null,
+        "research": 7.1,
+        "paper": 6.1,
+        "e2e_complete": true
+      },
+      "sequential": {
+        "code": 6.2,
+        "research": 6.7,
+        "paper": 6.1,
+        "e2e_complete": true
+      },
+      "proposed_cdcip": {
+        "code": 7.9,
+        "research": 8.4,
+        "paper": 7.3,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 5.5,
+      "research": null,
+      "paper": null,
+      "e2e_complete": false
+    },
+    "research_only": {
+      "code": null,
+      "research": 7.1,
+      "paper": 6.1,
+      "e2e_complete": true
+    },
+    "sequential": {
+      "code": 6.2,
+      "research": 6.7,
+      "paper": 6.1,
+      "e2e_complete": true
+    },
+    "proposed_cdcip": {
+      "code": 7.9,
+      "research": 8.4,
+      "paper": 7.3,
+      "e2e_complete": true
+    }
+  }
+}

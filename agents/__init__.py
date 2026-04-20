@@ -13,7 +13,7 @@ from agents.hooks import HookManager, HookEvent, get_hook_manager
 from agents.context_modes import ContextMode, get_context_manager
 from agents.registry import Registry, get_registry
 from agents.conception import ConceptionService
-from agents.paper import PaperOrchestrator
+from agents.paper import PaperOrchestrator, PaperAutorater
 from agents.experiment import ExperimentOrchestrator
 from agents.decision import DecisionService
 

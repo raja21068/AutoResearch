@@ -1,0 +1,81 @@
+{
+  "run_id": "run_074",
+  "task_id": "HE_015_3",
+  "task": "Find shortest path in weighted graph",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 96.18,
+  "events": [
+    {
+      "ts": 1713047953,
+      "event": "session_start",
+      "run_id": "run_074",
+      "task_id": "HE_015_3"
+    },
+    {
+      "ts": 1713047953.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Find shortest path in weighted graph"
+    },
+    {
+      "ts": 1713047957.0925572,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713047957.2925572,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713047971.427427,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 368
+    },
+    {
+      "ts": 1713047971.727427,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713047974.7553074,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713047975.2553074,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713047980.1574597,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.9
+    },
+    {
+      "ts": 1713047980.3574598,
+      "event": "session_end",
+      "run_id": "run_074",
+      "passed": true,
+      "elapsed_sec": 96.18,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

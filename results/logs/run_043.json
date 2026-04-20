@@ -1,0 +1,81 @@
+{
+  "run_id": "run_043",
+  "task_id": "HE_004_2",
+  "task": "Check if a binary tree is balanced",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 115.42,
+  "events": [
+    {
+      "ts": 1713005383,
+      "event": "session_start",
+      "run_id": "run_043",
+      "task_id": "HE_004_2"
+    },
+    {
+      "ts": 1713005383.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Check if a binary tree is balanced"
+    },
+    {
+      "ts": 1713005386.5416112,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713005386.7416112,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713005396.0253913,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 579
+    },
+    {
+      "ts": 1713005396.3253913,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713005398.6012182,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713005399.1012182,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713005402.1249118,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.5
+    },
+    {
+      "ts": 1713005402.3249118,
+      "event": "session_end",
+      "run_id": "run_043",
+      "passed": true,
+      "elapsed_sec": 115.42,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

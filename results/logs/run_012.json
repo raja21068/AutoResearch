@@ -1,0 +1,81 @@
+{
+  "run_id": "run_012",
+  "task_id": "HE_013_0",
+  "task": "Count islands in a 2D grid",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 26.42,
+  "events": [
+    {
+      "ts": 1713082719,
+      "event": "session_start",
+      "run_id": "run_012",
+      "task_id": "HE_013_0"
+    },
+    {
+      "ts": 1713082719.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Count islands in a 2D grid"
+    },
+    {
+      "ts": 1713082721.6766212,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713082721.8766212,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713082727.5506246,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 232
+    },
+    {
+      "ts": 1713082727.8506246,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713082733.2891662,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713082733.7891662,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713082737.3316345,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.8
+    },
+    {
+      "ts": 1713082737.5316346,
+      "event": "session_end",
+      "run_id": "run_012",
+      "passed": true,
+      "elapsed_sec": 26.42,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

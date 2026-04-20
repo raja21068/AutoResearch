@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-09",
+    "name": "Time Series Anomaly Detection",
+    "domain": "ml",
+    "requires": [
+      "code_gen",
+      "experiment",
+      "paper_section"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.1,
+        "research": null,
+        "paper": null,
+        "e2e_complete": true
+      },
+      "research_only": {
+        "code": null,
+        "research": 6.9,
+        "paper": 5.8,
+        "e2e_complete": false
+      },
+      "sequential": {
+        "code": 6.2,
+        "research": 7.2,
+        "paper": 6.3,
+        "e2e_complete": false
+      },
+      "proposed_cdcip": {
+        "code": 8.3,
+        "research": 8.3,
+        "paper": 7.1,
+        "e2e_complete": true
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.1,
+      "research": null,
+      "paper": null,
+      "e2e_complete": true
+    },
+    "research_only": {
+      "code": null,
+      "research": 6.9,
+      "paper": 5.8,
+      "e2e_complete": false
+    },
+    "sequential": {
+      "code": 6.2,
+      "research": 7.2,
+      "paper": 6.3,
+      "e2e_complete": false
+    },
+    "proposed_cdcip": {
+      "code": 8.3,
+      "research": 8.3,
+      "paper": 7.1,
+      "e2e_complete": true
+    }
+  }
+}

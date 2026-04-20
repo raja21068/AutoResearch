@@ -1,0 +1,81 @@
+{
+  "run_id": "run_002",
+  "task_id": "HE_003_0",
+  "task": "Generate all permutations of a string",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 28.93,
+  "events": [
+    {
+      "ts": 1713045082,
+      "event": "session_start",
+      "run_id": "run_002",
+      "task_id": "HE_003_0"
+    },
+    {
+      "ts": 1713045082.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Generate all permutations of a string"
+    },
+    {
+      "ts": 1713045086.3111782,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713045086.5111783,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713045099.5824609,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 670
+    },
+    {
+      "ts": 1713045099.8824608,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713045104.0273733,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713045104.5273733,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713045106.763774,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.9
+    },
+    {
+      "ts": 1713045106.963774,
+      "event": "session_end",
+      "run_id": "run_002",
+      "passed": true,
+      "elapsed_sec": 28.93,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

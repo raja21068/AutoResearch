@@ -1,0 +1,147 @@
+{
+  "run_id": "run_018",
+  "task_id": "HE_019_0",
+  "task": "Build a simple HTTP parser",
+  "pass_at_1": false,
+  "passed": false,
+  "k_used": 3,
+  "elapsed_sec": 109.68,
+  "events": [
+    {
+      "ts": 1713075880,
+      "event": "session_start",
+      "run_id": "run_018",
+      "task_id": "HE_019_0"
+    },
+    {
+      "ts": 1713075880.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Build a simple HTTP parser"
+    },
+    {
+      "ts": 1713075884.2835574,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713075884.4835575,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713075895.6773725,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 629
+    },
+    {
+      "ts": 1713075895.9773724,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713075900.6068652,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 4,
+      "failed": 3,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713075900.8068652,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713075905.3887146,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "type"
+    },
+    {
+      "ts": 1713075905.6887145,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713075908.5057514,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 8,
+      "passed": 5,
+      "failed": 3,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713075908.7057514,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 2
+    },
+    {
+      "ts": 1713075912.8991811,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "index"
+    },
+    {
+      "ts": 1713075913.199181,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 3
+    },
+    {
+      "ts": 1713075915.7226942,
+      "event": "test_result",
+      "iteration": 3,
+      "total": 8,
+      "passed": 4,
+      "failed": 4,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713075915.9226942,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 3
+    },
+    {
+      "ts": 1713075921.208817,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "syntax"
+    },
+    {
+      "ts": 1713075921.708817,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713075923.7367635,
+      "event": "review",
+      "verdict": "FAIL",
+      "score": 4.9
+    },
+    {
+      "ts": 1713075923.9367635,
+      "event": "session_end",
+      "run_id": "run_018",
+      "passed": false,
+      "elapsed_sec": 109.68,
+      "k_iterations": 3,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

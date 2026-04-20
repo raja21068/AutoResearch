@@ -1,0 +1,135 @@
+{
+  "run_id": "run_111",
+  "task_id": "HE_012_5",
+  "task": "Design a stack supporting getMin in O(1)",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 3,
+  "elapsed_sec": 93.64,
+  "events": [
+    {
+      "ts": 1713014530,
+      "event": "session_start",
+      "run_id": "run_111",
+      "task_id": "HE_012_5"
+    },
+    {
+      "ts": 1713014530.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Design a stack supporting getMin in O(1)"
+    },
+    {
+      "ts": 1713014535.0100632,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713014535.2100632,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713014545.2083554,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 748
+    },
+    {
+      "ts": 1713014545.5083554,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713014547.5740967,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 7,
+      "passed": 4,
+      "failed": 3,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713014547.7740967,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713014551.9837873,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "logic"
+    },
+    {
+      "ts": 1713014552.2837873,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713014555.4488752,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713014555.6488752,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 2
+    },
+    {
+      "ts": 1713014560.4129555,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713014560.7129555,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 3
+    },
+    {
+      "ts": 1713014564.379226,
+      "event": "test_result",
+      "iteration": 3,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713014564.879226,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713014568.8838706,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.6
+    },
+    {
+      "ts": 1713014569.0838706,
+      "event": "session_end",
+      "run_id": "run_111",
+      "passed": true,
+      "elapsed_sec": 93.64,
+      "k_iterations": 3,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

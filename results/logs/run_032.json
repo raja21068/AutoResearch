@@ -1,0 +1,108 @@
+{
+  "run_id": "run_032",
+  "task_id": "HE_013_1",
+  "task": "Count islands in a 2D grid",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 120.17,
+  "events": [
+    {
+      "ts": 1713069616,
+      "event": "session_start",
+      "run_id": "run_032",
+      "task_id": "HE_013_1"
+    },
+    {
+      "ts": 1713069616.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Count islands in a 2D grid"
+    },
+    {
+      "ts": 1713069621.4636774,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713069621.6636775,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713069632.6182005,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 653
+    },
+    {
+      "ts": 1713069632.9182005,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713069637.3688097,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 6,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713069637.5688097,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713069644.7216556,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713069645.0216556,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713069648.80531,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713069649.30531,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713069653.5362763,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.4
+    },
+    {
+      "ts": 1713069653.7362764,
+      "event": "session_end",
+      "run_id": "run_032",
+      "passed": true,
+      "elapsed_sec": 120.17,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "run_id": "run_051",
+  "task_id": "HE_012_2",
+  "task": "Design a stack supporting getMin in O(1)",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 30.43,
+  "events": [
+    {
+      "ts": 1713019555,
+      "event": "session_start",
+      "run_id": "run_051",
+      "task_id": "HE_012_2"
+    },
+    {
+      "ts": 1713019555.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Design a stack supporting getMin in O(1)"
+    },
+    {
+      "ts": 1713019559.9334261,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713019560.1334262,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713019574.6246827,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 287
+    },
+    {
+      "ts": 1713019574.9246826,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713019580.900355,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713019581.1003551,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713019587.9225724,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "runtime"
+    },
+    {
+      "ts": 1713019588.2225723,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713019592.6070797,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713019593.1070797,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713019595.784141,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 8.6
+    },
+    {
+      "ts": 1713019595.984141,
+      "event": "session_end",
+      "run_id": "run_051",
+      "passed": true,
+      "elapsed_sec": 30.43,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "task": {
+    "id": "CD-08",
+    "name": "Knowledge Graph Construction",
+    "domain": "nlp",
+    "requires": [
+      "literature_review",
+      "code_gen",
+      "experiment"
+    ],
+    "scores": {
+      "engineering_only": {
+        "code": 6.2,
+        "research": null,
+        "paper": null,
+        "e2e_complete": false
+      },
+      "research_only": {
+        "code": null,
+        "research": 6.5,
+        "paper": 5.8,
+        "e2e_complete": true
+      },
+      "sequential": {
+        "code": 6.5,
+        "research": 6.8,
+        "paper": 6.5,
+        "e2e_complete": true
+      },
+      "proposed_cdcip": {
+        "code": 8.3,
+        "research": 8.2,
+        "paper": 7.8,
+        "e2e_complete": false
+      }
+    }
+  },
+  "evaluator_scores": {
+    "engineering_only": {
+      "code": 6.2,
+      "research": null,
+      "paper": null,
+      "e2e_complete": false
+    },
+    "research_only": {
+      "code": null,
+      "research": 6.5,
+      "paper": 5.8,
+      "e2e_complete": true
+    },
+    "sequential": {
+      "code": 6.5,
+      "research": 6.8,
+      "paper": 6.5,
+      "e2e_complete": true
+    },
+    "proposed_cdcip": {
+      "code": 8.3,
+      "research": 8.2,
+      "paper": 7.8,
+      "e2e_complete": false
+    }
+  }
+}

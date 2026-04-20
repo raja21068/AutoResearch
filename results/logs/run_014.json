@@ -1,0 +1,108 @@
+{
+  "run_id": "run_014",
+  "task_id": "HE_015_0",
+  "task": "Find shortest path in weighted graph",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 142.1,
+  "events": [
+    {
+      "ts": 1713012899,
+      "event": "session_start",
+      "run_id": "run_014",
+      "task_id": "HE_015_0"
+    },
+    {
+      "ts": 1713012899.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Find shortest path in weighted graph"
+    },
+    {
+      "ts": 1713012901.681838,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713012901.881838,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713012914.163974,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 311
+    },
+    {
+      "ts": 1713012914.463974,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713012917.4585993,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 3,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713012917.6585994,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713012921.359511,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "logic"
+    },
+    {
+      "ts": 1713012921.6595109,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713012924.7736914,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713012925.2736914,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713012929.8971493,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.2
+    },
+    {
+      "ts": 1713012930.0971494,
+      "event": "session_end",
+      "run_id": "run_014",
+      "passed": true,
+      "elapsed_sec": 142.1,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

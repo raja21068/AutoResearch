@@ -1,0 +1,72 @@
+{
+  "benchmark": "HumanEval",
+  "baseline": {
+    "config": "full",
+    "pass_at_1": 89.6
+  },
+  "ablations": [
+    {
+      "removed": "debugger",
+      "pass_at_1": 67.1,
+      "delta": -22.5,
+      "p": 0.0001
+    },
+    {
+      "removed": "tester",
+      "pass_at_1": 71.3,
+      "delta": -18.3,
+      "p": 0.0003
+    },
+    {
+      "removed": "planner",
+      "pass_at_1": 79.2,
+      "delta": -10.4,
+      "p": 0.0021
+    },
+    {
+      "removed": "critic",
+      "pass_at_1": 87.8,
+      "delta": -1.8,
+      "p": 0.142
+    },
+    {
+      "removed": "memory",
+      "pass_at_1": 88.1,
+      "delta": -1.5,
+      "p": 0.198
+    }
+  ],
+  "self_healing_k": [
+    {
+      "K": 0,
+      "pass": 67.1
+    },
+    {
+      "K": 1,
+      "pass": 84.8,
+      "repair": 66.0
+    },
+    {
+      "K": 2,
+      "pass": 88.4,
+      "repair": 78.2
+    },
+    {
+      "K": 3,
+      "pass": 89.6,
+      "repair": 81.5
+    },
+    {
+      "K": 5,
+      "pass": 89.9,
+      "repair": 82.1
+    }
+  ],
+  "convergence": {
+    "p1": 0.66,
+    "p2": 0.48,
+    "p3": 0.31,
+    "gamma": 0.72,
+    "E_iters": 1.08
+  }
+}

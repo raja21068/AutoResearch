@@ -1,0 +1,108 @@
+{
+  "run_id": "run_084",
+  "task_id": "HE_005_4",
+  "task": "Implement LRU cache with O(1) ops",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 119.17,
+  "events": [
+    {
+      "ts": 1713014996,
+      "event": "session_start",
+      "run_id": "run_084",
+      "task_id": "HE_005_4"
+    },
+    {
+      "ts": 1713014996.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement LRU cache with O(1) ops"
+    },
+    {
+      "ts": 1713015001.0583782,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713015001.2583783,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713015012.767545,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 764
+    },
+    {
+      "ts": 1713015013.067545,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713015017.9509046,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 3,
+      "failed": 1,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713015018.1509047,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713015023.4086792,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "logic"
+    },
+    {
+      "ts": 1713015023.7086792,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713015027.3639336,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713015027.8639336,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713015031.0601242,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 9.2
+    },
+    {
+      "ts": 1713015031.2601242,
+      "event": "session_end",
+      "run_id": "run_084",
+      "passed": true,
+      "elapsed_sec": 119.17,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "run_id": "run_090",
+  "task_id": "HE_011_4",
+  "task": "Implement topological sort",
+  "pass_at_1": true,
+  "passed": true,
+  "k_used": 1,
+  "elapsed_sec": 93.06,
+  "events": [
+    {
+      "ts": 1713006522,
+      "event": "session_start",
+      "run_id": "run_090",
+      "task_id": "HE_011_4"
+    },
+    {
+      "ts": 1713006522.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement topological sort"
+    },
+    {
+      "ts": 1713006526.5219061,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713006526.7219062,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713006534.4429345,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 634
+    },
+    {
+      "ts": 1713006534.7429345,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713006538.6855812,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713006539.1855812,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713006542.4281325,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.6
+    },
+    {
+      "ts": 1713006542.6281326,
+      "event": "session_end",
+      "run_id": "run_090",
+      "passed": true,
+      "elapsed_sec": 93.06,
+      "k_iterations": 1,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

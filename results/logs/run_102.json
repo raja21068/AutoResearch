@@ -1,0 +1,108 @@
+{
+  "run_id": "run_102",
+  "task_id": "HE_003_5",
+  "task": "Generate all permutations of a string",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 39.47,
+  "events": [
+    {
+      "ts": 1713011104,
+      "event": "session_start",
+      "run_id": "run_102",
+      "task_id": "HE_003_5"
+    },
+    {
+      "ts": 1713011104.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Generate all permutations of a string"
+    },
+    {
+      "ts": 1713011107.4287457,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713011107.6287458,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713011116.3955388,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 536
+    },
+    {
+      "ts": 1713011116.6955388,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713011121.948278,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 8,
+      "passed": 1,
+      "failed": 7,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713011122.148278,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713011128.378402,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "index"
+    },
+    {
+      "ts": 1713011128.678402,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713011132.7123559,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713011133.2123559,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713011136.300149,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 7.5
+    },
+    {
+      "ts": 1713011136.500149,
+      "event": "session_end",
+      "run_id": "run_102",
+      "passed": true,
+      "elapsed_sec": 39.47,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "run_id": "run_019",
+  "task_id": "HE_020_0",
+  "task": "Implement consistent hashing",
+  "pass_at_1": false,
+  "passed": true,
+  "k_used": 2,
+  "elapsed_sec": 36.0,
+  "events": [
+    {
+      "ts": 1713070468,
+      "event": "session_start",
+      "run_id": "run_019",
+      "task_id": "HE_020_0"
+    },
+    {
+      "ts": 1713070468.5,
+      "event": "agent_start",
+      "agent": "planner",
+      "task": "Implement consistent hashing"
+    },
+    {
+      "ts": 1713070471.139463,
+      "event": "agent_done",
+      "agent": "planner",
+      "mode": "coding"
+    },
+    {
+      "ts": 1713070471.339463,
+      "event": "agent_start",
+      "agent": "coder"
+    },
+    {
+      "ts": 1713070478.9914672,
+      "event": "agent_done",
+      "agent": "coder",
+      "tokens": 557
+    },
+    {
+      "ts": 1713070479.2914672,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 1
+    },
+    {
+      "ts": 1713070484.814924,
+      "event": "test_result",
+      "iteration": 1,
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "verdict": "FAIL"
+    },
+    {
+      "ts": 1713070485.014924,
+      "event": "agent_start",
+      "agent": "debugger",
+      "iteration": 1
+    },
+    {
+      "ts": 1713070489.439861,
+      "event": "agent_done",
+      "agent": "debugger",
+      "fix_type": "index"
+    },
+    {
+      "ts": 1713070489.739861,
+      "event": "agent_start",
+      "agent": "tester",
+      "iteration": 2
+    },
+    {
+      "ts": 1713070495.0748408,
+      "event": "test_result",
+      "iteration": 2,
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    {
+      "ts": 1713070495.5748408,
+      "event": "agent_start",
+      "agent": "critic"
+    },
+    {
+      "ts": 1713070498.4823923,
+      "event": "review",
+      "verdict": "PASS",
+      "score": 10.0
+    },
+    {
+      "ts": 1713070498.6823924,
+      "event": "session_end",
+      "run_id": "run_019",
+      "passed": true,
+      "elapsed_sec": 36.0,
+      "k_iterations": 2,
+      "agents_used": [
+        "planner",
+        "coder",
+        "tester",
+        "debugger",
+        "critic"
+      ]
+    }
+  ]
+}

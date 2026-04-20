@@ -1,0 +1,22 @@
+{
+  "evaluators": [
+    "E1",
+    "E2",
+    "E3"
+  ],
+  "krippendorff_alpha": 0.738,
+  "cohens_kappa_pairwise": {
+    "E1_E2": 0.816,
+    "E1_E3": 0.783,
+    "E2_E3": 0.797
+  },
+  "avg_std_per_criterion": {
+    "code_correctness": 0.89,
+    "code_readability": 0.88,
+    "test_coverage": 0.8,
+    "research_depth": 0.58,
+    "paper_clarity": 0.8,
+    "overall_quality": 0.41
+  },
+  "n_annotations": 120
+}
