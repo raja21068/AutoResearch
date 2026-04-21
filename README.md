@@ -34,7 +34,7 @@ The framework combines:
 ### System Architecture
 
 ![System Architecture](assets/images/final-main.png)
-
+![System Architecture 1](assets/images/final-main1.png)
 ### Detailed Pipeline View
 
 ![Detailed Pipeline](assets/images/final.png)
