@@ -20,6 +20,10 @@ The framework combines:
 - **memory and meta-learning** for cross-run improvement.
 
 ---
+# AutoResearch
+
+🎥 Demo Video: [Watch on YouTube](https://youtu.be/0NrF5dtS3KI)
+
 
 ## Visual Overview
 
