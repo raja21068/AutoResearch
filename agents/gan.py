@@ -118,7 +118,8 @@ class GANHarness:
                 m = re.search(r'"overall"\s*:\s*([0-9]+\.?[0-9]*)', eval_output)
                 if m:
                     iteration.score = float(m.group(1))
-            except Exception:
+            except Exception as e:
+                logger.warning("GAN score parsing failed: %s", e)
                 iteration.score = 0.0
 
             iteration.passed = iteration.score >= self.pass_threshold

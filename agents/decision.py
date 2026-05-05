@@ -14,11 +14,14 @@ class DecisionEngine:
 
     async def decide(self, context, stage=""):
         raw = await llm(f"Stage: {stage}\nContext:\n{context[:4000]}\nDecide.", system=self.SYSTEM, agent="critic")
+        if not raw.strip():
+            logger.warning("DecisionEngine received empty LLM response — defaulting to REFINE")
+            return {"type": DecisionType.REFINE.value, "reasoning": "LLM returned empty", "confidence": 0.0}
         m = re.search(r'"type"\s*:\s*"(\w+)"', raw)
         dtype = DecisionType(m.group(1).lower()) if m else DecisionType.REFINE
         c = re.search(r'"confidence"\s*:\s*([0-9.]+)', raw)
         conf = float(c.group(1)) if c else 0.5
-        return {"type": dtype.value, "reasoning": raw[:400], "confidence": conf}
+        return {"type": dtype.value, "reasoning": raw[:2000], "confidence": conf}
 
 class DecisionService:
     def __init__(self): self.engine = DecisionEngine(); self.history = []

@@ -131,13 +131,13 @@ def _execute_search_strategy(
                 {
                     "name": "keyword_core",
                     "queries": _fallback_queries[:5],
-                    "sources": ["arxiv", "semantic_scholar", "openreview"],
+                    "sources": ["openalex", "arxiv"],
                     "max_results_per_query": 60,
                 },
                 {
                     "name": "backward_forward_citation",
                     "queries": _fallback_queries[5:10] or _fallback_queries[:3],
-                    "sources": ["semantic_scholar", "google_scholar"],
+                    "sources": ["openalex", "arxiv"],
                     "depth": 1,
                 },
             ],
@@ -160,10 +160,10 @@ def _execute_search_strategy(
                 "verified_at": _utcnow_iso(),
             },
             {
-                "id": "semantic_scholar",
-                "name": "Semantic Scholar",
+                "id": "openalex",
+                "name": "OpenAlex",
                 "type": "api",
-                "url": "https://api.semanticscholar.org/graph/v1/paper/search",
+                "url": "https://api.openalex.org/works",
                 "status": "available",
                 "query": topic,
                 "verified_at": _utcnow_iso(),
@@ -502,7 +502,7 @@ def _execute_literature_collect(
             {
                 "id": f"candidate-{idx + 1}",
                 "title": f"[Placeholder] Study {idx + 1} on {topic}",
-                "source": "arxiv" if idx % 2 == 0 else "semantic_scholar",
+                "source": "arxiv" if idx % 2 == 0 else "openalex",
                 "url": f"https://example.org/{_safe_filename(topic.lower())}/{idx + 1}",
                 "year": 2024,
                 "abstract": f"This candidate investigates {topic} and reports preliminary findings.",

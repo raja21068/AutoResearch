@@ -19,9 +19,14 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import sys
 import time
 from dataclasses import dataclass, field
 from typing import Any
+
+# Windows asyncio fix
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from research.web.crawler import CrawlResult, WebCrawler
 from research.web.pdf_extractor import PDFContent, PDFExtractor

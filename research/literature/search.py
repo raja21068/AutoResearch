@@ -31,9 +31,16 @@ from research.literature.semantic_scholar import search_semantic_scholar
 
 logger = logging.getLogger(__name__)
 
-# OpenAlex first (10K/day), then S2 (1K/5min), then arXiv (1/3s) — least
-# pressure on the most restrictive API.
-_DEFAULT_SOURCES = ("openalex", "semantic_scholar", "arxiv")
+# Default sources: OpenAlex (10K/day, no key), arXiv (1/3s, no key).
+# Semantic Scholar is only included if S2_API_KEY is set — unauthenticated
+# S2 requests are heavily rate-limited and frequently fail, blocking the
+# pipeline.  See Diagnostic Report §6 "Semantic Scholar API Dependency".
+import os as _os
+_DEFAULT_SOURCES: tuple[str, ...] = (
+    ("openalex", "semantic_scholar", "arxiv")
+    if _os.getenv("S2_API_KEY") or _os.getenv("SEMANTIC_SCHOLAR_API_KEY")
+    else ("openalex", "arxiv")
+)
 
 
 CacheGet = Callable[[str, str, int], list[dict[str, object]] | None]
@@ -41,7 +48,10 @@ CachePut = Callable[[str, str, int, list[dict[str, object]]], None]
 
 
 def _cache_api() -> tuple[CacheGet, CachePut]:
-    cache_mod = importlib.import_module("researchclaw.literature.cache")
+    try:
+        cache_mod = importlib.import_module("research.literature.cache")
+    except ImportError:
+        cache_mod = importlib.import_module("researchclaw.literature.cache")
     return cast(CacheGet, cache_mod.get_cached), cast(CachePut, cache_mod.put_cache)
 
 

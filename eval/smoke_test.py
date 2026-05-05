@@ -10,8 +10,13 @@ Usage:
 
 import asyncio
 import logging
+import sys
 
-from services.orchestrator import Orchestrator
+# Windows asyncio fix — prevents 'Event loop is closed' errors
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+from orchestrator import Orchestrator
 
 logging.basicConfig(level=logging.INFO)
 

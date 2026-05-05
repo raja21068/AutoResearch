@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /Users/apple/Desktop/AutoResearch-main/**/*.py)",
+      "Bash(python3:*)",
+      "Bash(ls -la /Users/apple/Desktop/AutoResearch-main/.env*)",
+      "Bash(grep -h \"agent=\" /Users/apple/Desktop/AutoResearch-main/agents/*.py)",
+      "Bash(grep -n \"await llm\\(\" /Users/apple/Desktop/AutoResearch-main/agents/*.py)",
+      "Bash(find /Users/apple/Desktop/AutoResearch-main -name \"*.py\" -type f -exec grep -l \"model.*gpt-4o\\\\|model.*claude\\\\|DEFAULT.*MODEL\" {} \\\\;)",
+      "Bash(python:*)",
+      "Bash(grep -v \"^$\")",
+      "Bash(find:*)"
+    ]
+  }
+}

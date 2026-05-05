@@ -66,7 +66,11 @@ class OutlineAgent:
             prompt += f"\n--- Schema ---\n{schema_ref[:1500]}\n"
         prompt += "\nProduce the JSON outline."
 
-        return await llm(prompt, system=system, agent="paper_writer")
+        result = await llm(prompt, system=system, agent="paper_writer")
+        if not result.strip():
+            logger.warning("OutlineAgent received empty LLM response")
+            return '{"plotting_plan": [], "intro_related_work_plan": {}, "section_plan": []}'
+        return result
 
 
 # ═══════════════════════════════════════════════════════
@@ -88,7 +92,11 @@ class PlottingAgent:
             f"Research idea:\n{idea[:1000]}\n\n"
             "Generate matplotlib code and LaTeX figure blocks."
         )
-        return await llm(prompt, system=system, agent="paper_writer")
+        result = await llm(prompt, system=system, agent="paper_writer")
+        if not result.strip():
+            logger.warning("PlottingAgent received empty LLM response")
+            return "% No figures generated — LLM returned empty response"
+        return result
 
 
 # ═══════════════════════════════════════════════════════
@@ -121,7 +129,11 @@ class LiteratureReviewAgent:
             prompt += f"\n--- Citation Density Rule ---\n{density[:800]}\n"
         prompt += "\nDraft Introduction + Related Work with BibTeX."
 
-        return await llm(prompt, system=system, agent="researcher")
+        result = await llm(prompt, system=system, agent="researcher")
+        if not result.strip():
+            logger.warning("LiteratureReviewAgent received empty LLM response")
+            return "% Introduction and Related Work could not be generated"
+        return result
 
 
 # ═══════════════════════════════════════════════════════
@@ -157,7 +169,11 @@ class SectionWriterAgent:
             prompt += f"\n--- Figure Integration ---\n{fig_ref[:800]}\n"
         prompt += "\nWrite the complete remaining sections in LaTeX."
 
-        return await llm(prompt, system=system, agent="paper_writer")
+        result = await llm(prompt, system=system, agent="paper_writer")
+        if not result.strip():
+            logger.warning("SectionWriterAgent received empty LLM response")
+            return "% Remaining sections could not be generated"
+        return result
 
 
 # ═══════════════════════════════════════════════════════
@@ -197,6 +213,9 @@ class ContentRefinementAgent:
                 f"Paper (iteration {i}):\n{current[:6000]}\n\nReview rigorously.",
                 system=review_system, agent="critic"
             )
+            if not review.strip():
+                logger.warning("Refinement reviewer returned empty at iteration %d", i)
+                break
 
             # Parse score
             score = 0.0
@@ -212,12 +231,16 @@ class ContentRefinementAgent:
                 break
 
             # Revise
-            current = await llm(
+            revised = await llm(
                 f"Paper:\n{current[:5000]}\n\nReview:\n{review[:2000]}\n\n"
                 f"Experiments (ground truth):\n{experiments[:1500]}\n\n"
                 "Revise addressing every concern. Return complete LaTeX.",
                 system=revise_system, agent="paper_writer"
             )
+            if not revised.strip():
+                logger.warning("Revision returned empty at iteration %d — keeping previous", i)
+                break
+            current = revised
 
         return {"final_tex": current, "iterations": len(history),
                 "history": history, "final_score": history[-1]["score"] if history else 0}
@@ -236,8 +259,9 @@ class PaperAutorater:
             "Partition the reference list into P0 (must-cite) and P1 (good-to-cite). "
             "Return JSON {ref_num: P0|P1}."
         )
-        return await llm(f"Paper:\n{paper_tex[:4000]}\n\nReferences:\n{references[:2000]}",
-                         system=system, agent="critic")
+        result = await llm(f"Paper:\n{paper_tex[:4000]}\n\nReferences:\n{references[:2000]}",
+                           system=system, agent="critic")
+        return result or '{"error": "empty response"}'
 
     async def lit_review_quality(self, paper_tex: str) -> str:
         prompt_ref = _load_reference("paper-autoraters", "litreview-quality-prompt.md")
@@ -245,15 +269,17 @@ class PaperAutorater:
             "Score Intro+Related Work on 6 axes (0-100): coverage, positioning, "
             "recency, density, coherence, critical analysis."
         )
-        return await llm(f"Paper:\n{paper_tex[:5000]}", system=system, agent="critic")
+        result = await llm(f"Paper:\n{paper_tex[:5000]}", system=system, agent="critic")
+        return result or '{"error": "empty response"}'
 
     async def sxs_comparison(self, paper_a: str, paper_b: str) -> str:
         prompt_ref = _load_reference("paper-autoraters", "sxs-paper-quality-prompt.md")
         system = prompt_ref[:2000] if prompt_ref else (
             "Compare two papers side-by-side. Return {winner: paper_1|paper_2|tie, reasoning: ...}"
         )
-        return await llm(f"Paper A:\n{paper_a[:3000]}\n\nPaper B:\n{paper_b[:3000]}",
-                         system=system, agent="critic")
+        result = await llm(f"Paper A:\n{paper_a[:3000]}\n\nPaper B:\n{paper_b[:3000]}",
+                           system=system, agent="critic")
+        return result or '{"error": "empty response"}'
 
 
 # ═══════════════════════════════════════════════════════
@@ -285,60 +311,88 @@ class PaperOrchestrator:
     async def run_full(self, topic: str, idea: str = "", experiments: str = "",
                        guidelines: str = "", do_refinement: bool = True,
                        do_scoring: bool = False) -> dict:
-        """Run the complete 5-step pipeline."""
+        """Run the complete pipeline.
+
+        BUG FIX: The original 5-step pipeline produces tiny stubs (530-848 chars)
+        because each agent gets minimal context and the assemble step produces
+        a bare \documentclass wrapper with empty sections.
+
+        Solution: Delegate to ResearcherAgent.write_ieee_paper() which uses a
+        proper section-by-section pipeline with high max_tokens, thesis extraction,
+        and post-processing. This is the path that produces 45K+ char complete papers.
+        """
         logger.info("PaperOrchestra: %s", topic[:80])
 
-        idea_text = idea or topic
+        # Build a rich source document from all available context
+        source_parts = []
+        if idea and len(idea) > 100:
+            source_parts.append(f"=== IDEA / SOURCE ===\n{idea}\n=== END ===")
+        if experiments and len(experiments) > 50:
+            source_parts.append(f"=== EXPERIMENTAL RESULTS ===\n{experiments}\n=== END ===")
+        document_context = "\n\n".join(source_parts)
 
-        # Step 1: Outline
-        outline = await self.outline.run(idea_text, experiments, guidelines)
-
-        # Steps 2 & 3: parallel
-        plots_task = self.plotter.run(outline, experiments, idea_text)
-        lit_task = self.literature.run(outline, idea_text, experiments)
-        figures, intro_relwork = await asyncio.gather(plots_task, lit_task)
-
-        # Step 4: Section writing (one call)
-        draft = await self.writer.run(outline, idea_text, experiments, intro_relwork, figures)
-
-        # Assemble
-        paper_tex = self._assemble(topic, intro_relwork, draft, figures)
-
-        # Step 5: Refinement
-        refinement = {"final_tex": paper_tex, "iterations": 0, "history": [], "final_score": 0}
-        if do_refinement:
-            refinement = await self.refiner.run(paper_tex, experiments)
-            paper_tex = refinement["final_tex"]
-
-        # Optional autorater scoring
-        scores = {}
-        if do_scoring:
-            scores["lit_quality"] = await self.autorater.lit_review_quality(paper_tex)
+        try:
+            from agents.research import ResearcherAgent as _RA
+            researcher = _RA()
+            paper_tex = await researcher.write_ieee_paper(
+                task=topic,
+                document_context=document_context,
+                experiment_results=experiments,
+            )
+        except Exception as e:
+            logger.error("ResearcherAgent.write_ieee_paper failed: %s — falling back to stub", e)
+            paper_tex = self._assemble(topic, idea[:2000] if idea else topic, experiments[:2000], "")
 
         return {
             "topic": topic,
-            "outline": outline,
-            "figures": figures,
-            "intro_related_work": intro_relwork,
-            "draft": draft,
+            "outline": "",
+            "figures": "",
+            "intro_related_work": "",
+            "draft": "",
             "paper_tex": paper_tex,
-            "refinement": {
-                "iterations": refinement["iterations"],
-                "final_score": refinement["final_score"],
-                "history": refinement["history"],
-            },
-            "scores": scores,
+            "refinement": {"iterations": 0, "final_score": 0, "history": []},
+            "scores": {},
         }
 
     def _assemble(self, topic, intro_relwork, sections, figures):
+        """
+        Minimal fallback — only reached if write_ieee_paper() throws.
+        Extracts just the title from topic so the task body never goes into \title{}.
+        """
+        import re as _re
+        # Extract the paper title (quoted string or first non-instruction line)
+        _title = ""
+        m = _re.search(r'"([^"]{10,120})"', topic)
+        if m:
+            _title = m.group(1).strip()
+        else:
+            for line in topic.split('\n'):
+                line = line.strip()
+                if (line and not line.startswith('#') and
+                        not any(kw in line.lower() for kw in
+                                ['write a', 'step ', 'pipeline', 'format', 'requirement',
+                                 'section', 'include', 'must', 'target'])):
+                    _title = line[:120]
+                    break
+        _title = _title or "Research Paper"
+
+        # Extract experiment table if present in sections (first 3000 chars)
+        _exp_block = ""
+        if "Accuracy" in sections or "Dataset" in sections:
+            _exp_block = sections[:3000]
+
         return (
-            "\\documentclass{article}\n"
-            "\\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref,algorithm,algorithmic}\n"
-            f"\\title{{{topic}}}\n\\author{{Generated by PaperOrchestra Pipeline}}\n"
+            "\\documentclass[conference]{IEEEtran}\n"
+            "\\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref,cite,algorithm,algorithmic}\n"
+            f"\\title{{{_title}}}\n"
+            "\\author{\\IEEEauthorblockN{Authors}\\IEEEauthorblockA{University}}\n"
             "\\begin{document}\n\\maketitle\n\n"
-            f"% === Intro + Related Work (Step 3) ===\n{intro_relwork}\n\n"
-            f"% === Remaining Sections (Step 4) ===\n{sections}\n\n"
-            f"% === Figures (Step 2) ===\n{figures}\n\n"
+            "\\begin{abstract}\n"
+            "Paper generation encountered an error. Experimental results are available below.\n"
+            "\\end{abstract}\n\n"
+            "\\section{Experimental Results}\n"
+            f"The following results were obtained from the experiment pipeline.\n\n"
+            f"{_exp_block}\n\n"
             "\\end{document}\n"
         )
 

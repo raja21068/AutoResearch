@@ -1,0 +1,21 @@
+{
+  "run_id": "run_1777271594",
+  "task": "Write a complete IEEE-style research paper based on a literature study.\n\nTitle: \"A Comprehensive Literature Review of Emerging Large Language Models\"\n\nAuthor Information:\nZain Ul Abidin\nzainulabdin9952gmail.com\nDepartment of Computer Systems Engineering\nSukkur IBA University, Sukkur, Pakistan\n\nREQUIREMENTS:\n\n* This is a pure literature review paper on recent and emerging large language models.\n* Do NOT run any code. Do NOT include experiments or generated results.\n* Base the paper entirely on existing research studies, published papers, and surveys.\n* Provide a comprehensive and critical analysis of the evolution, architectures, and capabilities of modern large language models.\n\nFORMAT:\n\n* Write in single-column IEEE-style research paper format.\n* Follow strict IEEE structure with these sections:\n  Abstract, Keywords, I. Introduction, II. Related Work,\n  III. Overview of Large Language Models,\n  IV. Comparative Analysis,\n  V. Challenges and Limitations,\n  VI. Future Directions,\n  VII. Conclusion, References\n\nCONTENT REQUIREMENTS:\n\n* Each section must be fully written with a minimum of 2 to 3 detailed paragraphs.\n* Introduction and Related Work must contain at least 4 well-developed paragraphs each.\n* Include discussion of major models such as transformer-based architectures, scaling laws, and training paradigms.\n* Cover well-known LLM families and advancements in architecture, efficiency, and multimodality.\n* Provide critical comparison across models in terms of performance, efficiency, and applicability.\n* Include discussion on ethical concerns, bias, computational cost, and deployment challenges.\n\nTABLES AND FIGURES:\n\n* Include comparison tables summarizing different LLMs, their architectures, parameters, and key features.\n* Include conceptual diagrams of transformer architecture and LLM pipelines where appropriate.\n* Reference all figures properly in IEEE format such as Fig. 1, Fig. 2.\n* Provide clear and professional captions for every figure and table.\n\nWRITING STYLE:\n\n* Do not use em dashes anywhere.\n* Do not use bullet points inside section text. Write everything in formal paragraph form.\n* Maintain academic tone, clarity, and technical depth.\n* Avoid repetition and ensure logical flow across sections.\n\nREFERENCES:\n\n* Use IEEE citation style [1], [2], [3].\n* Include at least 30 to 40 high-quality and recent references.\n* Ensure no duplicate references.\n\nOUTPUT QUALITY:\n\n* Target length must be approximately 15 pages in single-column format.\n* The paper must be comprehensive, well-structured, and publication-ready.\n* Ensure strong critical analysis rather than simple description of models.",
+  "passed": true,
+  "elapsed_sec": 221.52,
+  "steps": 3,
+  "files_saved": [
+    "output\\run_1777271594\\paper\\paper.tex",
+    "output\\run_1777271594\\knowledge\\insights.md"
+  ],
+  "outputs": {
+    "code": [],
+    "experiments": [],
+    "paper": [
+      "output\\run_1777271594\\paper\\paper.tex"
+    ],
+    "knowledge": [
+      "output\\run_1777271594\\knowledge\\insights.md"
+    ]
+  }
+}

@@ -9,8 +9,12 @@ from typing import Any
 import sys
 import yaml
 
+import os as _os
+
 DEFAULT_PYTHON_PATH = (
-    ".venv/Scripts/python.exe" if sys.platform == "win32" else ".venv/bin/python3"
+    _os.getenv("CONDA_PYTHON_PATH")
+    or _os.getenv("SANDBOX_PYTHON")
+    or (".venv/Scripts/python.exe" if sys.platform == "win32" else ".venv/bin/python3")
 )
 
 CONFIG_SEARCH_ORDER: tuple[str, ...] = ("config.arc.yaml", "config.yaml")

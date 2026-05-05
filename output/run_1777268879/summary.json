@@ -1,0 +1,29 @@
+{
+  "run_id": "run_1777268879",
+  "task": "Write a complete IEEE conference paper (double-column) on:\n\n\"Comparison of BERT, RoBERTa, and DistilBERT on Sentiment Analysis Datasets: Accuracy vs Speed Trade-off\"\n\nPIPELINE:\nStep 1 \u2014 Run experiments first using synthetic data only (no pretrained model downloads):\n- Implement IMDB, SST-2, Twitter sentiment datasets (60 samples each, vocab=1000, max_len=20)\n- Fine-tune and evaluate BERT-base, RoBERTa-base, DistilBERT-base on each dataset\n- Measure accuracy, precision, recall, F1-score, and inference time in milliseconds\n- Save results in a structured table\n\nStep 2 \u2014 Write the paper using ONLY those results. Do NOT fabricate any numbers.\n\nSECTION REQUIREMENTS:\n- Introduction must be at least 600 words\n- Related Work must be at least 700 words with minimum 20 citations\n- Methodology must be at least 500 words including algorithm pseudocode\n- Experimental Setup must be at least 450 words\n- Results and Discussion must be at least 800 words with comparison tables and accuracy-vs-speed figures\n- Conclusion must be at least 300 words\n\nFORMATTING: No em dashes. No bullet points inside section text. Paragraph form only.\nREFERENCES: IEEE style [1],[2],[3]. Include at least 30 unique references in ascending order.\nTARGET: 8-10 IEEE pages, publication-ready quality.",
+  "passed": false,
+  "elapsed_sec": 343.37,
+  "steps": 5,
+  "files_saved": [
+    "output\\run_1777268879\\paper\\paper.tex",
+    "output\\run_1777268879\\code\\main.py",
+    "output\\run_1777268879\\experiments\\exp_1.md",
+    "output\\run_1777268879\\experiments\\experiment_results.md",
+    "output\\run_1777268879\\knowledge\\insights.md"
+  ],
+  "outputs": {
+    "code": [
+      "output\\run_1777268879\\code\\main.py"
+    ],
+    "experiments": [
+      "output\\run_1777268879\\experiments\\exp_1.md",
+      "output\\run_1777268879\\experiments\\experiment_results.md"
+    ],
+    "paper": [
+      "output\\run_1777268879\\paper\\paper.tex"
+    ],
+    "knowledge": [
+      "output\\run_1777268879\\knowledge\\insights.md"
+    ]
+  }
+}

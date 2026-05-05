@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import asyncio
 import hashlib
 import shutil
 import subprocess
@@ -11,6 +12,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from collections.abc import Mapping
 from typing import cast
+
+# Windows asyncio fix — prevents 'Event loop is closed' / SSL transport errors
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from research.adapters import AdapterBundle
 from research.config import (

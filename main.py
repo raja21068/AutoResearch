@@ -4,8 +4,17 @@ main.py — NexusAI entry point. App + all routes in one file.
 Run: python main.py → http://localhost:8000
 """
 
-import json, logging, os
+import json, logging, os, sys
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
+
+# ── Windows asyncio fix ───────────────────────────────────
+# Prevents 'RuntimeError: Event loop is closed' and SSL transport
+# errors on Windows Python 3.10+ with the Proactor event loop.
+if sys.platform == "win32":
+    import asyncio
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from fastapi import FastAPI, File, Form, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware

@@ -28,10 +28,14 @@ class CitationVerifier:
             f"Verify these references:\n{bibtex_or_refs[:5000]}\n\nReturn JSON.",
             system=self.SYSTEM, agent="critic"
         )
+        if not raw.strip():
+            logger.warning("CitationVerifier received empty LLM response")
+            return {"error": "LLM returned empty response"}
         try:
             m = re.search(r'\{.*\}', raw, re.DOTALL)
             return json.loads(m.group()) if m else {"raw": raw[:500]}
-        except Exception:
+        except Exception as e:
+            logger.warning("CitationVerifier JSON parse failed: %s", e)
             return {"raw": raw[:500]}
 
     def check_bibtex_format(self, bibtex: str) -> list[str]:
@@ -70,10 +74,14 @@ class EvidenceAligner:
             "Check alignment. Return JSON.",
             system=self.SYSTEM, agent="critic"
         )
+        if not raw.strip():
+            logger.warning("EvidenceAligner received empty LLM response")
+            return {"aligned": None, "error": "LLM returned empty response"}
         try:
             m = re.search(r'\{.*\}', raw, re.DOTALL)
             return json.loads(m.group()) if m else {"aligned": None, "raw": raw[:500]}
-        except Exception:
+        except Exception as e:
+            logger.warning("EvidenceAligner JSON parse failed: %s", e)
             return {"aligned": None, "raw": raw[:500]}
 
 
@@ -94,10 +102,14 @@ class ConsistencyChecker:
             f"Check this paper for internal consistency:\n{paper_tex[:6000]}\n\nReturn JSON.",
             system=self.SYSTEM, agent="critic"
         )
+        if not raw.strip():
+            logger.warning("ConsistencyChecker received empty LLM response")
+            return {"consistent": None, "error": "LLM returned empty response"}
         try:
             m = re.search(r'\{.*\}', raw, re.DOTALL)
             return json.loads(m.group()) if m else {"consistent": None, "raw": raw[:500]}
-        except Exception:
+        except Exception as e:
+            logger.warning("ConsistencyChecker JSON parse failed: %s", e)
             return {"consistent": None, "raw": raw[:500]}
 
 
@@ -162,7 +174,6 @@ class VerificationEngine:
                 issues.append(f"\\ref{{{ref}}} references undefined figure")
 
         # Check for common LaTeX errors
-        # Check matched environments (including starred variants)
         for env in ['figure', 'figure*', 'table', 'table*', 'equation', 'equation*', 'align', 'align*']:
             escaped = env.replace('*', r'\*')
             opens = len(re.findall(r'\\begin\{' + escaped + r'\}', paper_tex))

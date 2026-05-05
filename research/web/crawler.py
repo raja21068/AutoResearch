@@ -16,10 +16,15 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
+import sys
 import time
 from dataclasses import dataclass, field
 from typing import Any
 from urllib.request import Request, urlopen
+
+# Windows asyncio fix
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from research.web._ssrf import check_url_ssrf
 

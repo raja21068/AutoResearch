@@ -21,7 +21,12 @@ import argparse
 import asyncio
 import json
 import logging
+import sys
 from pathlib import Path
+
+# Windows asyncio fix
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from datasets import load_dataset
 

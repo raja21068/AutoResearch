@@ -1,0 +1,759 @@
+"""
+agents/research.py — Research, Experiment, and PaperWriter agents.
+
+FIXED VERSION:
+  - SectionWriter is now TOPIC-ADAPTIVE: no hardcoded NLP/domain instructions.
+    The LLM infers the correct domain from the source material.
+  - _assemble() generates keywords dynamically from the paper title/source.
+  - Author info is extracted from the task prompt and document context.
+  - Paper format (single/double column, conference/journal) is parsed from task.
+  - PaperPostProcessor cleans em-dashes and deduplicates bibitems.
+  - ThesisExtractor handles long documents by chunking and merging.
+"""
+
+from __future__ import annotations
+
+import asyncio
+import logging
+import re
+from dataclasses import dataclass, field
+from typing import Optional
+
+from llm import llm
+
+logger = logging.getLogger(__name__)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Intent routing
+# ─────────────────────────────────────────────────────────────────────────────
+
+def classify_task(task: str, document_context: str = "", ui_mode: str = "auto") -> str:
+    try:
+        from agents.intent import classify_task as _classify
+        return _classify(task, document_context, ui_mode)
+    except ImportError:
+        t = task.lower()
+        paper_kw = ["write a paper", "ieee paper", "ieee-style", "research paper",
+                    "convert thesis", "transform thesis"]
+        exp_kw   = ["authentic results", "run the preprocessing", "first run",
+                    "run code", "do not fabricate", "obtain results"]
+        wants_paper = any(kw in t for kw in paper_kw)
+        needs_exp   = any(kw in t for kw in exp_kw)
+        if wants_paper and needs_exp:
+            return "experiment_then_paper"
+        if wants_paper:
+            return "paper"
+        return "coding"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Paper requirements extracted from the user task prompt
+# ─────────────────────────────────────────────────────────────────────────────
+
+@dataclass
+class PaperRequirements:
+    title: str = ""
+    authors: str = ""
+    affiliation: str = ""
+    email: str = ""
+    format: str = "ieee_conference"    # ieee_conference | ieee_journal | acm | arxiv
+    columns: int = 2
+    target_pages: str = "8-10"
+    extra_instructions: str = ""
+    keywords: str = ""
+
+
+def parse_paper_requirements(task: str) -> PaperRequirements:
+    req = PaperRequirements()
+    t = task
+
+    # Title
+    m = re.search(r'[Tt]itle[:\s]+["\']?([^\n"\']{10,160})["\']?', t)
+    if m:
+        req.title = m.group(1).strip()
+    else:
+        m2 = re.search(r'"([^"]{10,160})"', t)
+        if m2:
+            req.title = m2.group(1).strip()
+
+    # Authors
+    m = re.search(r'[Aa]uthor[s]?[:\s]+([^\n]{5,120})', t)
+    if m:
+        req.authors = m.group(1).strip()
+
+    # Affiliation
+    m = re.search(r'[Aa]ffiliation[:\s]+([^\n]{5,100})', t)
+    if m:
+        req.affiliation = m.group(1).strip()
+    else:
+        m2 = re.search(r'(Sukkur IBA|University[^,\n]{0,60}|Institute[^,\n]{0,60})', t)
+        if m2:
+            req.affiliation = m2.group(1).strip()
+
+    # Email
+    m = re.search(r'[\w.+-]+@[\w.-]+\.\w+', t)
+    if m:
+        req.email = m.group(0)
+
+    # Format
+    t_lower = t.lower()
+    if "single column" in t_lower or "single-column" in t_lower or "journal" in t_lower:
+        req.columns = 1
+        req.format = "ieee_journal"
+    elif "double column" in t_lower or "two column" in t_lower or "conference" in t_lower:
+        req.columns = 2
+        req.format = "ieee_conference"
+    if "acm" in t_lower:
+        req.format = "acm"
+    elif "arxiv" in t_lower or "preprint" in t_lower:
+        req.format = "arxiv"
+
+    # Pages
+    m = re.search(r'(\d+)\s*(?:to|-)\s*(\d+)\s*(?:IEEE\s*)?pages?', t, re.I)
+    if m:
+        req.target_pages = f"{m.group(1)}-{m.group(2)}"
+
+    # Keywords
+    m = re.search(r'[Kk]eywords?[:\s]+([^\n]{5,200})', t)
+    if m:
+        req.keywords = m.group(1).strip().rstrip('.')
+
+    return req
+
+
+def _make_docclass(req: PaperRequirements) -> str:
+    if req.format == "ieee_journal":
+        return "\\documentclass[journal]{IEEEtran}"
+    elif req.format == "acm":
+        return "\\documentclass[acmconf,review=false]{acmart}"
+    elif req.format == "arxiv":
+        return "\\documentclass[12pt]{article}"
+    else:
+        return "\\documentclass[conference]{IEEEtran}"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Shared IEEE writing rules
+# ─────────────────────────────────────────────────────────────────────────────
+
+_IEEE_BASE_RULES = """
+ABSOLUTE WRITING RULES:
+1. NO em dashes (--). Use a comma or rewrite.
+2. NO bullet points in section text. Write paragraphs.
+3. NO invented numbers. Only facts from source material.
+4. NO placeholders like [TBD] or [insert here].
+5. IEEE citation style: [1],[2] inline; \\bibitem at end.
+6. No duplicate \\bibitem keys.
+7. Booktabs tables: \\toprule / \\midrule / \\bottomrule.
+8. Write about the ACTUAL domain in the source. Do NOT default to NLP/transformers unless source is about that.
+
+ANTI-AI HUMANIZATION RULES (strictly enforced):
+9. VARY sentence length aggressively. Mix short punchy sentences (8-12 words) with longer analytical ones (25-35 words). Never write 4+ sentences of similar length in a row.
+10. AVOID these overused AI phrases entirely: "In this paper, we", "It is worth noting", "Furthermore,", "Moreover,", "In conclusion,", "This paper presents", "state-of-the-art", "leverages", "showcases", "robust", "seamlessly", "groundbreaking", "comprehensive framework".
+11. USE precise, domain-specific vocabulary from the source material. Prefer concrete technical terms over generic adjectives.
+12. VARY paragraph openers. Never start two consecutive paragraphs with the same word or phrase structure.
+13. ACTIVE VOICE preferred. Avoid passive constructions like "it was found that" or "it can be seen that".
+14. Include specific numbers and measurements in every analytical paragraph. Numbers make writing concrete and less AI-like.
+15. Occasionally use direct, assertive statements: "The results are clear." or "This matters because..."
+16. Connect ideas with precise transitional logic: "This explains why...", "The implication is...", "This raises a question:..."
+"""
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Thesis content extractor
+# ─────────────────────────────────────────────────────────────────────────────
+
+class ThesisExtractor:
+    SYSTEM = (
+        "You are a research content analyst. Extract ALL key information from thesis text.\n\n"
+        "MANDATORY extractions:\n"
+        "1. TABLES: Copy every table verbatim with ALL exact numerical values. Label each table clearly.\n"
+        "2. ALGORITHMS/PSEUDOCODE: Copy all algorithm descriptions, pseudocode, and procedural steps.\n"
+        "3. FIGURES: Note every figure number, caption, and what it shows (axes, curves, key points).\n"
+        "4. EQUATIONS: Copy all mathematical equations exactly using LaTeX notation.\n"
+        "5. METRICS: List every reported number: accuracy, precision, recall, F1, MAE, RMSE, mAP, Dice, etc.\n"
+        "6. MODELS/METHODS: List all architectures, hyperparameters, datasets, hardware specs.\n"
+        "7. CONTRIBUTIONS: List the paper's stated contributions exactly.\n"
+        "8. REFERENCES: List all cited papers with author names, titles, years.\n\n"
+        "FORMAT: Use headers like ## TABLES, ## ALGORITHMS, ## FIGURES, ## EQUATIONS, ## METRICS.\n"
+        "Copy numbers EXACTLY. Do not invent. Do not summarize tables — copy them fully."
+    )
+
+    async def extract(self, document_text: str, topic: str = "") -> str:
+        chunks = self._chunk(document_text)
+        extractions = []
+        for i, chunk in enumerate(chunks):
+            result = await llm(
+                f"Thesis topic: {topic}\n\nChunk {i+1}/{len(chunks)}:\n{chunk}\n\n"
+                "Extract ALL tables (with full numbers), algorithms, figures, equations, "
+                "and metrics from this chunk. Use the structured format described.",
+                system=self.SYSTEM, agent="researcher", max_tokens=8192,
+            )
+            if result.strip():
+                extractions.append(result)
+
+        if not extractions:
+            return ""
+        if len(extractions) == 1:
+            return extractions[0]
+
+        merged = await llm(
+            "Merge these extractions into ONE structured document. "
+            "Preserve ALL tables with exact numbers, ALL algorithms, ALL figures, ALL equations. "
+            "Do NOT drop any numerical data. Use headers: ## TABLES, ## ALGORITHMS, ## FIGURES, ## EQUATIONS, ## METRICS.\n\n"
+            + "\n\n---CHUNK---\n\n".join(extractions[:8]),
+            system="Merge thesis extraction chunks. Preserve ALL numerical data exactly. Never drop a table or equation.",
+            agent="researcher", max_tokens=8192,
+        )
+        return merged or extractions[0]
+
+    def _chunk(self, text: str, size: int = 12000) -> list[str]:
+        if len(text) <= size:
+            return [text]
+        chunks, stride, start = [], int(size * 0.85), 0
+        while start < len(text):
+            end = min(start + size, len(text))
+            if end < len(text):
+                boundary = text.rfind("\n\n", start, end)
+                if boundary > start + size // 2:
+                    end = boundary
+            chunks.append(text[start:end])
+            start += stride
+        return chunks
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Dynamic keyword generator
+# ─────────────────────────────────────────────────────────────────────────────
+
+async def _generate_keywords(title: str, source_excerpt: str) -> str:
+    result = await llm(
+        f"Paper title: {title}\n\nSource excerpt:\n{source_excerpt[:2000]}\n\n"
+        "Generate 6-10 IEEE-style index terms for this paper. "
+        "Return ONLY a comma-separated list on one line. "
+        "Use domain-specific technical terms matching the actual paper topic.",
+        system="Generate precise IEEE index terms. Return only a comma-separated list.",
+        agent="paper_writer",
+    )
+    result = re.sub(r'```[^`]*```', '', result or "").strip().strip('"').strip("'")
+    result = result.split('\n')[0].strip()
+    return result if result else f"{title[:60]}"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Section writer - TOPIC-ADAPTIVE (no hardcoded domain)
+# ─────────────────────────────────────────────────────────────────────────────
+
+class SectionWriter:
+    """
+    Writes IEEE paper sections. Instructions are TOPIC-AGNOSTIC.
+    The LLM infers the correct domain from the SOURCE MATERIAL.
+    Works for CFRP thermography, NLP, medical imaging, materials science, etc.
+    """
+
+    BASE_SYSTEM = (
+        "You are a senior IEEE paper author.\n\n"
+        + _IEEE_BASE_RULES
+        + "\nWrite ONLY the requested section. No other sections.\n"
+        "Output raw LaTeX. No markdown fences.\n"
+        "Start directly with the section command, e.g.: \\section{Introduction}\n"
+        "CRITICAL: Base ALL content on the SOURCE MATERIAL. "
+        "Do NOT write about NLP/transformers unless the source is about that topic.\n"
+        "COMPLETENESS REQUIREMENT: Write the ENTIRE section. Do NOT stop early, "
+        "do NOT truncate, do NOT add '[continued]' or similar. "
+        "The section MUST end at a natural paragraph boundary with proper LaTeX."
+    )
+
+    async def _write(self, name: str, instructions: str, source: str,
+                     prev: str = "", target: str = "", extra: str = "") -> str:
+        ctx = f"\n\n=== PREVIOUS SECTIONS (context) ===\n{prev[-3000:]}\n===" if prev.strip() else ""
+        extra_block = f"\n\nADDITIONAL USER RULES:\n{extra}" if extra else ""
+        prompt = (
+            f"Write the '{name}' section of the IEEE research paper.\n"
+            f"Word target: {target}\n\n"
+            f"INSTRUCTIONS:\n{instructions}\n\n"
+            f"SOURCE MATERIAL (use ONLY facts/numbers from here):\n{source[:14000]}"
+            f"{ctx}{extra_block}\n\n"
+            f"Write the COMPLETE '{name}' section in LaTeX now. "
+            f"Do not stop early. End with a complete sentence."
+        )
+        result = await llm(prompt, system=self.BASE_SYSTEM, agent="paper_writer",
+                           max_tokens=8192)
+        result = (result or "").strip()
+
+        # Truncation detection: if result ends mid-sentence (no period/} near end),
+        # request a continuation to complete it.
+        if result and self._is_truncated(result):
+            logger.warning("Section '%s' appears truncated (%d chars) — requesting continuation", name, len(result))
+            continuation = await llm(
+                f"The following IEEE LaTeX section was cut off. Continue from EXACTLY where it ended "
+                f"and complete the section. Do NOT repeat any existing content.\n\n"
+                f"SECTION SO FAR:\n{result[-2000:]}\n\n"
+                f"Continue and complete the '{name}' section now:",
+                system=self.BASE_SYSTEM, agent="paper_writer", max_tokens=4096
+            )
+            if continuation and continuation.strip():
+                result = result + "\n" + continuation.strip()
+
+        return result if result else f"% {name} section could not be generated"
+
+    @staticmethod
+    def _is_truncated(text: str) -> bool:
+        """Detect if a LaTeX section was cut off mid-sentence."""
+        stripped = text.rstrip()
+        if not stripped:
+            return True
+        # Good endings: }, period+}, \end{...}, complete sentence
+        good_endings = (
+            stripped.endswith("}") or
+            stripped.endswith(".") or
+            stripped.endswith(".\n") or
+            "\\end{" in stripped[-100:]
+        )
+        # Red flags: ends with a word mid-flow, comma, or incomplete command
+        bad_endings = (
+            stripped.endswith(",") or
+            stripped.endswith("the") or
+            stripped.endswith("a") or
+            stripped.endswith("and") or
+            stripped.endswith("of") or
+            stripped.endswith("in") or
+            (len(stripped) > 100 and not good_endings)
+        )
+        return bad_endings
+
+    async def abstract(self, source: str, title: str, extra: str = "") -> str:
+        return await self._write(
+            "Abstract",
+            "Write inside \\begin{abstract}...\\end{abstract}.\n"
+            "Structure: (1) Domain context 1-2 sentences. (2) Problem 1-2 sentences. "
+            "(3) Approach 2-3 sentences. (4) Key results with EXACT numbers 2-3 sentences. "
+            "(5) Significance 1-2 sentences. No citations. Paragraph form only.",
+            source, target="200-300 words", extra=extra,
+        )
+
+    async def introduction(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "I. Introduction",
+            "Write 4-6 paragraphs:\n"
+            "(1) Broad domain context with real-world applications and scale. Cite foundational work.\n"
+            "(2) Core technical challenge: what makes this hard. Domain-specific examples from source.\n"
+            "(3) Existing approaches and their trade-offs. Cite specific works.\n"
+            "(4) Gap: what no existing work has done. State precisely based on source.\n"
+            "(5) Contributions: numbered list as complete prose sentences (no bullet points).\n"
+            "(6) Paper structure: one sentence per section.\n"
+            "Cite at least 8 real published papers with \\cite{key}.\n"
+            "IMPORTANT: Write about the topic in the source, not about NLP or general AI.",
+            source, prev, target="500-700 words", extra=extra,
+        )
+
+    async def related_work(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "II. Related Work",
+            "Organize into \\subsection{} blocks matching the ACTUAL technical areas in the source.\n"
+            "Choose subsection titles based on what the source is about "
+            "(e.g., for NDE: classical NDE methods, deep learning for inspection, "
+            "thermographic signal processing; for NLP: transformer architectures, etc.).\n"
+            "Each subsection: 2-3 paragraphs.\n"
+            "Final paragraph: identify the specific gap this paper fills.\n"
+            "Cite at least 10 distinct real published papers.\n"
+            "DO NOT write about unrelated domains.",
+            source, prev, target="500-700 words", extra=extra,
+        )
+
+    async def methodology(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "III. Methodology",
+            "Organize into \\subsection{} blocks matching the actual approach in the source.\n"
+            "Cover: data collection/datasets, preprocessing, model/algorithm design, "
+            "loss functions with LaTeX equations, training configuration, evaluation protocol.\n"
+            "Each subsection: 2-3 paragraphs of technical depth.\n"
+            "Include key mathematical equations from the source with \\begin{equation}.\n"
+            "ALGORITHMS: If the source describes a procedure or pipeline, include a "
+            "\\begin{algorithm}...\\end{algorithm} block using the algorithmic package. "
+            "Use \\Require, \\Ensure, \\State, \\For, \\If, \\Return commands.\n"
+            "Describe ONLY the methodology actually in the source.",
+            source, prev, target="400-600 words", extra=extra,
+        )
+
+    async def experimental_setup(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "IV. Experimental Setup",
+            "Paragraphs covering:\n"
+            "(1) Dataset(s): name, source, sample counts, splits. "
+            "Include \\begin{table} with dataset statistics if multiple datasets.\n"
+            "(2) Hardware: GPU model, RAM, training time.\n"
+            "(3) Software: framework, key libraries, versions.\n"
+            "(4) Hyperparameters: all training config with EXACT values from source "
+            "(lr, batch size, epochs, optimizer, augmentation).\n"
+            "(5) Evaluation metrics: definition of each metric used.\n"
+            "Write only what is in the source. No invented values.",
+            source, prev, target="350-500 words", extra=extra,
+        )
+
+    async def results_and_discussion(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "V. Results and Discussion",
+            "Required structure:\n"
+            "A. Main Results: Present \\begin{table} with booktabs formatting and EXACT values from source. "
+            "Every number in the table must appear in the source. Column headers and row labels must match source.\n"
+            "B. Analysis: quantitative comparison with percentage improvements. "
+            "Explain WHY results differ using domain reasoning from source.\n"
+            "C. Ablation or variant study if present in source.\n"
+            "D. Discussion: practical implications, limitations.\n"
+            "FIGURES: If the source describes performance curves, bar charts, or visualization results, "
+            "add a \\begin{figure}...\\end{figure} environment with a pgfplots or tikzpicture "
+            "that approximates the key trend using only data from the source. "
+            "Include a descriptive \\caption and \\label.\n"
+            "ZERO fabricated numbers. Every number must be in the source.",
+            source, prev, target="600-900 words with tables and figures", extra=extra,
+        )
+
+    async def conclusion(self, source: str, prev: str = "", extra: str = "") -> str:
+        return await self._write(
+            "VI. Conclusion",
+            "Paragraphs:\n"
+            "(1) Summary: problem, approach, main results (2-3 sentences).\n"
+            "(2) Key findings with exact numerical values.\n"
+            "(3) Practical recommendations.\n"
+            "(4) Limitations.\n"
+            "(5) Future work: 3-4 concrete directions.\n"
+            "No first-person singular. No new information.",
+            source, prev, target="250-350 words", extra=extra,
+        )
+
+    async def references(self, source: str, all_sections: str = "") -> str:
+        cite_keys = self._extract_cite_keys(all_sections)
+        result = await llm(
+            f"SOURCE (contains references and paper details):\n{source[:8000]}\n\n"
+            f"CITE KEYS USED IN PAPER:\n{cite_keys}\n\n"
+            "Generate a complete \\begin{thebibliography}{99}...\\end{thebibliography} block.\n"
+            "RULES:\n"
+            "- At least 25 unique entries.\n"
+            "- \\bibitem{key} must match \\cite{key} in the text.\n"
+            "- IEEE format: A. Author and B. Author, 'Title,' Venue, vol., pp., year.\n"
+            "- No duplicate keys. Real papers only.\n"
+            "- Add more real relevant papers to reach 35+ total.\n"
+            "- Write the COMPLETE list. Do NOT stop early.",
+            system="Generate a complete IEEE reference list. No invented citations. Write all entries.",
+            agent="paper_writer",
+            max_tokens=8192,
+        )
+        return result.strip() if result else "\\begin{thebibliography}{99}\n\\end{thebibliography}"
+
+    @staticmethod
+    def _extract_cite_keys(text: str) -> str:
+        keys = re.findall(r'\\cite\{([^}]+)\}', text)
+        all_keys = []
+        for k in keys:
+            all_keys.extend(k.split(','))
+        unique = sorted(set(k.strip() for k in all_keys if k.strip()))
+        return "\n".join(unique) if unique else "(none found)"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Post-processor
+# ─────────────────────────────────────────────────────────────────────────────
+
+class PaperPostProcessor:
+    @staticmethod
+    def process(latex: str) -> str:
+        latex = re.sub(r'—', ', ', latex)
+        latex = re.sub(r'```(?:latex|tex)?\n?', '', latex)
+        latex = re.sub(r'```\n?', '', latex)
+        latex = PaperPostProcessor._dedup_bibitems(latex)
+        latex = re.sub(r'\[\.\.\.\]|\[truncated\]|\[continued\]', '', latex, flags=re.I)
+        return latex
+
+    @staticmethod
+    def _dedup_bibitems(latex: str) -> str:
+        seen: set[str] = set()
+        result_lines, skip = [], False
+        for line in latex.split('\n'):
+            m = re.match(r'\s*\\bibitem\{([^}]+)\}', line)
+            if m:
+                key = m.group(1)
+                if key in seen:
+                    skip = True
+                    continue
+                seen.add(key)
+                skip = False
+            elif skip and re.match(r'\s*\\bibitem\{', line):
+                skip = False
+            if not skip:
+                result_lines.append(line)
+        return '\n'.join(result_lines)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ResearcherAgent
+# ─────────────────────────────────────────────────────────────────────────────
+
+class ResearcherAgent:
+    SYSTEM = (
+        "You are a world-class AI research scientist. "
+        "Identify key papers, summarize SOTA, find gaps."
+    )
+
+    async def write_ieee_paper(
+        self, task: str, document_context: str = "", experiment_results: str = "",
+    ) -> str:
+        logger.info("write_ieee_paper: starting section-by-section pipeline")
+
+        req = parse_paper_requirements(task)
+        extra_rules = self._extract_extra_rules(task)
+        source = self._build_source(document_context, experiment_results, task)
+
+        if len(document_context.strip()) > 500:
+            logger.info("Document detected — running ThesisExtractor")
+            extracted = await ThesisExtractor().extract(document_context, task)
+            if extracted.strip():
+                source = (
+                    "=== EXTRACTED STRUCTURED CONTENT ===\n" + extracted
+                    + "\n\n=== RAW DOCUMENT (excerpt) ===\n" + document_context[:6000]
+                )
+
+        title = req.title or self._extract_title(task)
+        keywords = req.keywords or await _generate_keywords(title, source)
+        authors_block = self._build_author_block(req, document_context)
+
+        writer = SectionWriter()
+
+        logger.info("Writing abstract")
+        abstract = await writer.abstract(source, title, extra=extra_rules)
+
+        logger.info("Writing introduction")
+        intro = await writer.introduction(source, abstract, extra=extra_rules)
+
+        logger.info("Writing related work")
+        related = await writer.related_work(source, intro, extra=extra_rules)
+
+        logger.info("Writing methodology")
+        method = await writer.methodology(source, abstract + intro, extra=extra_rules)
+
+        logger.info("Writing experimental setup")
+        exp_setup = await writer.experimental_setup(source, method, extra=extra_rules)
+
+        logger.info("Writing results and discussion")
+        results_sec = await writer.results_and_discussion(source, method + exp_setup, extra=extra_rules)
+
+        logger.info("Writing conclusion")
+        conclusion = await writer.conclusion(source, results_sec, extra=extra_rules)
+
+        logger.info("Writing references")
+        all_sections = "\n\n".join([intro, related, method, exp_setup, results_sec, conclusion])
+        references = await writer.references(source, all_sections)
+
+        paper = self._assemble(
+            title=title, keywords=keywords, authors_block=authors_block,
+            abstract=abstract, intro=intro, related=related, method=method,
+            exp_setup=exp_setup, results=results_sec, conclusion=conclusion,
+            references=references, req=req,
+        )
+        paper = PaperPostProcessor.process(paper)
+        logger.info("write_ieee_paper: complete (%d chars)", len(paper))
+        return paper
+
+    def _extract_extra_rules(self, task: str) -> str:
+        lines = []
+        in_req = False
+        for line in task.split('\n'):
+            l = line.strip()
+            if re.search(r'REQUIREMENTS?:|RULES?:|INSTRUCTIONS?:|MUST\b', l, re.I):
+                in_req = True
+            if in_req and l:
+                lines.append(l)
+            if in_req and not l:
+                in_req = False
+        return "\n".join(lines[:30]) if lines else ""
+
+    def _build_source(self, doc: str, results: str, task: str) -> str:
+        parts = []
+        if doc.strip():
+            # BUG FIX: Increased from 35000 to 80000 chars to handle 100-page thesis
+            # documents without losing critical results/tables from later chapters.
+            parts.append("=== DOCUMENT (PRIMARY SOURCE) ===\n" + doc[:80000] + "\n=== END ===")
+        if results.strip():
+            parts.append("=== EXPERIMENTAL RESULTS ===\n" + results[:8000] + "\n=== END ===")
+        if not parts:
+            parts.append(f"Topic: {task}\nNo source document. Cite real published papers.")
+        return "\n\n".join(parts)
+
+    @staticmethod
+    def _extract_title(task: str) -> str:
+        m = re.search(r'"([^"]{10,120})"', task)
+        if m:
+            return m.group(1)
+        m = re.search(r"titled?:?\s*['\"]?([^\n'\"]{10,120})", task, re.I)
+        if m:
+            return m.group(1).strip().rstrip("'\"")
+        return task.strip()[:100]
+
+    @staticmethod
+    def _build_author_block(req: PaperRequirements, doc_context: str) -> str:
+        if req.authors:
+            authors = [a.strip() for a in re.split(r',\s*|\s+and\s+', req.authors) if a.strip()]
+            affil = req.affiliation or "University"
+            email = req.email or ""
+            blocks = []
+            for i, author in enumerate(authors[:4]):
+                email_line = f"\\\\{email}" if (i == 0 and email) else ""
+                blocks.append(
+                    f"\\IEEEauthorblockN{{{author}}}\n"
+                    f"\\IEEEauthorblockA{{\\textit{{{affil}}}{email_line}}}"
+                )
+            return "\n\\and\n".join(blocks)
+
+        if doc_context:
+            m = re.search(
+                r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}(?:,\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})*)',
+                doc_context[:2000]
+            )
+            if m:
+                author_str = m.group(1)
+                affil_m = re.search(r'((?:Sukkur IBA|[A-Z][a-z]+ University)[^\n,]{0,60})', doc_context[:3000])
+                affil = affil_m.group(1).strip() if affil_m else "University"
+                return (
+                    f"\\IEEEauthorblockN{{{author_str}}}\n"
+                    f"\\IEEEauthorblockA{{\\textit{{{affil}}}}}"
+                )
+
+        return (
+            "\\IEEEauthorblockN{Authors}\n"
+            "\\IEEEauthorblockA{\\textit{Department of Computer Science} \\\\\n"
+            "\\textit{University} \\\\\\nCity, Country}"
+        )
+
+    @staticmethod
+    def _assemble(title: str, keywords: str, authors_block: str,
+                  abstract: str, intro: str, related: str, method: str,
+                  exp_setup: str, results: str, conclusion: str, references: str,
+                  req: PaperRequirements) -> str:
+
+        def clean(s: str) -> str:
+            for pat in [r'\\documentclass[^\n]*\n', r'\\usepackage[^\n]*\n',
+                        r'\\begin\{document\}', r'\\end\{document\}',
+                        r'\\maketitle', r'\\title\{[^}]*\}', r'\\author\{[^}]*\}']:
+                s = re.sub(pat, '', s)
+            return s.strip()
+
+        secs = [clean(s) for s in [abstract, intro, related, method,
+                                    exp_setup, results, conclusion, references]]
+        abstract_c = secs[0]
+        if '\\begin{abstract}' not in abstract_c:
+            abstract_c = f"\\begin{{abstract}}\n{abstract_c}\n\\end{{abstract}}"
+
+        docclass = _make_docclass(req)
+
+        return (
+            f"{docclass}\n"
+            "\\IEEEoverridecommandlockouts\n"
+            "\\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref,cite,array,multirow}\n\n"
+            f"\\title{{{title}}}\n\n"
+            f"\\author{{\n{authors_block}\n}}\n\n"
+            "\\begin{document}\n\\maketitle\n\n"
+            f"{abstract_c}\n\n"
+            f"\\begin{{IEEEkeywords}}\n{keywords}\n\\end{{IEEEkeywords}}\n\n"
+            + "\n\n".join(secs[1:])
+            + "\n\n\\end{document}\n"
+        )
+
+    async def search_literature(
+        self, topic: str, domains=None,
+        document_context: str = "", experiment_results: str = ""
+    ) -> dict:
+        route = classify_task(topic, document_context)
+        if route in ("paper", "thesis_to_paper", "experiment_then_paper"):
+            paper = await self.write_ieee_paper(
+                task=topic, document_context=document_context,
+                experiment_results=experiment_results,
+            )
+            return {"review": paper, "arxiv_papers": "", "is_paper": True}
+
+        arxiv = await self._search_arxiv(topic)
+        doc_section = (
+            "\n\n=== PROVIDED DOCUMENT ===\n" + document_context[:15000] + "\n==="
+            if document_context.strip() else ""
+        )
+        review = await llm(
+            f"Topic: {topic}\nDomains: {', '.join(domains or ['general'])}\n"
+            f"ArXiv:\n{arxiv}{doc_section}\n\nSynthesize a detailed technical review.",
+            system=self.SYSTEM, agent="researcher",
+        )
+        return {"review": review, "arxiv_papers": arxiv, "is_paper": False}
+
+    async def _search_arxiv(self, topic: str) -> str:
+        try:
+            from research.literature.arxiv_client import search_arxiv
+            papers = search_arxiv(topic, limit=15)
+            if papers:
+                return "\n".join(f"- {p.title} ({p.year})" for p in papers)
+        except Exception as e:
+            logger.warning("ArXiv search failed: %s", e)
+        result = await llm(
+            f"List 15 real published papers on: {topic}",
+            system="List real papers with authors and year. Be accurate.",
+            agent="researcher",
+        )
+        return result or "No papers found."
+
+    async def analyze_codebase(self, code: str, task: str) -> str:
+        return await llm(
+            f"Task: {task}\nCode:\n{code[:3000]}\nAnalyze.",
+            system=self.SYSTEM, agent="researcher",
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ExperimentAgent
+# ─────────────────────────────────────────────────────────────────────────────
+
+class ExperimentAgent:
+    SYSTEM = (
+        "You are an expert ML researcher. Design experiments with baselines, "
+        "metrics, and ablations. Be precise and quantitative."
+    )
+
+    async def design_experiment(self, task, code="", baseline="", data=""):
+        return await llm(
+            f"Task: {task}\nCode:\n{code[:2000]}\n"
+            f"Baseline: {baseline[:500]}\nData: {data[:500]}\nDesign experiment.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+    async def generate_training_script(self, task, arch="", dataset=""):
+        return await llm(
+            f"Generate a complete PyTorch training script:\n"
+            f"Task: {task}\nArchitecture: {arch or 'appropriate'}\nDataset: {dataset}\n"
+            "Include: data loading, model definition, training loop, evaluation, "
+            "and result printing with exact metric values.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+    async def analyze_results(self, results, hypotheses=""):
+        return await llm(
+            f"Results:\n{results[:3000]}\nHypotheses: {hypotheses}\n"
+            "Provide rigorous quantitative analysis. Use only given numbers.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PaperWriterAgent
+# ─────────────────────────────────────────────────────────────────────────────
+
+class PaperWriterAgent:
+    SYSTEM = "You are a senior IEEE paper writer.\n" + _IEEE_BASE_RULES
+
+    async def write_paper(self, topic, research="", results="", code="", conference="ieee"):
+        return await ResearcherAgent().write_ieee_paper(
+            task=topic, document_context=research, experiment_results=results,
+        )
+
+    async def write_section(self, name, context):
+        return await llm(
+            f"Write the '{name}' section.\nContext:\n{context[:4000]}\n"
+            "Use \\cite{key}. Paragraphs only, no bullets.",
+            system=self.SYSTEM, agent="paper_writer",
+        )

@@ -11,13 +11,17 @@ logger = logging.getLogger(__name__)
 class ExperimentPlanner:
     SYSTEM = "You are an ML experiment planner. Design: hypothesis, variables, baselines, metrics, ablations, datasets."
     async def run(self, task, code="", data=""):
-        return await llm(f"Task: {task}\nCode:\n{code[:2000]}\nData:\n{data[:800]}\nDesign experiment.", system=self.SYSTEM, agent="experiment")
+        result = await llm(f"Task: {task}\nCode:\n{code[:2000]}\nData:\n{data[:800]}\nDesign experiment.", system=self.SYSTEM, agent="experiment")
+        return result or "No experiment plan generated — LLM returned empty."
 
 
 class CodeGenerator:
     SYSTEM = "You are an ML engineer. Write a complete, runnable PyTorch training script. No placeholders."
     async def run(self, task, data="", metrics="accuracy"):
         raw = await llm(f"Task: {task}\nData:\n{data[:1000]}\nMetrics: {metrics}\nGenerate script.", system=self.SYSTEM, agent="coder")
+        if not raw.strip():
+            logger.warning("CodeGenerator received empty LLM response")
+            return "# Error: LLM returned empty response"
         m = re.search(r"```(?:python)?\s*\n(.*?)```", raw, re.DOTALL)
         return m.group(1).strip() if m else raw.strip()
 
@@ -66,8 +70,9 @@ class MetricsEvaluator:
     SYSTEM = "You are an ML analyst. Analyze metrics: findings, significance, baseline comparison, limitations."
 
     async def run(self, task, metrics=None, baseline=None):
-        return await llm(f"Task: {task}\nMetrics:\n{metrics}\nBaseline:\n{baseline}\nAnalyze.",
-                         system=self.SYSTEM, agent="experiment")
+        result = await llm(f"Task: {task}\nMetrics:\n{metrics}\nBaseline:\n{baseline}\nAnalyze.",
+                           system=self.SYSTEM, agent="experiment")
+        return result or "No analysis generated — LLM returned empty."
 
     @staticmethod
     def compute_stats(metrics, baseline=None):

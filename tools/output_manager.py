@@ -74,6 +74,11 @@ class RunOutput:
         return str(path)
 
     def save_summary(self, results: list[dict], passed: bool, elapsed: float) -> str:
+        def _match_category(filepath: str, category: str) -> bool:
+            """OS-agnostic check for category subdirectory in path."""
+            normalized = filepath.replace("\\", "/")
+            return f"/{category}/" in normalized
+
         summary = {
             "run_id": self.run_id,
             "task": self.task,
@@ -82,10 +87,10 @@ class RunOutput:
             "steps": len(results),
             "files_saved": self.files_saved,
             "outputs": {
-                "code": [f for f in self.files_saved if "/code/" in f],
-                "experiments": [f for f in self.files_saved if "/experiments/" in f],
-                "paper": [f for f in self.files_saved if "/paper/" in f],
-                "knowledge": [f for f in self.files_saved if "/knowledge/" in f],
+                "code": [f for f in self.files_saved if _match_category(f, "code")],
+                "experiments": [f for f in self.files_saved if _match_category(f, "experiments")],
+                "paper": [f for f in self.files_saved if _match_category(f, "paper")],
+                "knowledge": [f for f in self.files_saved if _match_category(f, "knowledge")],
             },
         }
         path = self.run_dir / "summary.json"

@@ -1,0 +1,253 @@
+"""Research, Experiment and PaperWriter agents — full redesign."""
+
+import logging
+from llm import llm
+
+logger = logging.getLogger(__name__)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Task classifier — shared by orchestrator + planner to detect intent
+# ─────────────────────────────────────────────────────────────────────────────
+PAPER_TASK_KEYWORDS = [
+    "write a paper", "write paper", "write an ieee", "ieee paper",
+    "ieee-style", "research paper", "convert thesis", "transform thesis",
+    "draft paper", "journal paper", "conference paper", "write complete",
+    "produce a paper", "generate a paper",
+]
+EXPERIMENT_TASK_KEYWORDS = [
+    "run experiment", "train model", "evaluate", "benchmark",
+    "compare models", "measure accuracy", "run code", "execute",
+    "generate results", "get results", "authentic results",
+]
+
+def classify_task(task: str) -> str:
+    """Return 'paper', 'experiment_then_paper', or 'coding'."""
+    t = task.lower()
+
+    has_paper   = any(kw in t for kw in PAPER_TASK_KEYWORDS)
+    has_exp     = any(kw in t for kw in EXPERIMENT_TASK_KEYWORDS)
+
+    if has_paper and has_exp:
+        return "experiment_then_paper"
+    if has_paper:
+        return "paper"
+    return "coding"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ResearcherAgent
+# ─────────────────────────────────────────────────────────────────────────────
+class ResearcherAgent:
+    SYSTEM = (
+        "You are a world-class AI research scientist. "
+        "Identify key papers, summarize SOTA, find gaps."
+    )
+
+    IEEE_PAPER_SYSTEM = (
+        "You are a senior IEEE paper writer with 20 years of publication experience.\n\n"
+        "YOUR ONLY JOB: Write a COMPLETE, PUBLICATION-READY IEEE research paper.\n\n"
+        "ABSOLUTE RULES:\n"
+        "1. Output ONLY valid LaTeX starting with \\documentclass[conference]{IEEEtran}\n"
+        "2. NEVER invent numerical results — use ONLY numbers from the provided source\n"
+        "3. If no source document is given, state clearly that results are from cited literature\n"
+        "4. NO em dashes (—) anywhere. Use commas or rewrite the sentence\n"
+        "5. NO bullet points inside section text — write in paragraphs\n"
+        "6. Include ALL sections: Abstract, Keywords, I.Introduction, II.Related Work,\n"
+        "   III.Methodology, IV.Experimental Setup, V.Results and Discussion,\n"
+        "   VI.Conclusion, References\n"
+        "7. Tables: use \\begin{table} with \\toprule/\\midrule/\\bottomrule (booktabs)\n"
+        "8. Citations: [1] style with \\cite{key}, define \\bibitem entries at end\n"
+        "9. Length: 6–8 pages equivalent — comprehensive, not minimal\n"
+        "10. LaTeX spacing: ALWAYS put spaces around keywords:\n"
+        "    CORRECT: \\section{Introduction}  WRONG: \\sectionIntroduction\n"
+    )
+
+    EXPERIMENT_SYSTEM = (
+        "You are an expert ML researcher. Given experimental results (CSV/JSON/text), "
+        "produce a rigorous, quantitative analysis section suitable for an IEEE paper. "
+        "Use ONLY the numbers provided. Do not invent data."
+    )
+
+    async def write_ieee_paper(
+        self,
+        task: str,
+        document_context: str = "",
+        experiment_results: str = "",
+    ) -> str:
+        """Write a complete IEEE LaTeX paper. Primary source: document_context or experiment_results."""
+
+        # Build the source block
+        source_parts = []
+        if document_context.strip():
+            source_parts.append(
+                "=== PROVIDED THESIS / DOCUMENT (PRIMARY SOURCE) ===\n"
+                "Use ONLY the results, methods, and claims from this document.\n\n"
+                + document_context[:40000]
+                + "\n=== END DOCUMENT ==="
+            )
+        if experiment_results.strip():
+            source_parts.append(
+                "=== EXPERIMENTAL RESULTS (use these exact numbers) ===\n"
+                + experiment_results[:8000]
+                + "\n=== END RESULTS ==="
+            )
+        source_block = "\n\n".join(source_parts) if source_parts else (
+            "No source document provided. Base the paper on the topic description "
+            "and cite standard literature. Be explicit that results are from cited works."
+        )
+
+        prompt = (
+            f"TASK DESCRIPTION:\n{task}\n\n"
+            f"{source_block}\n\n"
+            "Now write the COMPLETE IEEE research paper. "
+            "Output ONLY LaTeX starting with \\documentclass[conference]{IEEEtran}. "
+            "Every section must be fully written — no placeholders, no TODO markers."
+        )
+
+        paper = await llm(prompt, system=self.IEEE_PAPER_SYSTEM, agent="researcher")
+
+        # Ensure output starts with documentclass (strip preamble text if any)
+        if paper and "\\documentclass" in paper:
+            idx = paper.index("\\documentclass")
+            paper = paper[idx:]
+
+        return paper or _fallback_paper(task)
+
+    async def search_literature(
+        self,
+        topic: str,
+        domains=None,
+        document_context: str = "",
+        experiment_results: str = "",
+    ) -> dict:
+        """Route to paper-writing or literature-review path based on task type."""
+        task_type = classify_task(topic)
+
+        if task_type in ("paper", "experiment_then_paper"):
+            paper = await self.write_ieee_paper(
+                task=topic,
+                document_context=document_context,
+                experiment_results=experiment_results,
+            )
+            return {"review": paper, "arxiv_papers": "", "is_paper": True}
+
+        # Standard literature review
+        arxiv = await self._search_arxiv(topic)
+        doc_section = ""
+        if document_context.strip():
+            doc_section = (
+                "\n\n=== PROVIDED DOCUMENT (PRIMARY SOURCE — do not invent data) ===\n"
+                + document_context[:15000]
+                + "\n=== END ==="
+            )
+        review = await llm(
+            f"Topic: {topic}\nDomains: {', '.join(domains or ['general'])}\n"
+            f"ArXiv:\n{arxiv}{doc_section}\n\nSynthesize a detailed technical review.",
+            system=self.SYSTEM, agent="researcher",
+        )
+        return {"review": review, "arxiv_papers": arxiv, "is_paper": False}
+
+    async def _search_arxiv(self, topic: str) -> str:
+        try:
+            from research.literature.arxiv_client import search_arxiv
+            papers = search_arxiv(topic, limit=15)
+            if papers:
+                return "\n".join(f"- {p.title} ({p.year})" for p in papers)
+        except Exception as e:
+            logger.warning("ArXiv search failed: %s", e)
+        result = await llm(
+            f"List 15 real, published papers on: {topic}",
+            system="List real papers with authors and year. Be accurate.",
+            agent="researcher",
+        )
+        return result or "No papers found."
+
+    async def analyze_codebase(self, code: str, task: str) -> str:
+        return await llm(
+            f"Task: {task}\nCode:\n{code[:3000]}\nAnalyze.",
+            system=self.SYSTEM, agent="researcher",
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ExperimentAgent — runs experiments and returns structured results
+# ─────────────────────────────────────────────────────────────────────────────
+class ExperimentAgent:
+    SYSTEM = (
+        "You are an expert ML researcher. Design experiments with baselines, "
+        "metrics, and ablations. Be precise and quantitative."
+    )
+
+    async def design_experiment(self, task: str, code: str = "",
+                                baseline: str = "", data: str = "") -> str:
+        return await llm(
+            f"Task: {task}\nCode:\n{code[:2000]}\n"
+            f"Baseline: {baseline[:500]}\nData: {data[:500]}\nDesign experiment.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+    async def generate_training_script(self, task: str,
+                                       arch: str = "", dataset: str = "") -> str:
+        return await llm(
+            f"Generate a complete PyTorch training script:\n"
+            f"Task: {task}\nArchitecture: {arch or 'appropriate'}\nDataset: {dataset}\n"
+            "Include: data loading, model definition, training loop, evaluation, "
+            "and result printing with exact metric values.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+    async def analyze_results(self, results: str, hypotheses: str = "") -> str:
+        return await llm(
+            f"Results:\n{results[:3000]}\nHypotheses: {hypotheses}\n"
+            "Provide a rigorous quantitative analysis. Use only the numbers given.",
+            system=self.SYSTEM, agent="experiment",
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PaperWriterAgent — fallback section-by-section writer
+# ─────────────────────────────────────────────────────────────────────────────
+class PaperWriterAgent:
+    SYSTEM = (
+        "You are a senior IEEE paper writer. Write publication-ready academic text.\n"
+        "Rules: No em dashes. No bullet points in section text. No invented numbers.\n"
+        "Use \\cite{key} for citations. Be specific and quantitative."
+    )
+
+    async def write_paper(self, topic: str, research: str = "",
+                          results: str = "", code: str = "",
+                          conference: str = "ieee") -> str:
+        """Full IEEE paper via ResearcherAgent's direct writer (best quality)."""
+        ra = ResearcherAgent()
+        return await ra.write_ieee_paper(
+            task=topic,
+            document_context=research,
+            experiment_results=results,
+        )
+
+    async def write_section(self, name: str, context: str) -> str:
+        return await llm(
+            f"Write the '{name}' section.\nContext:\n{context[:4000]}\n"
+            "Use \\cite{key} citations. Write in paragraphs, no bullet points.",
+            system=self.SYSTEM, agent="paper_writer",
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Helpers
+# ─────────────────────────────────────────────────────────────────────────────
+def _fallback_paper(topic: str) -> str:
+    """Minimal valid LaTeX skeleton returned when LLM fails completely."""
+    return (
+        "\\documentclass[conference]{IEEEtran}\n"
+        "\\usepackage{amsmath,booktabs,graphicx}\n"
+        f"\\title{{{topic}}}\n"
+        "\\author{\\IEEEauthorblockN{Authors}}\n"
+        "\\begin{document}\n\\maketitle\n\n"
+        "\\begin{abstract}\n"
+        "Paper generation encountered an error. Please retry.\n"
+        "\\end{abstract}\n\n"
+        "\\section{Introduction}\nTo be completed.\n\n"
+        "\\end{document}\n"
+    )
